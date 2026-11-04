@@ -3,7 +3,7 @@
   "btc_change_1h_percent": 5.0,
   "max_posts_per_run": 3,
   "max_ai_articles": 70,
-  "gemini_model": "gemini-2.5-flash-lite",
+  "gemini_model": "gemini-3.5-flash-lite",
   "feeds": [
     {"name":"CoinDesk", "category":"Crypto", "url":"https://www.coindesk.com/arc/outboundfeeds/rss/"},
     {"name":"Cointelegraph", "category":"Crypto", "url":"https://cointelegraph.com/rss"},
