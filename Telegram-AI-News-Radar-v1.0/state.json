@@ -307,6 +307,28 @@
       "summary": "The video shows the making of Henry Cavill's game, “Mustache Protocol.\"",
       "title": "Watch Henry Cavill build a video game on his Googlebook",
       "url": "https://blog.google/products-and-platforms/devices/googlebook/henry-cavill-mustache-protocol-video-game/"
+    },
+    {
+      "added_at": "2026-11-04T22:49:13+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "70b072955be31829",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "The crypto exchange’s founder warned of security staffing shortages amid restructuring as analysts flagged suspicious transfers potentially linked to the Mercado Bitcoin hack.",
+      "title": "BitMart founder says security team ‘severely understaffed’ after new hack",
+      "url": "https://cointelegraph.com/news/bitmart-hack-security-staffing-crypto-exchange-restructuring?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-04T22:49:13+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "b531b56f4ce7687d",
+      "official": false,
+      "source": "The Verge",
+      "summary": "With smartphone sales tanking by around 20 percent compared to 2025, Qualcomm is looking to data centers to help boost its bottom line. During its Q4 2026 earnings call, the company laid out its plans to make a splash in the AI data center business, through partnerships with companies like Amazon and Meta announced earlier […]",
+      "title": "Qualcomm is betting big on data centers as smartphone sales sink",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1026867/qualcomm-earnings-data-centers"
     }
   ],
   "btc": {
@@ -330,12 +352,14 @@
     "576b3975e72bb4e8": "2026-11-04T22:36:42+00:00",
     "640ef482dab7f909": "2026-11-04T22:36:42+00:00",
     "68bc701759f26a6f": "2026-11-04T22:36:42+00:00",
+    "70b072955be31829": "2026-11-04T22:49:13+00:00",
     "7e4f7adddfbaac34": "2026-11-04T22:36:42+00:00",
     "86a508081fb52ca5": "2026-11-04T22:36:42+00:00",
     "97689e4470033f7c": "2026-11-04T22:36:42+00:00",
     "a8da02734f0a78dd": "2026-11-04T22:36:42+00:00",
     "ab404887a11508dc": "2026-11-04T22:36:42+00:00",
     "b3955db4dcd93341": "2026-11-04T22:36:42+00:00",
+    "b531b56f4ce7687d": "2026-11-04T22:49:13+00:00",
     "bb7264ac37ad7575": "2026-11-04T22:36:42+00:00",
     "d70f68d1e25a8639": "2026-11-04T22:36:42+00:00",
     "d9c848a678890c73": "2026-11-04T22:36:42+00:00",
