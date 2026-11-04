@@ -340,6 +340,28 @@
       "summary": "The asset manager says global demand and institutional adoption will sustain the industry despite a political setback, while BlackRock sees little impact on its crypto business.",
       "title": "Crypto's Washington hopes fade, but Grayscale and BlackRock see growth ahead",
       "url": "https://www.coindesk.com/business/2026/11/04/crypto-s-washington-hopes-fade-but-grayscale-and-blackrock-see-growth-ahead"
+    },
+    {
+      "added_at": "2026-11-04T23:10:53+00:00",
+      "category": "Crypto",
+      "domain": "coindesk.com",
+      "id": "8f1efed04af428e1",
+      "official": false,
+      "source": "CoinDesk",
+      "summary": "Wall Street's push to bring finance onto blockchain rails may continue under existing laws, though the SEC and CFTC face tougher oversight and questions over how long their rules will last, experts said.",
+      "title": "Tokenization and stablecoins may weather Democrats' sweep as broader crypto rules face uncertainty",
+      "url": "https://www.coindesk.com/policy/2026/11/04/tokenization-and-stablecoins-may-weather-democrats-sweep-as-broader-crypto-rules-face-uncertainty"
+    },
+    {
+      "added_at": "2026-11-04T23:10:53+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "552e43ae5e35357a",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
+      "title": "Here’s what happened in crypto today",
+      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
     }
   ],
   "btc": {
@@ -359,6 +381,7 @@
     "3c54c29950cd88b9": "2026-11-04T22:36:42+00:00",
     "433bc681e04b06aa": "2026-11-04T22:36:42+00:00",
     "5420898fdc120aaa": "2026-11-04T22:36:42+00:00",
+    "552e43ae5e35357a": "2026-11-04T23:10:53+00:00",
     "56101ee27feec703": "2026-11-04T22:36:42+00:00",
     "576b3975e72bb4e8": "2026-11-04T22:36:42+00:00",
     "640ef482dab7f909": "2026-11-04T22:36:42+00:00",
@@ -366,6 +389,7 @@
     "70b072955be31829": "2026-11-04T22:49:13+00:00",
     "7e4f7adddfbaac34": "2026-11-04T22:36:42+00:00",
     "86a508081fb52ca5": "2026-11-04T22:36:42+00:00",
+    "8f1efed04af428e1": "2026-11-04T23:10:53+00:00",
     "97689e4470033f7c": "2026-11-04T22:36:42+00:00",
     "a8da02734f0a78dd": "2026-11-04T22:36:42+00:00",
     "ab404887a11508dc": "2026-11-04T22:36:42+00:00",
@@ -380,5 +404,14 @@
     "fc82586ca296cc25": "2026-11-04T22:36:42+00:00"
   },
   "last_check_day": "2026-11-04",
-  "published": []
+  "published": [
+    {
+      "at": "2026-11-04T23:10:53+00:00",
+      "evidence_ids": [
+        "b3955db4dcd93341"
+      ],
+      "key": "nasa_artemis_plans_update",
+      "title": "NASA обновило планы программы Artemis"
+    }
+  ]
 }
