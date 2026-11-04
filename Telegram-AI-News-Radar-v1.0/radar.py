@@ -244,7 +244,7 @@ def process_news(config, state, now, enabled):
     try:
         events = evaluate_with_gemini(articles, config)
     except Exception as ex:
-        print(f'AI request failed ({type(ex).__name__}); no news posted')
+        print(f'AI request failed ({ex}); no news posted')
         return
     today_published = state['published']
     count = 0
