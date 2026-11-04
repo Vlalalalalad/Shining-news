@@ -1,0 +1,18 @@
+{
+  "importance_threshold": 75,
+  "btc_change_1h_percent": 5.0,
+  "max_posts_per_run": 3,
+  "max_ai_articles": 70,
+  "gemini_model": "gemini-2.5-flash-lite",
+  "feeds": [
+    {"name":"CoinDesk", "category":"Crypto", "url":"https://www.coindesk.com/arc/outboundfeeds/rss/"},
+    {"name":"Cointelegraph", "category":"Crypto", "url":"https://cointelegraph.com/rss"},
+    {"name":"BBC Business", "category":"Business", "url":"https://feeds.bbci.co.uk/news/business/rss.xml"},
+    {"name":"BBC Technology", "category":"AI/Tech", "url":"https://feeds.bbci.co.uk/news/technology/rss.xml"},
+    {"name":"The Verge", "category":"AI/Tech", "url":"https://www.theverge.com/rss/index.xml"},
+    {"name":"Ars Technica", "category":"AI/Tech", "url":"https://feeds.arstechnica.com/arstechnica/index"},
+    {"name":"NASA", "category":"Science", "url":"https://www.nasa.gov/feed/", "official":true},
+    {"name":"ScienceDaily", "category":"Science", "url":"https://www.sciencedaily.com/rss/top/science.xml"},
+    {"name":"Google Blog", "category":"AI/Tech", "url":"https://blog.google/rss/", "official":true}
+  ]
+}
