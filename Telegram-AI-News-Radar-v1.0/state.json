@@ -417,6 +417,50 @@
       "summary": "\"Our calculations suggest Heisenberg significantly underestimated the materials required.\"",
       "title": "Uranium cubes reveal why the German nuclear project failed",
       "url": "https://arstechnica.com/science/2026/11/uranium-cubes-reveal-why-the-german-nuclear-project-failed/"
+    },
+    {
+      "added_at": "2026-11-05T02:47:12+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "9a81190b94e6ccb4",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "India’s cybersecurity agency says a threat actor is escalating an AI-assisted hacking campaign targeting crypto exchanges and other financial firms.",
+      "title": "India warns AI-powered hackers targeting crypto exchanges at ‘machine speed’",
+      "url": "https://cointelegraph.com/news/india-warns-ai-powered-hackers-targeting-crypto-exchanges-at-machine-speed?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-05T02:47:12+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "1016637b7869d826",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "The brand's 38 physical stores and online site will continue to operate while receivers review its operations.",
+      "title": "Australia's oldest department store David Jones folds after 188 years",
+      "url": "https://www.bbc.co.uk/news/articles/cky93z5y0171o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-05T02:47:12+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "4450c2fb3717fccd",
+      "official": false,
+      "source": "The Verge",
+      "summary": "X is introducing a new version of its web app that it says is much faster than before, and it's now rolling out the updated app \"one country at a time\" for signed-in users. \"Open a profile on X.com over a slow connection,\" principal engineer Yagiz Nizipli said in a blog post about the changes. […]",
+      "title": "X says its updated web app is way faster",
+      "url": "https://www.theverge.com/tech/1027113/x-says-its-updated-web-app-is-way-faster"
+    },
+    {
+      "added_at": "2026-11-05T02:47:12+00:00",
+      "category": "Science",
+      "domain": "nasa.gov",
+      "id": "1522f10d7fdf55bd",
+      "official": true,
+      "source": "NASA",
+      "summary": "On Wednesday, NASA unveiled its newest experimental aircraft, the X-70 Fractal, during the UP.Summit at the agency’s Kennedy Space Center in Florida. This high-performance, highly adaptable research platform is designed to accelerate the development and testing of advanced aviation technologies. The crewed X-70 features advanced, rapidly reconfigurable flight-control technology that will allow NASA to explore […]",
+      "title": "NASA Announces X-70 Experimental Aircraft to Advance Flight Research",
+      "url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/"
     }
   ],
   "btc": {
@@ -428,13 +472,16 @@
     "0b36456661611feb": "2026-11-04T22:36:42+00:00",
     "0cb6a43a3e92516d": "2026-11-04T22:36:42+00:00",
     "0ff6d887039b15e2": "2026-11-04T22:36:42+00:00",
+    "1016637b7869d826": "2026-11-05T02:47:12+00:00",
     "11fe08f22934bbac": "2026-11-04T22:36:42+00:00",
     "140ec845ac3f9273": "2026-11-04T22:36:42+00:00",
+    "1522f10d7fdf55bd": "2026-11-05T02:47:12+00:00",
     "326a856a9314040a": "2026-11-04T22:36:42+00:00",
     "365962c5fac31a37": "2026-11-04T22:36:42+00:00",
     "3a44cd769451fbe4": "2026-11-04T22:36:42+00:00",
     "3c54c29950cd88b9": "2026-11-04T22:36:42+00:00",
     "433bc681e04b06aa": "2026-11-04T22:36:42+00:00",
+    "4450c2fb3717fccd": "2026-11-05T02:47:12+00:00",
     "4797f2b4d7a4ccf5": "2026-11-05T00:20:21+00:00",
     "4a66d5a5f8d64390": "2026-11-05T00:20:21+00:00",
     "5420898fdc120aaa": "2026-11-04T22:36:42+00:00",
@@ -449,6 +496,7 @@
     "86a508081fb52ca5": "2026-11-04T22:36:42+00:00",
     "8f1efed04af428e1": "2026-11-04T23:10:53+00:00",
     "97689e4470033f7c": "2026-11-04T22:36:42+00:00",
+    "9a81190b94e6ccb4": "2026-11-05T02:47:12+00:00",
     "a8da02734f0a78dd": "2026-11-04T22:36:42+00:00",
     "ab404887a11508dc": "2026-11-04T22:36:42+00:00",
     "b3955db4dcd93341": "2026-11-04T22:36:42+00:00",
@@ -472,6 +520,15 @@
       ],
       "key": "nasa_artemis_plans_update",
       "title": "NASA обновило планы программы Artemis"
+    },
+    {
+      "at": "2026-11-05T02:47:12+00:00",
+      "evidence_ids": [
+        "1522f10d7fdf55bd"
+      ],
+      "key": "nasa_x70_aircraft",
+      "score": 85,
+      "title": "NASA представило новый экспериментальный самолет X-70"
     }
   ]
 }
