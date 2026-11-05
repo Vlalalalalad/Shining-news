@@ -362,6 +362,61 @@
       "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "title": "Here’s what happened in crypto today",
       "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-05T00:20:21+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "4a66d5a5f8d64390",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "Customers will initially be able to view their holdings, while withdrawals and trading remain suspended pending security checks.",
+      "title": "Mercado Bitcoin says phased reopening to begin Monday, will cover losses",
+      "url": "https://cointelegraph.com/news/mercado-bitcoin-phased-reopening-to-begin-monday-pledges-to-cover-losses?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-05T00:20:21+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "c5cfc173e64341d8",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Most analysts are predicting an increase from 3.75% to 4%, the first increase in more than three years.",
+      "title": "Interest rates expected to rise for first time in over three years",
+      "url": "https://www.bbc.co.uk/news/articles/ck5ynw45jrgqo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-05T00:20:21+00:00",
+      "category": "AI/Tech",
+      "domain": "arstechnica.com",
+      "id": "7d01c5c4ee294cff",
+      "official": false,
+      "source": "Ars Technica",
+      "summary": "And what that could mean for physical Switch game costs.",
+      "title": "Nintendo's biggest ROM chip supplier is bowing out of the business",
+      "url": "https://arstechnica.com/gaming/2026/11/the-tech-memory-shortage-comes-for-nintendos-cartridge-supply-chain/"
+    },
+    {
+      "added_at": "2026-11-05T00:20:21+00:00",
+      "category": "AI/Tech",
+      "domain": "arstechnica.com",
+      "id": "cea25fc8180f8064",
+      "official": false,
+      "source": "Ars Technica",
+      "summary": "Researchers say group may have been Kremlin-sponsored in search of diplomatic targets.",
+      "title": "Hackers exploited iOS and Android flaws to infect phones",
+      "url": "https://arstechnica.com/security/2026/11/hackers-exploited-ios-and-android-flaws-to-infect-phones/"
+    },
+    {
+      "added_at": "2026-11-05T00:20:21+00:00",
+      "category": "AI/Tech",
+      "domain": "arstechnica.com",
+      "id": "4797f2b4d7a4ccf5",
+      "official": false,
+      "source": "Ars Technica",
+      "summary": "\"Our calculations suggest Heisenberg significantly underestimated the materials required.\"",
+      "title": "Uranium cubes reveal why the German nuclear project failed",
+      "url": "https://arstechnica.com/science/2026/11/uranium-cubes-reveal-why-the-german-nuclear-project-failed/"
     }
   ],
   "btc": {
@@ -380,6 +435,8 @@
     "3a44cd769451fbe4": "2026-11-04T22:36:42+00:00",
     "3c54c29950cd88b9": "2026-11-04T22:36:42+00:00",
     "433bc681e04b06aa": "2026-11-04T22:36:42+00:00",
+    "4797f2b4d7a4ccf5": "2026-11-05T00:20:21+00:00",
+    "4a66d5a5f8d64390": "2026-11-05T00:20:21+00:00",
     "5420898fdc120aaa": "2026-11-04T22:36:42+00:00",
     "552e43ae5e35357a": "2026-11-04T23:10:53+00:00",
     "56101ee27feec703": "2026-11-04T22:36:42+00:00",
@@ -387,6 +444,7 @@
     "640ef482dab7f909": "2026-11-04T22:36:42+00:00",
     "68bc701759f26a6f": "2026-11-04T22:36:42+00:00",
     "70b072955be31829": "2026-11-04T22:49:13+00:00",
+    "7d01c5c4ee294cff": "2026-11-05T00:20:21+00:00",
     "7e4f7adddfbaac34": "2026-11-04T22:36:42+00:00",
     "86a508081fb52ca5": "2026-11-04T22:36:42+00:00",
     "8f1efed04af428e1": "2026-11-04T23:10:53+00:00",
@@ -396,6 +454,8 @@
     "b3955db4dcd93341": "2026-11-04T22:36:42+00:00",
     "b531b56f4ce7687d": "2026-11-04T22:49:13+00:00",
     "bb7264ac37ad7575": "2026-11-04T22:36:42+00:00",
+    "c5cfc173e64341d8": "2026-11-05T00:20:21+00:00",
+    "cea25fc8180f8064": "2026-11-05T00:20:21+00:00",
     "d70f68d1e25a8639": "2026-11-04T22:36:42+00:00",
     "d9c848a678890c73": "2026-11-04T22:36:42+00:00",
     "eddc0395264fcd09": "2026-11-04T22:52:58+00:00",
@@ -403,7 +463,7 @@
     "f762962d4e70678a": "2026-11-04T22:36:42+00:00",
     "fc82586ca296cc25": "2026-11-04T22:36:42+00:00"
   },
-  "last_check_day": "2026-11-04",
+  "last_check_day": "2026-11-05",
   "published": [
     {
       "at": "2026-11-04T23:10:53+00:00",
