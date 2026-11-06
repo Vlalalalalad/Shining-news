@@ -2,6 +2,13 @@
 name: Shining Auto News Bot
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/radar.yml'
+      - 'Telegram-AI-News-Radar-v1.0/radar.py'
+      - 'Telegram-AI-News-Radar-v1.0/config.json'
+      - 'Telegram-AI-News-Radar-v1.0/test_radar.py'
   schedule:
     - cron: '11,41 * * * *'
   workflow_dispatch:
@@ -42,7 +49,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
-          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'test' }}
+          DRY_RUN: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'test') }}
         run: python Telegram-AI-News-Radar-v1.0/radar.py
 
       - name: Save history
