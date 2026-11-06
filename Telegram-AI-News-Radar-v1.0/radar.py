@@ -101,6 +101,50 @@ def xml_text(element, names):
                  and c.text and c.text.strip()), '')
 
 
+MEDIA_NS = 'http://search.yahoo.com/mrss/'
+
+
+def licensed_image(entry):
+    """Use only an image with an explicit license attached to that media item."""
+    for media in entry.iter():
+        if media.tag != f'{{{MEDIA_NS}}}content':
+            continue
+        image_url = (media.get('url') or '').strip()
+        if not (media.get('medium') == 'image' or
+                (media.get('type') or '').lower().startswith('image/')):
+            continue
+        if not safe_http_url(image_url):
+            continue
+        license_node = next((child for child in media
+                             if child.tag == f'{{{MEDIA_NS}}}license'), None)
+        if license_node is None:
+            continue
+        license_url = (license_node.get('href') or '').strip()
+        parsed = urlparse(license_url)
+        if parsed.scheme != 'https' or parsed.netloc.lower() != 'creativecommons.org':
+            continue
+        parts = parsed.path.strip('/').lower().split('/')
+        if parts[:3] in (['publicdomain', 'zero', '1.0'],
+                         ['publicdomain', 'mark', '1.0']):
+            license_name = 'CC0' if parts[1] == 'zero' else 'Public Domain Mark'
+            credit = xml_text(media, ('credit',))
+        elif len(parts) >= 3 and parts[:2] == ['licenses', 'by'] and parts[2] in ('3.0', '4.0'):
+            credit = clean_text(xml_text(media, ('credit',)))[:120]
+            if not credit:
+                continue
+            license_name = f'CC BY {parts[2]}'
+        else:
+            continue
+        return {'url': image_url, 'license_url': license_url,
+                'license_name': license_name, 'credit': clean_text(credit)[:120]}
+    return None
+
+
+def safe_http_url(url):
+    parsed = urlparse(url)
+    return parsed.scheme in ('http', 'https') and bool(parsed.netloc)
+
+
 def rss_entries(raw):
     root = ET.fromstring(raw)
     for entry in (x for x in root.iter() if xml_tag(x) in ('item', 'entry')):
@@ -113,7 +157,7 @@ def rss_entries(raw):
         date = xml_text(entry, ('pubdate', 'published', 'updated', 'date'))
         if title and link:
             yield {'title': clean_text(title), 'summary': clean_text(summary)[:650],
-                   'url': link, 'published': date}
+                   'url': link, 'published': date, 'image': licensed_image(entry)}
 
 
 def scan_feeds(config, state, now):
@@ -138,6 +182,8 @@ def scan_feeds(config, state, now):
                     'official': bool(source.get('official', False)),
                     'added_at': iso(now)
                 }
+                if item['image']:
+                    article['image'] = item['image']
                 known[article_id] = iso(now)
                 cached[article_id] = article
                 fresh.append(article)
@@ -239,21 +285,31 @@ def is_quiet_time(now):
     return hour >= QUIET_START or hour < QUIET_END
 
 
-def send_telegram(text, urgent=False, now=None):
+def send_telegram(text, urgent=False, now=None, photo_url=None, fallback_text=None):
     token = os.getenv('TELEGRAM_BOT_TOKEN', '').strip()
     chat_id = os.getenv('TELEGRAM_CHAT_ID', '').strip()
     if not token or not chat_id:
         print('Telegram credentials missing; no message sent')
         return False
     silent = is_quiet_time(now or utcnow()) and not urgent
+    if photo_url:
+        try:
+            result = json_request(
+                f'https://api.telegram.org/bot{token}/sendPhoto',
+                {'chat_id': chat_id, 'photo': photo_url, 'caption': text,
+                 'parse_mode': 'HTML', 'disable_notification': silent})
+            if result.get('ok'):
+                print(f'Telegram photo sent (silent={silent})')
+                return True
+            print('Telegram rejected photo; retrying as text')
+        except Exception as err:
+            print(f'Telegram photo failed ({err}); retrying as text')
     try:
         result = json_request(
             f'https://api.telegram.org/bot{token}/sendMessage',
-            {'chat_id': chat_id, 'text': text,
-             'parse_mode': 'HTML',
+            {'chat_id': chat_id, 'text': fallback_text or text, 'parse_mode': 'HTML',
              'link_preview_options': {'is_disabled': True},
-             'disable_notification': silent}
-        )
+             'disable_notification': silent})
         if result.get('ok'):
             print(f'Telegram message sent (silent={silent})')
             return True
@@ -279,6 +335,24 @@ def html_link(label, url):
     if parsed.scheme not in ('http', 'https') or not parsed.netloc:
         raise ValueError('Invalid source URL')
     return f'<a href="{escape(url, quote=True)}">{escape(label)}</a>'
+
+
+def news_post_with_image(event, sources):
+    message = post_text(event, sources)
+    for article in sources:
+        image = article.get('image')
+        if not isinstance(image, dict) or not image.get('url'):
+            continue
+        credit = image.get('credit') or article['source']
+        attribution = (f'\n\nФото: {escape(credit)} '
+                       f'({html_link(image["license_name"], image["license_url"])})')
+        caption = message + attribution
+        visible_length = len(unescape(re.sub(r'<[^>]*>', '', caption)))
+        if visible_length <= 1000:
+            return caption, image['url']
+        print('Photo skipped: Telegram caption is too long')
+    print('Photo skipped: no usable licensed image in cited feeds')
+    return message, None
 
 
 def count_regular_today(state, now):
@@ -359,8 +433,10 @@ def process_news(config, state, now, enabled):
                 print('News skipped: duplicate event')
                 continue
             if enabled:
-                if not send_telegram(post_text(event, sources),
-                                     urgent=score >= EXTREME_NEWS_SCORE, now=now):
+                message, photo_url = news_post_with_image(event, sources)
+                if not send_telegram(message, urgent=score >= EXTREME_NEWS_SCORE,
+                                     now=now, photo_url=photo_url,
+                                     fallback_text=post_text(event, sources)):
                     state['ai_pending'] = True
                     print('News delivery failed: candidate kept for next run')
                     continue

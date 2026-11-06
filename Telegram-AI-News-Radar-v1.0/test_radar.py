@@ -91,6 +91,53 @@ class RadarTests(unittest.TestCase):
                       '<a href="https://two.example/story">Второе издание</a>', rendered)
         self.assertNotIn('Первое & издание: https://', rendered)
 
+    def test_photo_requires_license_on_the_image_itself(self):
+        template = '''<rss xmlns:media="http://search.yahoo.com/mrss/"><channel>
+        <item><title>Business story</title><link>https://example.org/story</link>
+        <media:content url="https://example.org/image.jpg" type="image/jpeg">
+        {license}</media:content></item></channel></rss>'''
+        cc0 = '<media:license href="https://creativecommons.org/publicdomain/zero/1.0/" />'
+        entry = next(radar.rss_entries(template.format(license=cc0).encode()))
+        self.assertEqual(entry['image']['license_name'], 'CC0')
+        self.assertIsNone(next(radar.rss_entries(template.format(license='').encode()))['image'])
+        uncredited_by = '<media:license href="https://creativecommons.org/licenses/by/4.0/" />'
+        self.assertIsNone(next(radar.rss_entries(template.format(license=uncredited_by).encode()))['image'])
+        credited_by = (uncredited_by + '<media:credit>Jane Doe</media:credit>')
+        self.assertEqual(next(radar.rss_entries(template.format(license=credited_by).encode()))
+                         ['image']['credit'], 'Jane Doe')
+
+    def test_photo_caption_and_text_fallback(self):
+        event = {'title_ru': 'Крупная сделка', 'body_ru': 'Компании заключили сделку.'}
+        article = {'domain': 'example.org', 'source': 'Издание',
+                   'url': 'https://example.org/story',
+                   'image': {'url': 'https://example.org/image.jpg',
+                             'license_name': 'CC BY 4.0',
+                             'license_url': 'https://creativecommons.org/licenses/by/4.0/',
+                             'credit': 'Jane Doe'}}
+        caption, photo_url = radar.news_post_with_image(event, [article])
+        self.assertEqual(photo_url, article['image']['url'])
+        self.assertIn('Фото: Jane Doe (<a href=', caption)
+        self.assertIn('Источники:\n<a href=', caption)
+        requests = []
+
+        def fake_api(url, payload=None, headers=None):
+            requests.append((url, payload))
+            if url.endswith('/sendPhoto'):
+                raise RuntimeError('Telegram cannot fetch image')
+            return {'ok': True}
+
+        with patch.dict('os.environ', {'TELEGRAM_BOT_TOKEN': 'test',
+                                       'TELEGRAM_CHAT_ID': '@test'}), \
+             patch.object(radar, 'json_request', side_effect=fake_api):
+            self.assertTrue(radar.send_telegram(
+                caption, now=self.now, photo_url=photo_url,
+                fallback_text=radar.post_text(event, [article])))
+        self.assertTrue(requests[0][0].endswith('/sendPhoto'))
+        self.assertEqual(requests[0][1]['photo'], photo_url)
+        self.assertTrue(requests[1][0].endswith('/sendMessage'))
+        self.assertNotIn('Фото:', requests[1][1]['text'])
+        self.assertEqual(requests[1][1]['link_preview_options'], {'is_disabled': True})
+
     def test_news_requires_independent_sources_and_limits_regular_posts(self):
         articles = [
             {'id': 'a', 'source': 'CoinDesk', 'domain': 'coindesk.com',
