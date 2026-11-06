@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from email.utils import parsedate_to_datetime
-from html import unescape
+from html import escape, unescape
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
@@ -249,8 +249,9 @@ def send_telegram(text, urgent=False, now=None):
     try:
         result = json_request(
             f'https://api.telegram.org/bot{token}/sendMessage',
-            {'chat_id': chat_id, 'text': text[:3900],
-             'disable_web_page_preview': False,
+            {'chat_id': chat_id, 'text': text,
+             'parse_mode': 'HTML',
+             'link_preview_options': {'is_disabled': True},
              'disable_notification': silent}
         )
         if result.get('ok'):
@@ -263,14 +264,21 @@ def send_telegram(text, urgent=False, now=None):
 
 
 def post_text(event, sources):
-    heading = str(event['title_ru']).strip()[:160]
-    body = str(event['body_ru']).strip()[:850]
+    heading = escape(str(event['title_ru']).strip()[:160])
+    body = escape(str(event['body_ru']).strip()[:850])
     links, domains = [], set()
     for article in sources:
         if article['domain'] not in domains:
             domains.add(article['domain'])
-            links.append(f"{article['source']}: {article['url']}")
-    return f"📰 {heading}\n\n{body}\n\nИсточники:\n" + '\n'.join(links[:3])
+            links.append(html_link(article['source'], article['url']))
+    return f"📰 {heading}\n\n{body}\n\nИсточники:\n" + ', '.join(links[:3])
+
+
+def html_link(label, url):
+    parsed = urlparse(url)
+    if parsed.scheme not in ('http', 'https') or not parsed.netloc:
+        raise ValueError('Invalid source URL')
+    return f'<a href="{escape(url, quote=True)}">{escape(label)}</a>'
 
 
 def count_regular_today(state, now):
@@ -431,8 +439,8 @@ def process_market(config, state, now, enabled):
             period_ru = '1 час' if period == '1h' else '24 часа'
             message = (f'📊 {name} {verb} на {abs(change):.2f}% за {period_ru}\n\n'
                        f'{symbol}/USDT: {old:,.2f} → {new:,.2f} USDT\n'
-                       f'Период: {period_ru}. Источник: Binance Spot.\n'
-                       f'https://www.binance.com/en/trade/{symbol}_USDT\n\n'
+                       f'Период: {period_ru}. Источник: '
+                       f'{html_link("Binance Spot", f"https://www.binance.com/en/trade/{symbol}_USDT")}\n\n'
                        'Рыночные данные, не торговая рекомендация.')
             urgent = abs(change) >= float(settings.get('urgent_percent', 10 if period == '1h' else 15))
             if enabled:

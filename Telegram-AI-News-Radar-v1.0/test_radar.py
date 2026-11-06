@@ -38,6 +38,8 @@ class RadarTests(unittest.TestCase):
              patch.object(radar, 'send_telegram', return_value=True) as send:
             radar.process_market(self.config, state, self.now, True)
             self.assertEqual(send.call_count, 6)
+            self.assertIn('<a href="https://www.binance.com/en/trade/BTC_USDT">Binance Spot</a>',
+                          send.call_args_list[0].args[0])
             radar.process_market(self.config, state, self.now, True)
             self.assertEqual(send.call_count, 6)
         self.assertEqual(len(state['market_alerts']), 6)
@@ -57,6 +59,8 @@ class RadarTests(unittest.TestCase):
             radar.send_telegram('тест', urgent=True, now=night)
         self.assertTrue(sent[0]['disable_notification'])
         self.assertFalse(sent[1]['disable_notification'])
+        self.assertEqual(sent[0]['parse_mode'], 'HTML')
+        self.assertEqual(sent[0]['link_preview_options'], {'is_disabled': True})
         self.assertEqual(radar.count_regular_today(
             {'published': [{'at': '2026-11-05T22:10:00+00:00', 'score': 80}]},
             night), 1)
@@ -69,6 +73,23 @@ class RadarTests(unittest.TestCase):
             radar.process_market(self.config, state, self.now, False)
         send.assert_not_called()
         self.assertFalse(any(a.get('active') for a in state['market_alerts'].values()))
+
+    def test_news_sources_are_clickable_names_without_raw_links(self):
+        event = {'title_ru': 'Рынок <растет> & меняется',
+                 'body_ru': 'Компания A & B объявила о сделке.'}
+        sources = [
+            {'domain': 'one.example', 'source': 'Первое & издание',
+             'url': 'https://one.example/story?x=1&y=2'},
+            {'domain': 'two.example', 'source': 'Второе издание',
+             'url': 'https://two.example/story'},
+        ]
+        rendered = radar.post_text(event, sources)
+        self.assertIn('Рынок &lt;растет&gt; &amp; меняется', rendered)
+        self.assertIn('Компания A &amp; B', rendered)
+        self.assertIn('Источники:\n<a href="https://one.example/story?x=1&amp;y=2">'
+                      'Первое &amp; издание</a>, '
+                      '<a href="https://two.example/story">Второе издание</a>', rendered)
+        self.assertNotIn('Первое & издание: https://', rendered)
 
     def test_news_requires_independent_sources_and_limits_regular_posts(self):
         articles = [
