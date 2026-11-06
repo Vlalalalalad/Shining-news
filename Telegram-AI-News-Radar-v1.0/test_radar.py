@@ -15,16 +15,15 @@ class RadarTests(unittest.TestCase):
         self.config = json.loads(radar.CONFIG_PATH.read_text(encoding='utf-8'))
         self.now = datetime(2026, 11, 6, 12, 0, tzinfo=timezone.utc)
 
-    def test_market_windows_use_rolling_24h_and_candle_1h(self):
+    def test_market_windows_use_rolling_24h_and_trade_1h(self):
         close = int(self.now.timestamp() * 1000)
         target = close - 3_600_000
 
         def fake_api(url, *args, **kwargs):
             if '/ticker/24hr?' in url:
                 return {'lastPrice': '95', 'openPrice': '100', 'closeTime': close}
-            if '/klines?' in url:
-                return [[target - 60_000, '100', '100', '100', '100', '1',
-                         target - 1, '0', 1, '0', '0', '0']]
+            if '/aggTrades?' in url:
+                return [{'p': '100', 'T': target + 20}]
             raise AssertionError(url)
 
         with patch.object(radar, 'json_request', side_effect=fake_api):

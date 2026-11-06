@@ -372,7 +372,7 @@ def process_news(config, state, now, enabled):
 
 
 def market_snapshot(symbol, now):
-    """Binance Spot 24h rolling ticker plus a one-minute candle near t-1h."""
+    """Binance Spot 24h rolling ticker plus the first trade after t-1h."""
     base = 'https://data-api.binance.vision/api/v3'
     ticker = json_request(f'{base}/ticker/24hr?symbol={symbol}USDT')
     current = float(ticker['lastPrice'])
@@ -383,17 +383,15 @@ def market_snapshot(symbol, now):
     if min(current, old_24h) <= 0:
         raise RuntimeError('invalid ticker price')
     target = close_ms - 3_600_000
-    candles = json_request(
-        f'{base}/klines?symbol={symbol}USDT&interval=1m'
-        f'&startTime={target - 120_000}&endTime={target + 120_000}&limit=6')
-    if not isinstance(candles, list) or not candles:
-        raise RuntimeError('missing one-hour candle')
-    nearest = min(candles, key=lambda candle: abs(int(candle[6]) - target))
-    if abs(int(nearest[6]) - target) > 60_000:
-        raise RuntimeError('one-hour candle too far from target')
-    old_1h = float(nearest[4])
+    trades = json_request(
+        f'{base}/aggTrades?symbol={symbol}USDT&startTime={target}&limit=1')
+    if not isinstance(trades, list) or not trades:
+        raise RuntimeError('missing one-hour reference trade')
+    if not 0 <= int(trades[0]['T']) - target <= 60_000:
+        raise RuntimeError('one-hour reference trade too far from target')
+    old_1h = float(trades[0]['p'])
     if old_1h <= 0:
-        raise RuntimeError('invalid one-hour candle price')
+        raise RuntimeError('invalid one-hour reference price')
     return {'1h': (old_1h, current, (current / old_1h - 1) * 100),
             '24h': (old_24h, current, (current / old_24h - 1) * 100)}
 
