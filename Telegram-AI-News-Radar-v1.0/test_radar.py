@@ -126,6 +126,23 @@ class RadarTests(unittest.TestCase):
                           for s in ('CoinDesk', 'BBC', 'NASA')},
                          {'CoinDesk': 3, 'BBC': 3, 'NASA': 3})
 
+    def test_main_respects_live_and_dry_run_switches(self):
+        state = {'market_alerts': {}, 'published': []}
+        with patch.object(radar, 'load_state', return_value=state), \
+             patch.object(radar, 'process_market') as market, \
+             patch.object(radar, 'process_news') as news, \
+             patch.object(radar, 'save_state') as save:
+            with patch.dict('os.environ', {'PUBLISH_ENABLED': 'true', 'DRY_RUN': 'true'}):
+                radar.main()
+            self.assertFalse(market.call_args.args[3])
+            self.assertFalse(news.call_args.args[3])
+            save.assert_not_called()
+            with patch.dict('os.environ', {'PUBLISH_ENABLED': 'true', 'DRY_RUN': 'false'}):
+                radar.main()
+            self.assertTrue(market.call_args.args[3])
+            self.assertTrue(news.call_args.args[3])
+            save.assert_called_once()
+
 
 if __name__ == '__main__':
     unittest.main()
