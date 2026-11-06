@@ -32,7 +32,7 @@
     {"name":"Ars Technica", "category":"AI/Tech", "url":"https://feeds.arstechnica.com/arstechnica/index"},
     {"name":"Federal Reserve", "category":"Economy", "url":"https://www.federalreserve.gov/feeds/press_all.xml", "official":true},
     {"name":"NASA", "category":"Science", "url":"https://www.nasa.gov/feed/", "official":true},
-    {"name":"Nature", "category":"Science", "url":"https://www.nature.com/nature.rss"},
+    {"name":"BBC Science", "category":"Science", "url":"https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"},
     {"name":"Google Blog", "category":"AI/Tech", "url":"https://blog.google/rss/", "official":true}
   ]
 }
