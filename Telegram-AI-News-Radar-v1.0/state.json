@@ -957,6 +957,61 @@
       "summary": "The Welsh government has given more than £4m to the scheme since 2015, but will end it due to budget pressures.",
       "title": "Wales scraps controversial Uganda tree-planting scheme",
       "url": "https://www.bbc.co.uk/news/articles/cqm26m2l4p7eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-06T15:23:02+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "de0c28c9953fb6e7",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Investors had been selling off tech shares in part due to concerns the Democrat election victory would mean slower AI development.",
+      "title": "AI stocks climb after trillions wiped from market values",
+      "url": "https://www.bbc.co.uk/news/articles/c35ynnpzdq51o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-06T15:23:02+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "fddc81abf514e80f",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Jersey's Economic Development Minister has told the BBC that workers' rights may have to take 'second place' to economic growth.",
+      "title": "Workers' rights 'second place' to economic growth",
+      "url": "https://www.bbc.co.uk/news/videos/cq369l9r634ro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-06T15:23:02+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "ceea0ea6bf6daa8e",
+      "official": false,
+      "source": "The Verge",
+      "summary": "A researcher found over 100,000 words and phrases in \"every major language\" that are blocked from autocomplete and swipe-type in iOS, Reuters reports. The researcher, Derik Kauffman, says you can still type the words on the blocklist one letter at a time. But they won't pop up as predictive text suggestions and iOS's keyboard may […]",
+      "title": "Apple has a secret list of banned autocomplete phrases including ‘dictator Trump’ and ‘covid is a hoax’",
+      "url": "https://www.theverge.com/tech/1028663/apple-ios-keyboard-blocked-words-autocomplete"
+    },
+    {
+      "added_at": "2026-11-06T15:23:02+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "94f2c21775d296aa",
+      "official": false,
+      "source": "The Verge",
+      "summary": "Fox has officially closed its $22 billion acquisition of Roku, the companies announced on Friday. With Roku under its umbrella, Fox now controls a major streaming platform that reaches more than 100 million households in the US. First announced in June, the deal will allow Fox to bring Fox Sports, news content, and local stations […]",
+      "title": "Fox bought Roku",
+      "url": "https://www.theverge.com/streaming/1028629/fox-roku-acquisition-close"
+    },
+    {
+      "added_at": "2026-11-06T15:23:02+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "b8bb9b15845ecf13",
+      "official": false,
+      "source": "The Verge",
+      "summary": "Gift-giving isn't just about grabbing something solid under a determined spending limit. It's an expression of love, a way to show someone how well you really know them. That doesn't mean you have to do it all on your own, though. Sometimes you just need a push in the right direction to get things rolling. […]",
+      "title": "The Verge’s 2026 holiday gift guide",
+      "url": "https://www.theverge.com/gadgets/1026041/holiday-gift-guide-2026"
     }
   ],
   "btc": {
@@ -1066,6 +1121,7 @@
     "901084e3e7a245fd": "2026-11-05T18:41:59+00:00",
     "92326116ac697bea": "2026-11-06T14:49:25+00:00",
     "93206befe31f4554": "2026-11-06T14:49:25+00:00",
+    "94f2c21775d296aa": "2026-11-06T15:23:02+00:00",
     "97689e4470033f7c": "2026-11-04T22:36:42+00:00",
     "980a934d66b53cbb": "2026-11-06T14:49:25+00:00",
     "989be9476c1dd6d5": "2026-11-05T10:46:44+00:00",
@@ -1086,6 +1142,7 @@
     "b531b56f4ce7687d": "2026-11-04T22:49:13+00:00",
     "b6cc61adf7e9fb2b": "2026-11-06T00:11:38+00:00",
     "b73e0808bbf30e9c": "2026-11-05T10:46:44+00:00",
+    "b8bb9b15845ecf13": "2026-11-06T15:23:02+00:00",
     "b9ecf8af67c40f98": "2026-11-06T14:49:25+00:00",
     "ba58adb142417f99": "2026-11-06T07:24:12+00:00",
     "bac64f15a133919d": "2026-11-05T10:46:44+00:00",
@@ -1101,6 +1158,7 @@
     "c84a4cb62f0462d2": "2026-11-05T18:41:59+00:00",
     "ca5031a28a3ec123": "2026-11-06T14:49:25+00:00",
     "cea25fc8180f8064": "2026-11-05T00:20:21+00:00",
+    "ceea0ea6bf6daa8e": "2026-11-06T15:23:02+00:00",
     "cf0a5925a73f9073": "2026-11-06T07:24:12+00:00",
     "d0b90f2500ce964d": "2026-11-06T14:49:25+00:00",
     "d114c54c9d0131ef": "2026-11-06T14:49:25+00:00",
@@ -1112,6 +1170,7 @@
     "d70f68d1e25a8639": "2026-11-04T22:36:42+00:00",
     "d75e55c1fd67ad8d": "2026-11-05T18:41:59+00:00",
     "d9c848a678890c73": "2026-11-04T22:36:42+00:00",
+    "de0c28c9953fb6e7": "2026-11-06T15:23:02+00:00",
     "dec32d806d7a0d9b": "2026-11-05T18:41:59+00:00",
     "e0272f10e3478250": "2026-11-06T00:11:38+00:00",
     "e6d6c85b3eb3fa4e": "2026-11-05T18:41:59+00:00",
@@ -1134,7 +1193,8 @@
     "f93c3c74424d507f": "2026-11-06T00:11:38+00:00",
     "f95880d64b0a9632": "2026-11-06T00:11:38+00:00",
     "fb8298988cb30a3c": "2026-11-06T14:49:25+00:00",
-    "fc82586ca296cc25": "2026-11-04T22:36:42+00:00"
+    "fc82586ca296cc25": "2026-11-04T22:36:42+00:00",
+    "fddc81abf514e80f": "2026-11-06T15:23:02+00:00"
   },
   "last_check_day": "2026-11-06",
   "market_alerts": {
@@ -1142,16 +1202,19 @@
       "active": false,
       "peak": 0
     },
-    "BTC:24h": {},
+    "BTC:24h": {
+      "active": false,
+      "peak": 0
+    },
     "ETH:1h": {
       "active": false,
       "peak": 0
     },
     "ETH:24h": {
-      "active": true,
+      "active": false,
       "direction": "down",
       "last_at": "2026-11-06T14:49:25+00:00",
-      "peak": 5.233775296580601
+      "peak": 0
     },
     "SOL:1h": {
       "active": false,
