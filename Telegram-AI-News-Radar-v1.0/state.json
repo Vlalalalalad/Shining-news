@@ -1485,6 +1485,50 @@
       "summary": "6 pallets of hardware vanished en route to Texas, with no arrests 2 months later.",
       "title": "Nvidia hardware worth $11.4M vanished between Oakland and Texas",
       "url": "https://arstechnica.com/gadgets/2026/11/nvidia-hardware-worth-11-4m-vanished-between-oakland-and-texas/"
+    },
+    {
+      "added_at": "2026-11-07T07:04:23+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "8bd0144092331135",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Santiago Peña was ousted due to a banking crisis which left millions of people unable to access their money.",
+      "title": "Paraguay's President Santiago Peña impeached and arrested",
+      "url": "https://www.bbc.co.uk/news/articles/c68jzzvjgdy9o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-07T07:04:23+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "3a6b312933ddd1f1",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "Sequoia pioneered the scouts model and many VC firms followed suit, but a consensus now seems to be forming that the model has reached limits in its current form.",
+      "title": "Sequoia shutting down its Scouts program marks the end of an era",
+      "url": "https://techcrunch.com/2026/11/06/sequoia-shutting-down-its-scouts-program-marks-the-end-of-an-era/"
+    },
+    {
+      "added_at": "2026-11-07T07:04:23+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "e0820bf841f4174f",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "After spending two years getting cozy with the White House, Big Tech is suddenly trying to make friends with Democrats, and the open question is whether that image makeover can hold up against what states, local communities, and the markets are about to do.",
+      "title": "From the front row to the hot seat — what the midterms mean for Big Tech",
+      "url": "https://techcrunch.com/2026/11/06/from-the-front-row-to-the-hot-seat-what-the-midterms-mean-for-big-tech/"
+    },
+    {
+      "added_at": "2026-11-07T07:04:23+00:00",
+      "category": "Science",
+      "domain": "science.nasa.gov",
+      "id": "bda1706f378a372b",
+      "official": true,
+      "source": "NASA",
+      "summary": "APOD Science APOD APOD: 2026 November 7 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. De Gerlache-Kocher Massif […]",
+      "title": "APOD: 2026 November 7 – De Gerlache-Kocher Massif",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-7-de-gerlache-kocher-massif/"
     }
   ],
   "btc": {
@@ -1546,6 +1590,7 @@
     "3880731809dbbf5e": "2026-11-06T00:11:38+00:00",
     "392621ddc0fab958": "2026-11-06T21:03:44+00:00",
     "3a44cd769451fbe4": "2026-11-04T22:36:42+00:00",
+    "3a6b312933ddd1f1": "2026-11-07T07:04:23+00:00",
     "3b3d7bdaaafeffcb": "2026-11-05T18:41:59+00:00",
     "3b94791c0d3fad0c": "2026-11-06T14:49:25+00:00",
     "3be0fb52393f4b7b": "2026-11-06T14:49:25+00:00",
@@ -1625,6 +1670,7 @@
     "8b33f1382f19de19": "2026-11-06T00:11:38+00:00",
     "8b90275c42b5ae4d": "2026-11-06T21:03:44+00:00",
     "8bc0fc9d9ac903f7": "2026-11-06T21:03:44+00:00",
+    "8bd0144092331135": "2026-11-07T07:04:23+00:00",
     "8d7ae5b310e8fdce": "2026-11-06T21:03:44+00:00",
     "8f1efed04af428e1": "2026-11-04T23:10:53+00:00",
     "901084e3e7a245fd": "2026-11-05T18:41:59+00:00",
@@ -1672,6 +1718,7 @@
     "bac64f15a133919d": "2026-11-05T10:46:44+00:00",
     "bb7264ac37ad7575": "2026-11-04T22:36:42+00:00",
     "bcea566fc08fba9b": "2026-11-06T00:11:38+00:00",
+    "bda1706f378a372b": "2026-11-07T07:04:23+00:00",
     "bf1e47684d2f391c": "2026-11-06T14:49:25+00:00",
     "c15e2fb6035efe7c": "2026-11-06T14:49:25+00:00",
     "c1bfb98653768720": "2026-11-06T00:11:38+00:00",
@@ -1706,6 +1753,7 @@
     "de0c28c9953fb6e7": "2026-11-06T15:23:02+00:00",
     "dec32d806d7a0d9b": "2026-11-05T18:41:59+00:00",
     "e0272f10e3478250": "2026-11-06T00:11:38+00:00",
+    "e0820bf841f4174f": "2026-11-07T07:04:23+00:00",
     "e2a705b7c1387d8d": "2026-11-06T21:03:44+00:00",
     "e673029c6f34dfa0": "2026-11-06T21:03:44+00:00",
     "e6d6c85b3eb3fa4e": "2026-11-05T18:41:59+00:00",
