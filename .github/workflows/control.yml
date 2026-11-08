@@ -1,0 +1,36 @@
+name: Shining Bot Private Controls
+
+on:
+  schedule:
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shining-news-radar
+  cancel-in-progress: false
+
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read private Telegram commands
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python Telegram-AI-News-Radar-v1.0/control.py
+      - name: Save settings and update offset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Telegram-AI-News-Radar-v1.0/state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update private bot controls"
+            git push
+          fi

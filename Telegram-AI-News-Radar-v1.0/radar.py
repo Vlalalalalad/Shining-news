@@ -241,7 +241,12 @@ def ask_gemini(articles, config):
         'Respond with JSON ONLY, format: '
         '{"events":[{"evidence_ids":["id1","id2"],"score":85,'
         '"event_key":"specific stable lowercase key",'
-        '"title_ru":"Заголовок","body_ru":"Текст новости"}]}. '
+        '"title_ru":"Заголовок","body_ru":"Текст новости",'
+        '"sensitive":false,"brand_line_ru":"Короткая уместная фраза"}]}. '
+        'Mark sensitive=true for deaths, injury, war, disaster or other emergencies. '
+        'For brand_line_ru, write a short Russian sentence tailored to the event, '
+        'without claims about FINDOLLAR, guarantees or financial advice. '
+        'Do not write brand_line_ru for sensitive events. '
         'Use exact evidence_ids, no URLs in body_ru, at most ' + str(limit) + ' events. '
         'If nothing qualifies output {"events":[]}.\n'
         'RSS records:\n' + json.dumps(records, ensure_ascii=False)
@@ -319,7 +324,53 @@ def send_telegram(text, urgent=False, now=None, photo_url=None, fallback_text=No
     return False
 
 
-def post_text(event, sources):
+BRAND_URL = 'https://t.me/findollarapp'
+BRAND_TEMPLATES = (
+    '💚 Финансовая ясность начинается с привычки следить за деньгами.',
+    '💚 Пока рынок меняется, держи личные финансы в поле зрения.',
+    '💚 В мире больших решений полезно видеть картину своих финансов.',
+    '💚 Следи за важными новостями и за тем, что происходит с твоими деньгами.',
+)
+SENSITIVE_WORDS = re.compile(
+    r'(?i)\b(?:погиб\w*|жертв\w*|убит\w*|ранен\w*|теракт\w*|'
+    r'катастроф\w*|землетрясен\w*|наводнен\w*|войн\w*|взрыв\w*|'
+    r'dead|killed|death|injur\w*|terror\w*|earthquake\w*|flood\w*|'
+    r'war|explosion|fatal\w*)\b')
+
+
+def stable_percent(key, salt):
+    return int(hashlib.sha256(f'{salt}:{key}'.encode('utf-8')).hexdigest()[:8], 16) % 100
+
+
+def brand_line(event, sources, settings, score):
+    mode = settings.get('branding_mode', 'auto')
+    if mode == 'off' or score >= 90 or str(event.get('sensitive', '')).lower() == 'true':
+        return ''
+    context = ' '.join([str(event.get(k, '')) for k in ('title_ru', 'body_ru')] +
+                       [str(a.get('title', '')) for a in sources])
+    if SENSITIVE_WORDS.search(context):
+        return ''
+    key = str(event.get('event_key', ''))
+    if stable_percent(key, 'brand-post') >= int(settings.get('branding_percent', 70)):
+        return ''
+    if mode == 'custom':
+        copy = str(settings.get('branding_text', '')).strip()
+    elif stable_percent(key, 'brand-ai') < int(settings.get('branding_ai_percent', 80)):
+        copy = str(event.get('brand_line_ru', '')).strip()
+        if (not copy or len(copy) > 150 or 'http' in copy.lower() or
+                not russian_copy(copy.replace('FINDOLLAR', ''))):
+            copy = ''
+    else:
+        copy = ''
+    if not copy:
+        copy = BRAND_TEMPLATES[stable_percent(key, 'brand-template') % len(BRAND_TEMPLATES)]
+    brand = html_link('FINDOLLAR', BRAND_URL)
+    if 'FINDOLLAR' in copy:
+        return escape(copy).replace('FINDOLLAR', brand, 1)
+    return f'{escape(copy)} {brand}'
+
+
+def post_text(event, sources, branding=''):
     heading = escape(str(event['title_ru']).strip()[:160])
     body = escape(str(event['body_ru']).strip()[:850])
     links, domains = [], set()
@@ -327,7 +378,8 @@ def post_text(event, sources):
         if article['domain'] not in domains:
             domains.add(article['domain'])
             links.append(html_link(article['source'], article['url']))
-    return f"📰 {heading}\n\n{body}\n\nИсточники:\n" + ', '.join(links[:3])
+    message = f"📰 {heading}\n\n{body}\n\nИсточники:\n" + ', '.join(links[:3])
+    return message + (f'\n\n{branding}' if branding else '')
 
 
 def html_link(label, url):
@@ -337,8 +389,8 @@ def html_link(label, url):
     return f'<a href="{escape(url, quote=True)}">{escape(label)}</a>'
 
 
-def news_post_with_image(event, sources):
-    message = post_text(event, sources)
+def news_post_with_image(event, sources, branding=''):
+    message = post_text(event, sources, branding)
     for article in sources:
         image = article.get('image')
         if not isinstance(image, dict) or not image.get('url'):
@@ -368,7 +420,47 @@ def count_regular_today(state, now):
     return count
 
 
+def effective_config(config, state):
+    """Apply bounded settings saved by the private Telegram control panel."""
+    settings = state.get('settings', {})
+    merged = dict(config)
+    for name, low, high in (('importance_threshold', 75, 100),
+                            ('max_posts_per_run', 1, 5),
+                            ('max_regular_per_day', 0, 10),
+                            ('min_post_gap_minutes', 0, 240),
+                            ('branding_percent', 0, 100),
+                            ('branding_ai_percent', 0, 100)):
+        if name in settings:
+            try:
+                value = int(settings[name])
+                if low <= value <= high:
+                    merged[name] = value
+            except (TypeError, ValueError):
+                pass
+    for name in ('news_enabled', 'branding_mode', 'branding_text'):
+        if name in settings:
+            merged[name] = settings[name]
+    market = {symbol: {period: dict(values) for period, values in windows.items()}
+              for symbol, windows in config['market_alerts'].items()}
+    for symbol, windows in settings.get('market_thresholds', {}).items():
+        if symbol not in market or not isinstance(windows, dict):
+            continue
+        for period, value in windows.items():
+            if period in market[symbol]:
+                try:
+                    threshold = float(value)
+                    if 0.5 <= threshold <= 50:
+                        market[symbol][period]['threshold_percent'] = threshold
+                except (TypeError, ValueError):
+                    pass
+    merged['market_alerts'] = market
+    return merged
+
+
 def process_news(config, state, now, enabled):
+    if config.get('news_enabled', True) is False:
+        print('News skipped: disabled by admin')
+        return
     fresh = scan_feeds(config, state, now)
     if not fresh and not state.get('ai_pending'):
         print('News skipped: no new articles and no pending AI retry')
@@ -398,9 +490,17 @@ def process_news(config, state, now, enabled):
                 print(f'News skipped: score {score} below threshold')
                 continue
             regular = score <= REGULAR_MAX_SCORE
-            if regular and daily_regular >= REGULAR_DAILY_LIMIT:
-                print('News skipped: five regular posts already published today')
+            if regular and daily_regular >= int(config.get('max_regular_per_day', REGULAR_DAILY_LIMIT)):
+                print('News skipped: regular daily post limit reached')
                 continue
+            if regular:
+                latest = max((parse_date(p.get('at')) for p in state['published']
+                              if int(p.get('score', 75)) <= REGULAR_MAX_SCORE and parse_date(p.get('at'))),
+                             default=None)
+                gap = timedelta(minutes=int(config.get('min_post_gap_minutes', 0)))
+                if latest and now - latest < gap:
+                    print('News skipped: minimum gap between regular posts')
+                    continue
             ids = list(dict.fromkeys(event.get('evidence_ids', [])))
             if not ids or any(x not in evidence for x in ids):
                 print('News skipped: evidence IDs missing from cache')
@@ -432,11 +532,12 @@ def process_news(config, state, now, enabled):
                    for p in state['published']):
                 print('News skipped: duplicate event')
                 continue
+            branding = brand_line(event, sources, config, score)
             if enabled:
-                message, photo_url = news_post_with_image(event, sources)
+                message, photo_url = news_post_with_image(event, sources, branding)
                 if not send_telegram(message, urgent=score >= EXTREME_NEWS_SCORE,
                                      now=now, photo_url=photo_url,
-                                     fallback_text=post_text(event, sources)):
+                                     fallback_text=post_text(event, sources, branding)):
                     state['ai_pending'] = True
                     print('News delivery failed: candidate kept for next run')
                     continue
@@ -531,8 +632,8 @@ def process_market(config, state, now, enabled):
 
 
 def main():
-    config = json.loads(CONFIG_PATH.read_text(encoding='utf-8'))
     state = load_state()
+    config = effective_config(json.loads(CONFIG_PATH.read_text(encoding='utf-8')), state)
     now = utcnow()
     enabled = (os.getenv('PUBLISH_ENABLED', '').strip().lower() == 'true'
                and os.getenv('DRY_RUN', '').strip().lower() != 'true')

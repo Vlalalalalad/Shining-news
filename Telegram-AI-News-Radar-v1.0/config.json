@@ -1,6 +1,16 @@
 {
   "importance_threshold": 75,
+  "news_enabled": true,
+  "max_regular_per_day": 5,
+  "min_post_gap_minutes": 0,
   "max_posts_per_run": 3,
+  "branding_mode": "auto",
+  "branding_percent": 70,
+  "branding_ai_percent": 80,
+  "admin_user_hashes": [
+    "5463df167cb5bc003862d50e879982db424cd993684c32c7108fbf7bb785131a",
+    "eb559f51758855dd37a4f48f19c53164f01a332219be622a04c6992deb82327a"
+  ],
   "max_ai_articles": 55,
   "gemini_model": "gemini-3.1-flash-lite",
   "market_alerts": {

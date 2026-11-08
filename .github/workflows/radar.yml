@@ -6,7 +6,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/radar.yml'
+      - '.github/workflows/control.yml'
       - 'Telegram-AI-News-Radar-v1.0/radar.py'
+      - 'Telegram-AI-News-Radar-v1.0/control.py'
       - 'Telegram-AI-News-Radar-v1.0/config.json'
       - 'Telegram-AI-News-Radar-v1.0/test_radar.py'
   schedule:
