@@ -26,7 +26,7 @@ def send_private(chat_id, text, keyboard=None):
     payload = {'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML',
                'link_preview_options': {'is_disabled': True}}
     if keyboard:
-        payload['reply_markup'] = {'inline_keyboard': keyboard}
+        payload['reply_markup'] = {'keyboard': keyboard, 'resize_keyboard': True}
     telegram('sendMessage', payload)
 
 
@@ -65,12 +65,10 @@ def settings_view(state, config):
         '/market BTC 1h 5 (також ETH, SOL і 24h)\n'
         '/id — показати свій Telegram ID')
     keyboard = [
-        [{'text': 'Новини увімк.', 'callback_data': 'news:on'},
-         {'text': 'Новини вимк.', 'callback_data': 'news:off'}],
-        [{'text': 'Реклама авто', 'callback_data': 'brand:auto'},
-         {'text': 'Свій текст', 'callback_data': 'brand:custom'},
-         {'text': 'Без реклами', 'callback_data': 'brand:off'}],
-        [{'text': 'Оновити', 'callback_data': 'settings:show'}],
+        [{'text': 'Новини: увімкнути'}, {'text': 'Новини: вимкнути'}],
+        [{'text': 'Реклама: авто'}, {'text': 'Реклама: свій текст'},
+         {'text': 'Реклама: вимкнути'}],
+        [{'text': 'Показати налаштування'}],
     ]
     return text, keyboard
 
@@ -147,14 +145,28 @@ def handle_update(update, state, config):
             try:
                 apply_command('/' + value.replace(':', ' ', 1), settings)
             except ValueError as err:
-                telegram('answerCallbackQuery', {'callback_query_id': callback['id'],
-                                                 'text': str(err)[:180]})
+                try:
+                    telegram('answerCallbackQuery', {'callback_query_id': callback['id'],
+                                                     'text': str(err)[:180]})
+                except RuntimeError:
+                    pass
                 return
         elif value != 'settings:show':
             return
-        telegram('answerCallbackQuery', {'callback_query_id': callback['id']})
+        try:
+            telegram('answerCallbackQuery', {'callback_query_id': callback['id']})
+        except RuntimeError:
+            print('Control: callback expired before poll; settings still applied')
     else:
         text = message.get('text', '').strip()
+        text = {
+            'Новини: увімкнути': '/news on',
+            'Новини: вимкнути': '/news off',
+            'Реклама: авто': '/brand auto',
+            'Реклама: свій текст': '/brand custom',
+            'Реклама: вимкнути': '/brand off',
+            'Показати налаштування': '/settings',
+        }.get(text, text)
         if text not in ('/start', '/settings', '/help'):
             try:
                 apply_command(text, settings)

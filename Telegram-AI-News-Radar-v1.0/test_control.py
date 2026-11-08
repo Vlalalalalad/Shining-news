@@ -62,6 +62,16 @@ class ControlTests(unittest.TestCase):
         self.assertEqual(api.call_count, 2)
         self.assertTrue(all(call.args[0] == 'answerCallbackQuery' for call in api.call_args_list))
 
+    def test_reply_keyboard_sends_plain_commands(self):
+        with patch.object(control, 'send_private') as send:
+            control.handle_update(self.message(100, 'Новини: вимкнути'),
+                                  self.state, self.config)
+        self.assertFalse(self.state['settings']['news_enabled'])
+        self.assertEqual(send.call_args.args[2][0][0]['text'], 'Новини: увімкнути')
+        with patch.object(control, 'telegram') as api:
+            control.send_private(100, 'test', send.call_args.args[2])
+        self.assertIn('keyboard', api.call_args.args[1]['reply_markup'])
+
     def test_branding_is_stable_and_excludes_sensitive_news(self):
         sources = [{'title': 'Markets', 'source': 'News', 'domain': 'news.example',
                     'url': 'https://news.example/a'}]
