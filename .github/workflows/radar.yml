@@ -45,6 +45,13 @@ jobs:
       - name: Verify radar logic without publishing
         run: python -m unittest discover -s Telegram-AI-News-Radar-v1.0 -p 'test_*.py'
 
+      - name: Check private Telegram commands
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'live' }}
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python Telegram-AI-News-Radar-v1.0/control.py
+
       - name: Run news radar
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -55,7 +62,7 @@ jobs:
         run: python Telegram-AI-News-Radar-v1.0/radar.py
 
       - name: Save history
-        if: ${{ vars.PUBLISH_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.mode == 'live') }}
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'live' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
