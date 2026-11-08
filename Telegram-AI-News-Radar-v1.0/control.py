@@ -28,6 +28,7 @@ def send_private(chat_id, text, keyboard=None):
     if keyboard:
         payload['reply_markup'] = {'keyboard': keyboard, 'resize_keyboard': True}
     telegram('sendMessage', payload)
+    print('Control: private reply delivered')
 
 
 def is_admin(user_id, config):
@@ -183,6 +184,8 @@ def main():
         return
     state = radar.load_state()
     config = json.loads(radar.CONFIG_PATH.read_text(encoding='utf-8'))
+    bot = telegram('getMe', {})
+    print(f"Control bot: @{bot.get('username', 'unknown')}")
     offset = int(state.get('telegram_offset', 0))
     updates = telegram('getUpdates', {'offset': offset, 'limit': 100, 'timeout': 0,
                                       'allowed_updates': ['message', 'callback_query']})
