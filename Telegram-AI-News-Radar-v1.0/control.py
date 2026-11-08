@@ -131,6 +131,10 @@ def handle_update(update, state, config):
     sender = (callback or message).get('from', {})
     chat = message.get('chat', {})
     user_id = sender.get('id')
+    raw_text = message.get('text', '')
+    command = raw_text.split(maxsplit=1)[0].split('@')[0] if raw_text.startswith('/') else 'text_or_button'
+    print(f"Control update: type={chat.get('type', 'unknown')} "
+          f"admin={is_admin(user_id, config)} command={command}")
     if chat.get('type') != 'private' or chat.get('id') != user_id:
         return
     if not callback and message.get('text', '').split(maxsplit=1)[0:1] == ['/id']:
