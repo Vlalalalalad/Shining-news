@@ -926,6 +926,9 @@
       "title": "Финансовый директор Binance Кайзер Нг покидает компанию"
     }
   ],
-  "settings": {},
-  "telegram_offset": 526158393
+  "settings": {
+    "branding_mode": "auto",
+    "news_enabled": true
+  },
+  "telegram_offset": 526158398
 }
