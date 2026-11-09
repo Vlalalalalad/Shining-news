@@ -1,83 +1,6 @@
 {
-  "ai_pending": true,
+  "ai_pending": false,
   "article_cache": [
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "Crypto",
-      "domain": "coindesk.com",
-      "id": "40fc94677bef6f99",
-      "official": false,
-      "source": "CoinDesk",
-      "summary": "Affected accounts are reportedly set to close on Dec. 31. Users in Spain, France, and Poland say they've received similar notices.",
-      "title": "Binance users in some European countries told to pull crypto before fees kick in, with accounts closing by year end",
-      "url": "https://www.coindesk.com/business/2026/11/07/binance-users-in-some-european-countries-told-to-pull-crypto-before-fees-kick-in-with-accounts-closing-by-year-end"
-    },
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "c4c648932b3d7ff1",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "Polling shows the mood among Kiwis is low, with faith in politics even lower - with voters deserting the main parties at the polls.",
-      "title": "Can New Zealand's new government win over disillusioned voters?",
-      "url": "https://www.bbc.co.uk/news/articles/cxr5yyg2nj9eo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "f923f076a57bcace",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "Fans and players are delighted at the new \"activation space\" in the town centre.",
-      "title": "Ipswich Town's new club shop 'here to stay'",
-      "url": "https://www.bbc.co.uk/news/videos/cxnv0455zq5jo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "79a8ecf18d146019",
-      "official": false,
-      "source": "BBC World",
-      "summary": "Neither PM Benjamin Netanyahu's bloc nor that of his rival secured a majority in last week's election.",
-      "title": "Israel's president tasks opposition leader Eisenkot with forming government",
-      "url": "https://www.bbc.co.uk/news/articles/cmy8367lj5xlo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "757379c07d1179f7",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "On Equity, we unpacked what the midterms mean for the tech industry.",
-      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
-      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/"
-    },
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "4e392e0aaa878514",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO.",
-      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
-      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/"
-    },
-    {
-      "added_at": "2026-11-07T22:42:51+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "a7e073009e31fde6",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "As parents look for alternatives to unrestricted smartphones, a growing number of companies are building phones designed specifically for kids, from feature-limited mobile devices to minimalist home phones.",
-      "title": "Parents want safer phones for kids. These companies are answering the call.",
-      "url": "https://techcrunch.com/2026/11/07/parents-want-safer-phones-for-kids-these-companies-are-answering-the-call/"
-    },
     {
       "added_at": "2026-11-08T02:24:59+00:00",
       "category": "Business",
@@ -495,6 +418,127 @@
       "summary": "Suno is facing yet another pair of lawsuits. A group of rights holders of Elvis Presley's music and the publisher of some of Eminem's biggest records are suing the AI music company, claiming it illegally generates music and lyrics that mimic those artists. The lawyers in the Presley suit claim that Suno has violated Tennessee's […]",
       "title": "Elvis and Eminem rights holders are suing Suno",
       "url": "https://www.theverge.com/ai-artificial-intelligence/1029533/elvis-eminem-suno-ai-music-clone-lawsuit"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "355c29b049aeecb4",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "Vitalik Buterin wants Ethereum to embrace a store of value narrative, upsetting Bitcoin maxis. The crypto industry faces an uncertain future following the US elections.",
+      "title": "Vitalik ‘pivots’ ETH to store of value, crypto suffers after US midterms: Hodler’s Digest",
+      "url": "https://cointelegraph.com/magazine/vitaliks-pivots-to-eth-as-a-store-of-value-us-election-weighs-on-crypto-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "444d01e4a7698420",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Jensen Huang also admitted to having been \"unfaithful\" to his wife and says he will cooperate with a security investigation.",
+      "title": "Nvidia launches investigation into CEO's affair with suspected Chinese spy",
+      "url": "https://www.bbc.co.uk/news/articles/c3dxw10rjn9no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "cc0a7a228952539d",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Small decisions made now can make a big difference to your festive finances, charities say, so here are some tips.",
+      "title": "Doing these things now will help you save money at Christmas",
+      "url": "https://www.bbc.co.uk/news/articles/ck7vppll151mo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "f6a555d4b54618fb",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Footage authenticated by BBC Verify shows damage to the building in the capital's central financial district.",
+      "title": "Aramco Tower hit in heart of Saudi capital as Houthis launch fresh strikes",
+      "url": "https://www.bbc.co.uk/news/articles/c6ly3mjx958eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "154b6124576d3e4c",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Two doctors were eating near the city's Main Market Square when a gunman began firing at random.",
+      "title": "Doctor who treated victims of Krakow shooting speaks to the BBC",
+      "url": "https://www.bbc.co.uk/news/videos/c63elgqqz5y0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "7978cc85b6b0372d",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "It's hard to break the cycle of doomscrolling, but there are plenty of apps that can help you spend more time on content that’s engaging and productive.",
+      "title": "Apps to distract you from the endless cycle of doomscrolling",
+      "url": "https://techcrunch.com/2026/11/08/apps-to-distract-you-from-the-endless-cycle-of-doomscrolling/"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "ab3c0090fa33621f",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "In a memo to the company, Huang admitted that he had an affair.",
+      "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+      "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "173bdbed7479e764",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "Snap's Specs, which have been in development for many years now, are going to market this fall. Will they be a hit with users?",
+      "title": "If Snap’s Specs are still ridiculously expensive, they’re also a lot more comfortable than they used to be",
+      "url": "https://techcrunch.com/2026/11/08/if-snaps-specs-are-still-ridiculously-expensive-theyre-also-a-lot-more-comfortable-than-they-used-to-be/"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "f0be6325bfc4dec9",
+      "official": false,
+      "source": "The Verge",
+      "summary": "On Sunday, Nvidia announced it was launching an investigation into CEO Jensen Huang's relationship with Alice Huang, an AI executive and agent of the Chinese government. In addition to the Board of Directors announcing the investigation, Huang sent a memo to Nvidia employees acknowledging the affair. You can read the full text below. To my […]",
+      "title": "Here’s the full text of Jensen Huang’s memo to Nvidia",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "d08dc641958eb323",
+      "official": false,
+      "source": "The Verge",
+      "summary": "Soul Glo has a new record called NA I'M GON GRAB ALLAT coming out in January, and I, for one, can not wait. While two singles have dropped, it's not enough to truly tide me over, so I've been revisiting Songs to Yeet at the Sun and my favorite album of 2022 - Diaspora Problems. […]",
+      "title": "Soul Glo’s Diaspora Problems is a hardcore record like no other",
+      "url": "https://www.theverge.com/entertainment/1029579/soul-glo-diaspora-problems-hardcore-punk-review"
+    },
+    {
+      "added_at": "2026-11-09T00:49:38+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "d1d29453d583846b",
+      "official": false,
+      "source": "The Verge",
+      "summary": "In October, Epic Games said that it was \"investigating\" making Fortnite compatible with Valve's Linux-based SteamOS. At the time, Epic Games Launcher was in preview, but SteamOS was not specifically listed as a supported distro. Now, Communications Director Jake Jones has confirmed SteamOS compatibility, along with a handful of other distros, to GamingOnLinux. In response […]",
+      "title": "Epic Games Launcher is coming to SteamOS",
+      "url": "https://www.theverge.com/games/1029557/epic-games-launcher-is-coming-to-steamos"
     }
   ],
   "btc": {
@@ -534,7 +578,9 @@
     "134cb4c717d1d771": "2026-11-06T21:03:44+00:00",
     "140ec845ac3f9273": "2026-11-04T22:36:42+00:00",
     "1522f10d7fdf55bd": "2026-11-05T02:47:12+00:00",
+    "154b6124576d3e4c": "2026-11-09T00:49:38+00:00",
     "162a0bcb0e81b734": "2026-11-06T14:49:25+00:00",
+    "173bdbed7479e764": "2026-11-09T00:49:38+00:00",
     "17b1d82e48c946e4": "2026-11-05T18:41:59+00:00",
     "17e77e6707e03aab": "2026-11-06T21:03:44+00:00",
     "199d8ac1d08d94b7": "2026-11-05T10:46:44+00:00",
@@ -567,6 +613,7 @@
     "326a856a9314040a": "2026-11-04T22:36:42+00:00",
     "32aa84ce82b3812c": "2026-11-06T00:11:38+00:00",
     "335ff50bab2a7c78": "2026-11-06T14:49:25+00:00",
+    "355c29b049aeecb4": "2026-11-09T00:49:38+00:00",
     "359bc824fdcef495": "2026-11-06T21:03:44+00:00",
     "35b974b260f2d771": "2026-11-07T00:52:56+00:00",
     "36177d33aff2e6e2": "2026-11-07T00:52:56+00:00",
@@ -589,6 +636,7 @@
     "4180f416c105d02a": "2026-11-05T18:41:59+00:00",
     "433bc681e04b06aa": "2026-11-04T22:36:42+00:00",
     "43ea3ada9c080dbf": "2026-11-07T00:52:56+00:00",
+    "444d01e4a7698420": "2026-11-09T00:49:38+00:00",
     "4450c2fb3717fccd": "2026-11-05T02:47:12+00:00",
     "44a6b3793253ee6a": "2026-11-07T18:44:15+00:00",
     "45b944c4290360a1": "2026-11-07T18:44:15+00:00",
@@ -659,6 +707,7 @@
     "7713e04e394c5f83": "2026-11-06T21:03:44+00:00",
     "7723ccbf8c3a4f1a": "2026-11-08T02:24:59+00:00",
     "7869810b0d9f4343": "2026-11-05T18:41:59+00:00",
+    "7978cc85b6b0372d": "2026-11-09T00:49:38+00:00",
     "79a8ecf18d146019": "2026-11-07T22:42:51+00:00",
     "79f970bb8924e7f6": "2026-11-06T14:49:25+00:00",
     "7ad2d3f24420f235": "2026-11-06T00:11:38+00:00",
@@ -723,6 +772,7 @@
     "a9967ec55d18460f": "2026-11-06T00:11:38+00:00",
     "aa2f38c346482db9": "2026-11-06T14:49:25+00:00",
     "ab29cd2a4869275e": "2026-11-06T00:11:38+00:00",
+    "ab3c0090fa33621f": "2026-11-09T00:49:38+00:00",
     "ab404887a11508dc": "2026-11-04T22:36:42+00:00",
     "abc33a0fbba42e3e": "2026-11-08T20:45:39+00:00",
     "ac8a92cb518c47f2": "2026-11-07T00:52:56+00:00",
@@ -768,6 +818,7 @@
     "c828464b88b192e8": "2026-11-07T00:52:56+00:00",
     "c84a4cb62f0462d2": "2026-11-05T18:41:59+00:00",
     "ca5031a28a3ec123": "2026-11-06T14:49:25+00:00",
+    "cc0a7a228952539d": "2026-11-09T00:49:38+00:00",
     "cc78c069197a9177": "2026-11-07T18:44:15+00:00",
     "cea25fc8180f8064": "2026-11-05T00:20:21+00:00",
     "ceca23beb1416d55": "2026-11-07T18:44:15+00:00",
@@ -776,8 +827,10 @@
     "cf301ae91686cc4f": "2026-11-06T21:03:44+00:00",
     "cfeed0996c4685aa": "2026-11-06T21:03:44+00:00",
     "d04570c52c8f8b01": "2026-11-07T18:44:15+00:00",
+    "d08dc641958eb323": "2026-11-09T00:49:38+00:00",
     "d0b90f2500ce964d": "2026-11-06T14:49:25+00:00",
     "d114c54c9d0131ef": "2026-11-06T14:49:25+00:00",
+    "d1d29453d583846b": "2026-11-09T00:49:38+00:00",
     "d2b9303010106a59": "2026-11-06T14:49:25+00:00",
     "d39bc63d2525c89a": "2026-11-06T14:49:25+00:00",
     "d3c3c22e24e41dd9": "2026-11-06T21:03:44+00:00",
@@ -814,6 +867,7 @@
     "ef462061cde94afc": "2026-11-06T07:24:12+00:00",
     "efbeca1e8e750597": "2026-11-06T14:49:25+00:00",
     "f086e69ea291a427": "2026-11-08T16:19:20+00:00",
+    "f0be6325bfc4dec9": "2026-11-09T00:49:38+00:00",
     "f1191265ab7f5889": "2026-11-06T21:03:44+00:00",
     "f19a6a06b0aed412": "2026-11-06T14:49:25+00:00",
     "f1b4caf116239d25": "2026-11-06T14:49:25+00:00",
@@ -826,6 +880,7 @@
     "f4d8438053ed674e": "2026-11-07T13:57:04+00:00",
     "f505835aa2b4eeec": "2026-11-05T10:46:44+00:00",
     "f6281924d75e0482": "2026-11-06T07:24:12+00:00",
+    "f6a555d4b54618fb": "2026-11-09T00:49:38+00:00",
     "f6ef0a569aa9b8a1": "2026-11-06T21:03:44+00:00",
     "f762962d4e70678a": "2026-11-04T22:36:42+00:00",
     "f8fe21ba7f368ed1": "2026-11-06T21:03:44+00:00",
@@ -838,7 +893,7 @@
     "fc82586ca296cc25": "2026-11-04T22:36:42+00:00",
     "fddc81abf514e80f": "2026-11-06T15:23:02+00:00"
   },
-  "last_check_day": "2026-11-08",
+  "last_check_day": "2026-11-09",
   "market_alerts": {
     "BTC:1h": {
       "active": false,
@@ -924,11 +979,23 @@
       "key": "binance_cfo_resignation",
       "score": 85,
       "title": "Финансовый директор Binance Кайзер Нг покидает компанию"
+    },
+    {
+      "at": "2026-11-09T00:49:38+00:00",
+      "evidence_ids": [
+        "444d01e4a7698420",
+        "ab3c0090fa33621f",
+        "f0be6325bfc4dec9",
+        "54c06e97d6e0a2b7"
+      ],
+      "key": "nvidia_ceo_investigation",
+      "score": 92,
+      "title": "Nvidia начала расследование в отношении гендиректора Дженсена Хуанга"
     }
   ],
   "settings": {
     "branding_mode": "auto",
     "news_enabled": true
   },
-  "telegram_offset": 526158401
+  "telegram_offset": 526158402
 }
