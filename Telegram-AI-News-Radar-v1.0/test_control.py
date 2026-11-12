@@ -82,6 +82,10 @@ class ControlTests(unittest.TestCase):
         line = radar.brand_line(event, sources, settings, 85)
         self.assertIn('<a href="https://t.me/findollarapp">FINDOLLAR</a>', line)
         self.assertEqual(line, radar.brand_line(event, sources, settings, 85))
+        event['brand_line_ru'] = 'Британская экономика демонстрирует признаки восстановления.'
+        fallback = radar.brand_line(event, sources, settings, 85)
+        self.assertNotIn('демонстрирует', fallback)
+        self.assertTrue(fallback.startswith('💚 '))
         self.assertEqual(radar.brand_line(event, sources, settings, 90), '')
         event['title_ru'] = 'При землетрясении погибли люди'
         self.assertEqual(radar.brand_line(event, sources, settings, 85), '')
@@ -108,6 +112,19 @@ class ControlTests(unittest.TestCase):
         self.assertEqual(api.call_args.args[0], 'getUpdates')
         self.assertEqual(self.state['telegram_offset'], 44)
         self.assertEqual(saved[0]['settings']['max_regular_per_day'], 7)
+
+    def test_webhook_mode_syncs_settings_without_polling(self):
+        url = self.config['control_webhook_url']
+        with patch.dict('os.environ', {'TELEGRAM_BOT_TOKEN': 'test'}), \
+             patch.object(radar, 'load_state', return_value=self.state), \
+             patch.object(control.json, 'loads', return_value=self.config), \
+             patch.object(control, 'telegram', return_value={'url': url}) as api, \
+             patch.object(radar, 'json_request', return_value={'settings': {'max_regular_per_day': 6}}), \
+             patch.object(radar, 'save_state') as save:
+            control.main()
+        api.assert_called_once_with('getWebhookInfo', {})
+        self.assertEqual(self.state['settings']['max_regular_per_day'], 6)
+        save.assert_called_once()
 
 
 if __name__ == '__main__':

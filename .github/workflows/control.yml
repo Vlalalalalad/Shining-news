@@ -1,8 +1,6 @@
 name: Shining Bot Private Controls
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:

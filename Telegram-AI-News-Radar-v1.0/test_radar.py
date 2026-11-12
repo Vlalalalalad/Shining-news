@@ -38,6 +38,11 @@ class RadarTests(unittest.TestCase):
              patch.object(radar, 'send_telegram', return_value=True) as send:
             radar.process_market(self.config, state, self.now, True)
             self.assertEqual(send.call_count, 6)
+            first_message = send.call_args_list[0].args[0]
+            self.assertIn('Период: 1 час.\n\nИсточник:\n', first_message)
+            self.assertIn('\n\n💚 ', first_message)
+            self.assertIn('>FINDOLLAR</a>', first_message)
+            self.assertIn('Солана упала', send.call_args_list[4].args[0])
             self.assertIn('<a href="https://www.binance.com/en/trade/BTC_USDT">Binance Spot</a>',
                           send.call_args_list[0].args[0])
             radar.process_market(self.config, state, self.now, True)

@@ -49,6 +49,7 @@ def settings_view(state, config):
         f"Новини: {'увімкнено' if current.get('news_enabled', True) else 'вимкнено'}\n"
         f"Реклама: {escape(mode)}, {current.get('branding_percent', 70)}% постів, "
         f"{current.get('branding_ai_percent', 80)}% фраз від Gemini\n"
+        'Цінові алерти: з підписом, якщо реклама не вимкнена\n'
         f"Свій текст: {escape(str(current.get('branding_text', '') or 'не задано'))}\n"
         f"Ліміт: {current.get('max_regular_per_day', 5)} звичайних на день\n"
         f"Мінімальний інтервал: {current.get('min_post_gap_minutes', 0)} хв\n"

@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import time
 
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
@@ -83,11 +84,14 @@ async def webhook(request: Request):
         return {'ok': True}
     snapshot = load_snapshot()
     update_id = int(update['update_id'])
-    if update_id <= int(snapshot.get('last_update_id', -1)):
+    processed = snapshot.get('processed_ids')
+    if ((processed is None and update_id <= int(snapshot.get('last_update_id', -1)))
+            or (processed is not None and update_id in processed)):
         return {'ok': True, 'duplicate': True}
     control.handle_update(update, snapshot, CONFIG)
     snapshot['last_update_id'] = update_id
-    put_blob(f'controls/{update_id:020d}.json',
+    snapshot['processed_ids'] = ((processed or []) + [update_id])[-100:]
+    put_blob(f'controls/{time.time_ns():020d}-{update_id}.json',
              json.dumps(snapshot, ensure_ascii=False).encode(),
              access='private', content_type='application/json',
              add_random_suffix=False, allow_overwrite=False)
