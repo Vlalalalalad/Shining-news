@@ -1,5 +1,6 @@
 {
   "importance_threshold": 75,
+  "control_webhook_url": "https://shining-news-controls.vercel.app/api/webhook",
   "news_enabled": true,
   "max_regular_per_day": 5,
   "min_post_gap_minutes": 0,

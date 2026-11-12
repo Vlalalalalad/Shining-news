@@ -188,6 +188,20 @@ def main():
         return
     state = radar.load_state()
     config = json.loads(radar.CONFIG_PATH.read_text(encoding='utf-8'))
+    hook = telegram('getWebhookInfo', {})
+    if hook.get('url'):
+        expected = config.get('control_webhook_url', '')
+        if hook['url'] != expected:
+            raise RuntimeError('Unexpected Telegram webhook; refusing to poll')
+        secret = hashlib.sha256((os.environ['TELEGRAM_BOT_TOKEN'] + ':control-webhook-v1').encode()).hexdigest()
+        remote = radar.json_request(expected.replace('/webhook', '/settings'),
+                                    headers={'Authorization': 'Bearer ' + secret})
+        if not isinstance(remote.get('settings'), dict):
+            raise RuntimeError('Invalid remote settings')
+        state['settings'] = remote['settings']
+        radar.save_state(state)
+        print('Webhook active; latest admin settings synchronized')
+        return
     bot = telegram('getMe', {})
     print(f"Control bot: @{bot.get('username', 'unknown')}")
     offset = int(state.get('telegram_offset', 0))

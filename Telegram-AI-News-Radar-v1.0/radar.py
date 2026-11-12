@@ -244,8 +244,9 @@ def ask_gemini(articles, config):
         '"title_ru":"Заголовок","body_ru":"Текст новости",'
         '"sensitive":false,"brand_line_ru":"Короткая уместная фраза"}]}. '
         'Mark sensitive=true for deaths, injury, war, disaster or other emergencies. '
-        'For brand_line_ru, write a short Russian sentence tailored to the event, '
-        'without claims about FINDOLLAR, guarantees or financial advice. '
+        'For brand_line_ru, write a short Russian advertising call to action connecting '
+        'the event with keeping track of personal finances in FINDOLLAR. Do not merely '
+        'summarize the news. No invented app features, guarantees or financial advice. '
         'Do not write brand_line_ru for sensitive events. '
         'Use exact evidence_ids, no URLs in body_ru, at most ' + str(limit) + ' events. '
         'If nothing qualifies output {"events":[]}.\n'
@@ -326,10 +327,10 @@ def send_telegram(text, urgent=False, now=None, photo_url=None, fallback_text=No
 
 BRAND_URL = 'https://t.me/findollarapp'
 BRAND_TEMPLATES = (
-    '💚 Финансовая ясность начинается с привычки следить за деньгами.',
-    '💚 Пока рынок меняется, держи личные финансы в поле зрения.',
-    '💚 В мире больших решений полезно видеть картину своих финансов.',
-    '💚 Следи за важными новостями и за тем, что происходит с твоими деньгами.',
+    'Держи свои финансы в поле зрения вместе с FINDOLLAR.',
+    'Рынок меняется. Следи за своими финансами вместе с FINDOLLAR.',
+    'Большие новости — повод уделить внимание своим деньгам. Открой FINDOLLAR.',
+    'Следи за новостями рынка и своими финансами вместе с FINDOLLAR.',
 )
 SENSITIVE_WORDS = re.compile(
     r'(?i)\b(?:погиб\w*|жертв\w*|убит\w*|ранен\w*|теракт\w*|'
@@ -342,7 +343,7 @@ def stable_percent(key, salt):
     return int(hashlib.sha256(f'{salt}:{key}'.encode('utf-8')).hexdigest()[:8], 16) % 100
 
 
-def brand_line(event, sources, settings, score):
+def brand_line(event, sources, settings, score, market=False):
     mode = settings.get('branding_mode', 'auto')
     if mode == 'off' or score >= 90 or str(event.get('sensitive', '')).lower() == 'true':
         return ''
@@ -351,13 +352,14 @@ def brand_line(event, sources, settings, score):
     if SENSITIVE_WORDS.search(context):
         return ''
     key = str(event.get('event_key', ''))
-    if stable_percent(key, 'brand-post') >= int(settings.get('branding_percent', 70)):
+    if not market and stable_percent(key, 'brand-post') >= int(settings.get('branding_percent', 70)):
         return ''
     if mode == 'custom':
         copy = str(settings.get('branding_text', '')).strip()
     elif stable_percent(key, 'brand-ai') < int(settings.get('branding_ai_percent', 80)):
         copy = str(event.get('brand_line_ru', '')).strip()
         if (not copy or len(copy) > 150 or 'http' in copy.lower() or
+                not re.search(r'(?i)следи|держи|открой|попробуй|начни|загляни', copy) or
                 not russian_copy(copy.replace('FINDOLLAR', ''))):
             copy = ''
     else:
@@ -365,9 +367,10 @@ def brand_line(event, sources, settings, score):
     if not copy:
         copy = BRAND_TEMPLATES[stable_percent(key, 'brand-template') % len(BRAND_TEMPLATES)]
     brand = html_link('FINDOLLAR', BRAND_URL)
+    copy = re.sub(r'^\s*💚\s*', '', copy).strip()
     if 'FINDOLLAR' in copy:
-        return escape(copy).replace('FINDOLLAR', brand, 1)
-    return f'{escape(copy)} {brand}'
+        return '💚 ' + escape(copy).replace('FINDOLLAR', brand, 1)
+    return f'💚 {escape(copy)} {brand}'
 
 
 def post_text(event, sources, branding=''):
@@ -612,13 +615,18 @@ def process_market(config, state, now, enabled):
                 print(f'{key}: same movement episode or cooldown')
                 continue
             name = {'BTC': 'Биткоин', 'ETH': 'Эфир', 'SOL': 'Солана'}[symbol]
-            verb = 'вырос' if change > 0 else 'упал'
+            verb = ('выросла' if change > 0 else 'упала') if symbol == 'SOL' else ('вырос' if change > 0 else 'упал')
             period_ru = '1 час' if period == '1h' else '24 часа'
             message = (f'📊 {name} {verb} на {abs(change):.2f}% за {period_ru}\n\n'
                        f'{symbol}/USDT: {old:,.2f} → {new:,.2f} USDT\n'
-                       f'Период: {period_ru}. Источник: '
+                       f'Период: {period_ru}.\n\nИсточник:\n'
                        f'{html_link("Binance Spot", f"https://www.binance.com/en/trade/{symbol}_USDT")}\n\n'
                        'Рыночные данные, не торговая рекомендация.')
+            market_brand = brand_line(
+                {'event_key': f'{key}:{iso(now)}', 'title_ru': name,
+                 'body_ru': '', 'brand_line_ru': ''}, [], config, 85, market=True)
+            if market_brand:
+                message += '\n\n' + market_brand
             urgent = abs(change) >= float(settings.get('urgent_percent', 10 if period == '1h' else 15))
             if enabled:
                 if send_telegram(message, urgent=urgent, now=now):

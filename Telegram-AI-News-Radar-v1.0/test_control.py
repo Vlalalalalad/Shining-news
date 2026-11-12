@@ -100,6 +100,7 @@ class ControlTests(unittest.TestCase):
              patch.object(control.json, 'loads', side_effect=lambda value: self.config), \
              patch.object(radar, 'load_state', return_value=self.state), \
              patch.object(control, 'telegram', side_effect=lambda method, payload:
+                          {} if method == 'getWebhookInfo' else
                           {'username': 'testbot'} if method == 'getMe' else updates) as api, \
              patch.object(control, 'send_private'), \
              patch.object(radar, 'save_state', side_effect=lambda state: saved.append(dict(state))):
