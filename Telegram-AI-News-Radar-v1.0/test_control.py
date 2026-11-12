@@ -67,7 +67,8 @@ class ControlTests(unittest.TestCase):
             control.handle_update(self.message(100, 'Новини: вимкнути'),
                                   self.state, self.config)
         self.assertFalse(self.state['settings']['news_enabled'])
-        self.assertEqual(send.call_args.args[2][0][0]['text'], 'Новини: увімкнути')
+        self.assertEqual(send.call_args.args[2][0][0]['text'], '📰 Новини')
+        self.assertTrue(send.call_args.kwargs['inline'])
         with patch.object(control, 'telegram') as api:
             control.send_private(100, 'test', send.call_args.args[2])
         self.assertIn('keyboard', api.call_args.args[1]['reply_markup'])
@@ -95,6 +96,56 @@ class ControlTests(unittest.TestCase):
         self.assertIn('Мои финансы.', radar.brand_line(event, sources, settings, 85))
         settings['branding_percent'] = 0
         self.assertEqual(radar.brand_line(event, sources, settings, 85), '')
+
+    def callback(self, sender, action):
+        return {'callback_query': {'id': 'test', 'from': {'id': sender},
+                'data': 'ui:' + action,
+                'message': {'chat': {'id': sender, 'type': 'private'}}}}
+
+    def test_guided_number_entry_validates_and_isolates_admins(self):
+        self.config['admin_user_hashes'].append(hashlib.sha256(b'101').hexdigest())
+        with patch.object(control, 'telegram'), patch.object(control, 'send_private') as send:
+            control.handle_update(self.callback(100, 'ask:limit'), self.state, self.config)
+            control.handle_update(self.message(101, '6'), self.state, self.config)
+            self.assertNotIn('max_regular_per_day', self.state['settings'])
+            control.handle_update(self.message(100, '99'), self.state, self.config)
+            self.assertIn('pending', self.state['control_ui']['100'])
+            control.handle_update(self.message(100, '6'), self.state, self.config)
+            self.assertEqual(self.state['settings']['max_regular_per_day'], 6)
+            self.assertNotIn('pending', self.state['control_ui']['100'])
+            self.assertIn('Зараз: <b>6</b>', send.call_args.args[1])
+
+    def test_custom_text_and_cancel_need_no_slash_command(self):
+        with patch.object(control, 'telegram'), patch.object(control, 'send_private') as send:
+            control.handle_update(self.callback(100, 'ask:brandtext'), self.state, self.config)
+            control.handle_update(self.message(100, 'Следи за своими финансами с FINDOLLAR.'),
+                                  self.state, self.config)
+            self.assertEqual(self.state['settings']['branding_mode'], 'custom')
+            control.handle_update(self.callback(100, 'ask:limit'), self.state, self.config)
+            control.handle_update(self.callback(100, 'cancel'), self.state, self.config)
+            self.assertNotIn('pending', self.state['control_ui']['100'])
+            control.handle_update(self.callback(100, 'page:brand'), self.state, self.config)
+            self.assertIn('Режим: <b>Мій текст</b>', send.call_args.args[1])
+            self.assertNotIn('/brand auto|', send.call_args.args[1])
+
+    def test_buttons_show_current_value_and_confirm_saved_choice(self):
+        with patch.object(control, 'telegram'), patch.object(control, 'send_private') as send:
+            control.handle_update(self.callback(100, 'set:m_ETH_24h:7'), self.state, self.config)
+            self.assertEqual(self.state['settings']['market_thresholds']['ETH']['24h'], 7)
+            self.assertIn('Зараз: <b>7%</b>', send.call_args.args[1])
+            labels = [button['text'] for row in send.call_args.args[2] for button in row]
+            self.assertIn('✅ 7%', labels)
+
+    def test_inline_change_updates_the_existing_menu(self):
+        update = self.callback(100, 'set:limit:3')
+        update['callback_query']['message']['message_id'] = 99
+        with patch.object(control, 'telegram') as api, patch.object(control, 'send_private') as send:
+            control.handle_update(update, self.state, self.config)
+        edits = [call for call in api.call_args_list if call.args[0] == 'editMessageText']
+        self.assertEqual(len(edits), 1)
+        self.assertEqual(edits[0].args[1]['message_id'], 99)
+        self.assertIn('Зараз: <b>3</b>', edits[0].args[1]['text'])
+        send.assert_not_called()
 
     def test_polling_saves_offset_and_settings_only_for_admin(self):
         updates = [self.message(200, '/limit 10'), self.message(100, '/limit 7')]

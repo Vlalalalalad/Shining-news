@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Private Telegram control panel, polled by a separate GitHub Actions job."""
+"""Private Telegram command handler and radar settings synchronization."""
 from __future__ import annotations
 
-from html import escape
 import hashlib
 import hmac
 import json
@@ -22,10 +21,14 @@ def telegram(method, payload):
     return result['result']
 
 
-def send_private(chat_id, text, keyboard=None):
+def send_private(chat_id, text, keyboard=None, inline=False, remove_keyboard=False):
     payload = {'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML',
                'link_preview_options': {'is_disabled': True}}
-    if keyboard:
+    if remove_keyboard:
+        payload['reply_markup'] = {'remove_keyboard': True}
+    elif keyboard and inline:
+        payload['reply_markup'] = {'inline_keyboard': keyboard}
+    elif keyboard:
         payload['reply_markup'] = {'keyboard': keyboard, 'resize_keyboard': True}
     telegram('sendMessage', payload)
     print('Control: private reply delivered')
@@ -41,38 +44,8 @@ def is_admin(user_id, config):
 
 
 def settings_view(state, config):
-    current = radar.effective_config(config, state)
-    mode = current.get('branding_mode', 'auto')
-    market = current['market_alerts']
-    text = (
-        '<b>Налаштування новин</b>\n'
-        f"Новини: {'увімкнено' if current.get('news_enabled', True) else 'вимкнено'}\n"
-        f"Реклама: {escape(mode)}, {current.get('branding_percent', 70)}% постів, "
-        f"{current.get('branding_ai_percent', 80)}% фраз від Gemini\n"
-        'Цінові алерти: з підписом, якщо реклама не вимкнена\n'
-        f"Свій текст: {escape(str(current.get('branding_text', '') or 'не задано'))}\n"
-        f"Ліміт: {current.get('max_regular_per_day', 5)} звичайних на день\n"
-        f"Мінімальний інтервал: {current.get('min_post_gap_minutes', 0)} хв\n"
-        f"Поріг новин: {current['importance_threshold']}/100\n"
-        f"Максимум за запуск: {current['max_posts_per_run']}\n"
-        f"BTC/ETH/SOL 1г/24г: " + ', '.join(
-            f"{symbol} {market[symbol]['1h']['threshold_percent']:g}%/"
-            f"{market[symbol]['24h']['threshold_percent']:g}%"
-            for symbol in ('BTC', 'ETH', 'SOL')) + '\n\n'
-        '<b>Команди</b>\n'
-        '/news on|off · /brand auto|custom|off\n'
-        '/brandtext ваш текст із FINDOLLAR\n'
-        '/limit 0..10 · /gap 0..240 · /threshold 75..100\n'
-        '/perrun 1..5 · /ads 0..100 · /aiads 0..100\n'
-        '/market BTC 1h 5 (також ETH, SOL і 24h)\n'
-        '/id — показати свій Telegram ID')
-    keyboard = [
-        [{'text': 'Новини: увімкнути'}, {'text': 'Новини: вимкнути'}],
-        [{'text': 'Реклама: авто'}, {'text': 'Реклама: свій текст'},
-         {'text': 'Реклама: вимкнути'}],
-        [{'text': 'Показати налаштування'}],
-    ]
-    return text, keyboard
+    from control_ui import view
+    return view(state, config)
 
 
 def set_number(settings, name, raw, low, high):
@@ -132,55 +105,16 @@ def handle_update(update, state, config):
     sender = (callback or message).get('from', {})
     chat = message.get('chat', {})
     user_id = sender.get('id')
-    raw_text = message.get('text', '')
-    command = raw_text.split(maxsplit=1)[0].split('@')[0] if raw_text.startswith('/') else 'text_or_button'
-    print(f"Control update: type={chat.get('type', 'unknown')} "
-          f"admin={is_admin(user_id, config)} command={command}")
     if chat.get('type') != 'private' or chat.get('id') != user_id:
         return
-    if not callback and message.get('text', '').split(maxsplit=1)[0:1] == ['/id']:
+    if not callback and message.get('text', '').strip().split('@')[0] == '/id':
         send_private(user_id, f'Ваш Telegram ID: <code>{user_id}</code>')
         return
     if not is_admin(user_id, config):
         print('Control: ignored non-admin private update')
         return
-    settings = state.setdefault('settings', {})
-    if callback:
-        value = callback.get('data', '')
-        if value.startswith('news:') or value.startswith('brand:'):
-            try:
-                apply_command('/' + value.replace(':', ' ', 1), settings)
-            except ValueError as err:
-                try:
-                    telegram('answerCallbackQuery', {'callback_query_id': callback['id'],
-                                                     'text': str(err)[:180]})
-                except RuntimeError:
-                    pass
-                return
-        elif value != 'settings:show':
-            return
-        try:
-            telegram('answerCallbackQuery', {'callback_query_id': callback['id']})
-        except RuntimeError:
-            print('Control: callback expired before poll; settings still applied')
-    else:
-        text = message.get('text', '').strip()
-        text = {
-            'Новини: увімкнути': '/news on',
-            'Новини: вимкнути': '/news off',
-            'Реклама: авто': '/brand auto',
-            'Реклама: свій текст': '/brand custom',
-            'Реклама: вимкнути': '/brand off',
-            'Показати налаштування': '/settings',
-        }.get(text, text)
-        if text not in ('/start', '/settings', '/help'):
-            try:
-                apply_command(text, settings)
-            except (ValueError, IndexError) as err:
-                send_private(user_id, escape(str(err)))
-                return
-    view, keyboard = settings_view(state, config)
-    send_private(user_id, view, keyboard)
+    from control_ui import handle_admin
+    handle_admin(update, state, config)
 
 
 def main():
