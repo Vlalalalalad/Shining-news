@@ -2,259 +2,6 @@
   "ai_pending": false,
   "article_cache": [
     {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Crypto",
-      "domain": "coindesk.com",
-      "id": "14fe4a93c76f70b1",
-      "official": false,
-      "source": "CoinDesk",
-      "summary": "Federal authorities say they've taken infrastructure used in the FaceStealer scheme used to steal as much as $400 million in crypto assets.",
-      "title": "North Korea's Binance hack faces U.S. crackdown as DOJ targets $1.2 billion in stolen crypto",
-      "url": "https://www.coindesk.com/policy/2026/11/12/north-korea-s-binance-hack-faces-u-s-crackdown-as-doj-targets-usd1-2-billion-in-stolen-crypto"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Crypto",
-      "domain": "coindesk.com",
-      "id": "3ea631f1b8d97a1a",
-      "official": false,
-      "source": "CoinDesk",
-      "summary": "U.S. President Donald Trump has named two potential commissioners each to the Securities and Exchange Commission and Commodity Futures Trading Commission.",
-      "title": "U.S. President Trump names CFTC, SEC nominees for first time in a year",
-      "url": "https://www.coindesk.com/policy/2026/11/12/u-s-president-names-cftc-sec-nominees-for-first-time-in-a-year"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "48091c99b3fd2626",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "The White House also named a former CFTC commissioner and two CLARITY Act veterans as nominees to fill vacancies at the SEC and CFTC.",
-      "title": "Trump nominates Hester Peirce successor among SEC, CFTC picks",
-      "url": "https://cointelegraph.com/news/trump-nominates-hester-peirce-successor-among-sec-cftc-picks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "f318401d02c5ad0b",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "Reuters reported that Jensen Huang had a relationship with another Nvidia employee, hours after he resigned as CEO.",
-      "title": "Former Nvidia CEO Huang had third alleged affair: Reuters",
-      "url": "https://cointelegraph.com/news/former-nvidia-ceo-huang-had-third-alleged-affair-reuters?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "aa1f25dec0a91989",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "Gemini’s third-quarter trading rebound masked a deepening retail slump.",
-      "title": "Gemini’s quarterly retail trading volume sinks to 3-year low",
-      "url": "https://cointelegraph.com/markets/geminis-quarterly-retail-trading-volume-sinks-to-3-year-low?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "4adf5da98dba81fa",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "Maple Finance co-founder Joe Flanagan and COO Ryan O’Shea are leaving over disagreements about the firm’s direction as SYRUP falls despite revenue growth.",
-      "title": "Maple Finance’s strategy rift sends co-founder, COO to the exits",
-      "url": "https://cointelegraph.com/news/maple-finance-strategy-rift-co-founder-coo-exit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "607d4d7557c40807",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "US lawmakers now want to question him over whether one of his alleged relationships was with a Chinese spy.",
-      "title": "Scandal-hit Nvidia CEO Jensen Huang quits, plunging AI chipmaking giant into turmoil",
-      "url": "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "7d226533f769fbf1",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "Microsoft said the outage was caused by servers unexpected becoming unavailable, straining other systems.",
-      "title": "Microsoft struggling to restore service as global outage affects Outlook and Teams",
-      "url": "https://www.bbc.co.uk/news/articles/c5gm3g9ldz8xo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "e31d579ac0149753",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "Experts warn that using AI to enhance property images can go too far and mislead prospective buyers.",
-      "title": "The rise of 'housefishing' - when does using AI go from enhancing to misleading?",
-      "url": "https://www.bbc.co.uk/news/articles/cm62y0wrnz9zo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "cab141483a15aad4",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "We ask people in New York City how much they pay for their homes.",
-      "title": "'My window faces a brick wall': What's your rent in NYC?",
-      "url": "https://www.bbc.co.uk/news/videos/c6wy9j9v7nl7o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "c4e104b78dbe843c",
-      "official": false,
-      "source": "BBC World",
-      "summary": "The Ukrainian president says it makes sense for European leaders to be involved as Ukraine hopes to eventually join the EU.",
-      "title": "Zelensky welcomes US bringing Europe into Russia-Ukraine peace talks",
-      "url": "https://www.bbc.co.uk/news/articles/ckn80j9jv3jxo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "5ab32b935289d189",
-      "official": false,
-      "source": "BBC World",
-      "summary": "More than 900 victims are thought to have fallen prey to the FaceStealer scheme in the last 18 months.",
-      "title": "North Korean hackers used fake video calls in $400m crypto hack, says FBI",
-      "url": "https://www.bbc.co.uk/news/articles/cqdj1ellpd70o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "98747013ce5b4908",
-      "official": false,
-      "source": "BBC World",
-      "summary": "The army has taken control of most of Tigray's main towns - it is unclear if the TPLF is capable of fighting back.",
-      "title": "Neither war nor peace in Tigray - is Ethiopia's latest conflict really over?",
-      "url": "https://www.bbc.co.uk/news/articles/cm3egjgvp794o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "e56c4b761af68d91",
-      "official": false,
-      "source": "BBC World",
-      "summary": "Four Sydney Swans players had been under investigation after an alleged sexual assault after a game in Melbourne.",
-      "title": "Australian footballers will not be charged after hotel incident, police say",
-      "url": "https://www.bbc.co.uk/news/articles/ckregjwr7njqo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "79397d2c51e92e6b",
-      "official": false,
-      "source": "BBC World",
-      "summary": "BBC's Bernd Debusmann breaks down why Defence Secretary Hegseth's group was reprimanded at Arlington National Cemetery and the history behind its strict rules of conduct.",
-      "title": "Military cemetery decorum: The tradition behind Hegseth's Veterans Day reprimand",
-      "url": "https://www.bbc.co.uk/news/videos/cv5y1309dg3go?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "32df4f7d6cd40e27",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "This Congressional investigation into Nvidia's China sales and its dealings with Trump is the second one, so far, since news of the alleged spy affair broke.",
-      "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
-      "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "a33c16c8e7593e79",
-      "official": false,
-      "source": "The Verge",
-      "summary": "Jensen Huang resigned this morning as Nvidia's CEO following reports of affairs, including one with an alleged Chinese spy. Right now, the company is being led by its CFO on an interim basis. But President Donald Trump is already throwing around one person he thinks should take over the chipmaking giant: former Apple CEO Tim […]",
-      "title": "Donald Trump really wants Tim Cook to run Nvidia",
-      "url": "https://www.theverge.com/tech/1032774/president-donald-trump-tim-cook-nvidia-jensen-huang"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "371ebe6d794efd4a",
-      "official": false,
-      "source": "The Verge",
-      "summary": "It's been nearly a decade since Bethesda's MachineGames released Wolfenstein II: The New Colossus in 2017, and now Xbox is ready to announce a sequel from the studio. Wolfenstein 3 was officially announced today, just days after Bethesda also confirmed that the next Elder Scrolls game will be called The Elder Scrolls VI: Sentinel. In […]",
-      "title": "Xbox announces Wolfenstein 3",
-      "url": "https://www.theverge.com/news/1032431/xbox-bethesda-wolfenstein-3"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "dd62360cdb556845",
-      "official": false,
-      "source": "The Verge",
-      "summary": "Starting Thursday, Whoop members can share their data from its wearables on the app's new Whoop Humans social network. Users can make their metrics, activities, and achievements visible to other Whoop wearers, post Story-like \"Moments\" with photos and captions, and add comments and reactions on other members' posts. Whoop claims its platform is \"entirely human,\" […]",
-      "title": "Whoop launched a social network where every user has a ‘verified heartbeat’",
-      "url": "https://www.theverge.com/gadgets/1032630/whoop-humans-social-network"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "ecab0e7e397b3108",
-      "official": false,
-      "source": "The Verge",
-      "summary": "The Humble Bundle storefront for buying games and other software recently got a new look, but on the settings page, it no longer offers a way to add or update two-factor verification methods, as reported by Kotaku. PC Gamer also points out that there are Humble Bundle support pages discussing two-factor verification, and the writer […]",
-      "title": "Humble Bundle redesign removes two-factor verification from settings",
-      "url": "https://www.theverge.com/games/1032659/humble-bundle-redesign-two-factor-verification-security-settings"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "AI/Tech",
-      "domain": "arstechnica.com",
-      "id": "a965b08f0119dd6b",
-      "official": false,
-      "source": "Ars Technica",
-      "summary": "Men aged 50–69 and at average risk should get PSA screening every two years.",
-      "title": "In reversal, American Cancer Society urges routine prostate cancer screening",
-      "url": "https://arstechnica.com/health/2026/11/in-reversal-american-cancer-society-urges-prostate-cancer-tests-for-all-men/"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Science",
-      "domain": "bbc.co.uk",
-      "id": "74de562f1d36b44f",
-      "official": false,
-      "source": "BBC Science",
-      "summary": "Jean Powell kept asking when she could go back to her flat, which was flooded when the River Monnow burst its banks.",
-      "title": "Flood victim, 95, lived in Wetherspoons after her home was destroyed and died before she could return",
-      "url": "https://www.bbc.co.uk/news/articles/cqe8r8ngjepjo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-13T03:24:21+00:00",
-      "category": "Science",
-      "domain": "bbc.co.uk",
-      "id": "3532a4e0aa8a23b1",
-      "official": false,
-      "source": "BBC Science",
-      "summary": "More than 76,000 sewage spills were recorded at overflow sites previously unmonitored by Scottish Water, BBC Scotland News analysis has found.",
-      "title": "How many sewage spills have happened in your part of Scotland?",
-      "url": "https://www.bbc.co.uk/news/articles/c0re545l8jdo?at_medium=RSS&at_campaign=rss"
-    },
-    {
       "added_at": "2026-11-13T11:32:08+00:00",
       "category": "Crypto",
       "domain": "coindesk.com",
@@ -1375,6 +1122,72 @@
       "summary": "Google Cloud Credits in AI Studio",
       "title": "Claim your Google Cloud Credits in Google AI Studio",
       "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/"
+    },
+    {
+      "added_at": "2026-11-14T07:00:10+00:00",
+      "category": "Crypto",
+      "domain": "coindesk.com",
+      "id": "0949d767caecba5c",
+      "official": false,
+      "source": "CoinDesk",
+      "summary": "The roughly $5 million transfer also spent the tiny payment used to deliver a court notice to the address in May.",
+      "title": "Satoshi-era wallet served in a $260 billion lawsuit moves 75 BTC it held since 2011",
+      "url": "https://www.coindesk.com/markets/2026/11/13/satoshi-era-wallet-served-in-a-usd260-billion-lawsuit-moves-75-btc-it-held-since-2011"
+    },
+    {
+      "added_at": "2026-11-14T07:00:10+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "6a6d922257e6f3ed",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "US spot Bitcoin ETFs recorded $185.4 million in net outflows Friday, with BlackRock’s IBIT accounting for $143.5 million and Fidelity’s FBTC shedding $41.9 million.",
+      "title": "Bitcoin ETFs shed $2.35B in two weeks as BlackRock’s losing streak hits 11 sessions",
+      "url": "https://cointelegraph.com/markets/bitcoin-etf-outflows-2-35-billion-blackrock-11-session-streak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-14T07:00:10+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "834a012eee01c19e",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Staff fear the government stockpiling advice will have an impact on donations as Christmas looms.",
+      "title": "Food bank sees donations drop by 10% each year",
+      "url": "https://www.bbc.co.uk/news/articles/c6702j7e48eno?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-14T07:00:10+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "530533c1157d7fd4",
+      "official": false,
+      "source": "BBC World",
+      "summary": "US officials say the disruption was caused by old equipment overloading and not a cyber-attack or a Microsoft outage.",
+      "title": "What we know about the longest ground stop since 9/11",
+      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-14T07:00:10+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "c680cb902e27912f",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Trump will discuss the \"reduction of nuclear weapons\" during the unprecedented talks, a spokeswoman says.",
+      "title": "Trump, Putin and Xi plan historic joint meeting in China next week, White House says",
+      "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-14T07:00:10+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "27fee21f2e308527",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Sean Duffy, the transportation secretary, said the airspace was now open and the problem had been identified Chaos at US airports as stoppage grinds travel plans to a halt What to know about the rare nationwide ground stop issued by the FAA The Federal Aviation Administration (FAA) has lifted a nationwide ground stop that was declared Friday afternoon, delaying or canceling more than 11,000 US flights, according to aviation tracker FlightAware , and throwing airports into sudden chaos. The FAA confirmed the airspace was open in an advisory on its website . “So at 8.15 tonight, Eastern Time, we’ve opened up the airspace,” Sean Duffy, the US tr",
+      "title": "US aviation agency lifts nationwide ground stop affecting all air travel",
+      "url": "https://www.theguardian.com/world/2026/nov/13/faa-nationwide-ground-stop-flights"
     }
   ],
   "btc": {
@@ -1409,6 +1222,7 @@
     "081e17bd39ee8b24": "2026-11-07T00:52:56+00:00",
     "082aa9ac915444e4": "2026-11-07T18:44:15+00:00",
     "092ce72d6c90fa29": "2026-11-12T22:42:41+00:00",
+    "0949d767caecba5c": "2026-11-14T07:00:10+00:00",
     "09568f176e716077": "2026-11-06T21:03:44+00:00",
     "096eb044f31b0c64": "2026-11-10T23:15:06+00:00",
     "09ea3fb92203e6a8": "2026-11-06T14:49:25+00:00",
@@ -1531,6 +1345,7 @@
     "27c7e57f89df3f6d": "2026-11-10T23:15:06+00:00",
     "27e55c022079d6ac": "2026-11-09T18:43:11+00:00",
     "27f896233dc6248d": "2026-11-11T02:59:51+00:00",
+    "27fee21f2e308527": "2026-11-14T07:00:10+00:00",
     "2826810ae2f67188": "2026-11-08T16:19:20+00:00",
     "28efe7b8e0b347ab": "2026-11-13T18:45:06+00:00",
     "2a551477860af711": "2026-11-11T18:39:12+00:00",
@@ -1693,6 +1508,7 @@
     "51f4600a62553734": "2026-11-10T02:02:12+00:00",
     "51fa09c462562ef7": "2026-11-05T18:41:59+00:00",
     "523d76047aac70b3": "2026-11-06T21:03:44+00:00",
+    "530533c1157d7fd4": "2026-11-14T07:00:10+00:00",
     "5308c7ed8c13ac56": "2026-11-12T08:16:56+00:00",
     "535f2d05b8d66026": "2026-11-06T07:24:12+00:00",
     "537d1229e28dcb29": "2026-11-14T00:19:20+00:00",
@@ -1803,6 +1619,7 @@
     "69a4be7aab7399d4": "2026-11-13T18:45:06+00:00",
     "6a0a4f193e4e5b09": "2026-11-13T18:45:06+00:00",
     "6a4da90b755cb8d4": "2026-11-10T23:15:06+00:00",
+    "6a6d922257e6f3ed": "2026-11-14T07:00:10+00:00",
     "6abca871feff9104": "2026-11-14T00:19:20+00:00",
     "6b0875495d9978f4": "2026-11-12T01:00:00+00:00",
     "6b4cc58ac4791035": "2026-11-06T14:49:25+00:00",
@@ -1910,6 +1727,7 @@
     "829c82d81c0a08b0": "2026-11-13T11:32:08+00:00",
     "82a1fdfc33e530be": "2026-11-09T07:54:38+00:00",
     "8315cc8736b7c55f": "2026-11-06T14:49:25+00:00",
+    "834a012eee01c19e": "2026-11-14T07:00:10+00:00",
     "836db68309bfece2": "2026-11-09T18:43:11+00:00",
     "839b46e820f43b49": "2026-11-12T17:04:15+00:00",
     "83b8b7ae95d54e1d": "2026-11-06T21:03:44+00:00",
@@ -2204,6 +2022,7 @@
     "c650b02fc655d4a0": "2026-11-10T17:45:49+00:00",
     "c671ea4ba5ffec8c": "2026-11-09T07:54:38+00:00",
     "c67f8109386fc65f": "2026-11-10T17:45:49+00:00",
+    "c680cb902e27912f": "2026-11-14T07:00:10+00:00",
     "c6866791fe0f8bd4": "2026-11-05T18:41:59+00:00",
     "c6ae51f0f919c58b": "2026-11-07T18:44:15+00:00",
     "c7148a5c2c31f47e": "2026-11-10T17:45:49+00:00",
@@ -2455,10 +2274,10 @@
       "peak": 0
     },
     "BTC:24h": {
-      "active": true,
+      "active": false,
       "direction": "down",
       "last_at": "2026-11-13T03:24:21+00:00",
-      "peak": 5.871213173999667
+      "peak": 0
     },
     "ETH:1h": {
       "active": false,
@@ -2475,10 +2294,10 @@
       "peak": 0
     },
     "SOL:24h": {
-      "active": false,
+      "active": true,
       "direction": "down",
-      "last_at": "2026-11-10T17:45:49+00:00",
-      "peak": 0
+      "last_at": "2026-11-14T07:00:10+00:00",
+      "peak": 5.573566084788029
     }
   },
   "published": [
