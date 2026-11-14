@@ -1,5 +1,5 @@
 {
-  "ai_pending": false,
+  "ai_pending": true,
   "article_cache": [
     {
       "added_at": "2026-11-14T00:19:20+00:00",
@@ -880,6 +880,61 @@
       "summary": "On January 6th, 2025, Nvidia CEO Jensen Huang got his rockstar moment at last. He strode triumphantly onstage, hand raised in the air, to the claps and cheers of a 14,000-person arena absolutely packed with influencers and fans, their faces awash in blue glow, as he made his entrance in a black leather jacket that […]",
       "title": "Jensen Huang and the decline of the visionary showman founder CEO",
       "url": "https://www.theverge.com/tech/1033781/nvidia-jensen-huang-last-visionary-showman-founder-ceo"
+    },
+    {
+      "added_at": "2026-11-14T22:58:06+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "22f849a8a9998288",
+      "official": false,
+      "source": "BBC World",
+      "summary": "SpaceX has performed the historic catch using mechanical arms nicknamed \"chopsticks\".",
+      "title": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth",
+      "url": "https://www.bbc.co.uk/news/videos/cwlym2gy3y3eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-14T22:58:06+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "e86112d5f8734949",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "The petition had attracted more than 115,000 signatures as of Saturday afternoon.",
+      "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+      "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
+    },
+    {
+      "added_at": "2026-11-14T22:58:06+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "9e314a8f744ef711",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "Even Elon Musk said the monthly fee is \"too high.\"",
+      "title": "Tesla opens Cybercab pre-orders ‘for personal use,’ with geo restrictions and a $299 monthly fee",
+      "url": "https://techcrunch.com/2026/11/14/tesla-opens-cybercab-pre-orders-for-personal-use-with-geo-restrictions-and-a-299-monthly-fee/"
+    },
+    {
+      "added_at": "2026-11-14T22:58:06+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "c319b12e1cc2fac3",
+      "official": false,
+      "source": "The Verge",
+      "summary": "After aborting a planned catch of Starship Flight 15's booster, SpaceX successfully captured Starship with its \"Mechazilla\" launch and catch tower for the first time. The company has performed 'chopstick' catches of its boosters before, but this is the first time the maneuver has successfully been executed on the Starship vehicle itself. SpaceX CEO Elon […]",
+      "title": "Watch SpaceX successfully execute the first ‘chopstick’ catch of Starship",
+      "url": "https://www.theverge.com/science/1033930/spacex-chopstick-starship-catch"
+    },
+    {
+      "added_at": "2026-11-14T22:58:06+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "5ff08b1ef3e37111",
+      "official": false,
+      "source": "The Verge",
+      "summary": "\"It's really happening. I promise. For real.\" Those are the first words from Roy Graham, Head of Story at Magic: The Gathering, in a video posted yesterday announcing Planeswalker, the animated series heading to Netflix in 2027. An animated Magic: The Gathering series was first teased back in 2019 with Joe and Anthony Russo at […]",
+      "title": "Magic: The Gathering is getting a Netflix animated series. For real this time.",
+      "url": "https://www.theverge.com/entertainment/1033909/magic-the-gathering-netflix-series"
     }
   ],
   "btc": {
@@ -1019,6 +1074,7 @@
     "2288e8744b897e95": "2026-11-11T18:39:12+00:00",
     "228c9e72d535ebb9": "2026-11-07T13:57:04+00:00",
     "22e2a728569868f2": "2026-11-06T14:49:25+00:00",
+    "22f849a8a9998288": "2026-11-14T22:58:06+00:00",
     "232bcb44e39c5ca7": "2026-11-12T22:42:41+00:00",
     "23cd30b649775088": "2026-11-12T17:04:15+00:00",
     "23e9c42a56c2d139": "2026-11-11T10:48:55+00:00",
@@ -1268,6 +1324,7 @@
     "5f1ee73a30e41674": "2026-11-06T21:03:44+00:00",
     "5f3f5f973e436c6f": "2026-11-06T21:03:44+00:00",
     "5f986ad1b6037415": "2026-11-10T17:45:49+00:00",
+    "5ff08b1ef3e37111": "2026-11-14T22:58:06+00:00",
     "607d4d7557c40807": "2026-11-13T03:24:21+00:00",
     "60d6b04ed110d40a": "2026-11-10T17:45:49+00:00",
     "60e0cdcb036cddfd": "2026-11-06T00:11:38+00:00",
@@ -1552,6 +1609,7 @@
     "9d3832b3699cec02": "2026-11-12T22:42:41+00:00",
     "9d5d87a4a4770378": "2026-11-10T09:43:25+00:00",
     "9d717bc2f5cefb3f": "2026-11-10T09:43:25+00:00",
+    "9e314a8f744ef711": "2026-11-14T22:58:06+00:00",
     "9e3feb6bb8fadf24": "2026-11-08T16:19:20+00:00",
     "9e40c95d4da9e2b4": "2026-11-06T21:03:44+00:00",
     "9e4c79d75cc4fb6c": "2026-11-10T09:43:25+00:00",
@@ -1727,6 +1785,7 @@
     "c262b9961ff71dc3": "2026-11-06T21:03:44+00:00",
     "c273b9fd9591e959": "2026-11-11T02:59:51+00:00",
     "c2db6d420c7d0227": "2026-11-12T08:16:56+00:00",
+    "c319b12e1cc2fac3": "2026-11-14T22:58:06+00:00",
     "c32c9bb4ff06b22c": "2026-11-12T17:04:15+00:00",
     "c4b3c1078e2d8fe4": "2026-11-10T02:02:12+00:00",
     "c4bc507025bdc22c": "2026-11-09T18:43:11+00:00",
@@ -1897,6 +1956,7 @@
     "e6d6c85b3eb3fa4e": "2026-11-05T18:41:59+00:00",
     "e714212c469467e2": "2026-11-13T18:45:06+00:00",
     "e7a7eed0983e3aff": "2026-11-12T22:42:41+00:00",
+    "e86112d5f8734949": "2026-11-14T22:58:06+00:00",
     "e869dd4c2eff5433": "2026-11-09T07:54:38+00:00",
     "e90733f65aaa56b6": "2026-11-06T21:03:44+00:00",
     "e95078269422a6a1": "2026-11-05T18:41:59+00:00",
@@ -1997,17 +2057,17 @@
     "ffcde67cd55e39dd": "2026-11-14T00:19:20+00:00",
     "fffe7bfbe682267d": "2026-11-12T22:42:41+00:00"
   },
-  "last_check_day": "2026-11-14",
+  "last_check_day": "2026-11-15",
   "market_alerts": {
     "BTC:1h": {
       "active": false,
       "peak": 0
     },
     "BTC:24h": {
-      "active": false,
+      "active": true,
       "direction": "down",
-      "last_at": "2026-11-13T03:24:21+00:00",
-      "peak": 0
+      "last_at": "2026-11-14T22:58:06+00:00",
+      "peak": 7.275103685962958
     },
     "ETH:1h": {
       "active": false,
