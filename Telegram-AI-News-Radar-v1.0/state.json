@@ -2,72 +2,6 @@
   "ai_pending": false,
   "article_cache": [
     {
-      "added_at": "2026-11-14T07:00:10+00:00",
-      "category": "Crypto",
-      "domain": "coindesk.com",
-      "id": "0949d767caecba5c",
-      "official": false,
-      "source": "CoinDesk",
-      "summary": "The roughly $5 million transfer also spent the tiny payment used to deliver a court notice to the address in May.",
-      "title": "Satoshi-era wallet served in a $260 billion lawsuit moves 75 BTC it held since 2011",
-      "url": "https://www.coindesk.com/markets/2026/11/13/satoshi-era-wallet-served-in-a-usd260-billion-lawsuit-moves-75-btc-it-held-since-2011"
-    },
-    {
-      "added_at": "2026-11-14T07:00:10+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "6a6d922257e6f3ed",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "US spot Bitcoin ETFs recorded $185.4 million in net outflows Friday, with BlackRock’s IBIT accounting for $143.5 million and Fidelity’s FBTC shedding $41.9 million.",
-      "title": "Bitcoin ETFs shed $2.35B in two weeks as BlackRock’s losing streak hits 11 sessions",
-      "url": "https://cointelegraph.com/markets/bitcoin-etf-outflows-2-35-billion-blackrock-11-session-streak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-14T07:00:10+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "834a012eee01c19e",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "Staff fear the government stockpiling advice will have an impact on donations as Christmas looms.",
-      "title": "Food bank sees donations drop by 10% each year",
-      "url": "https://www.bbc.co.uk/news/articles/c6702j7e48eno?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T07:00:10+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "530533c1157d7fd4",
-      "official": false,
-      "source": "BBC World",
-      "summary": "US officials say the disruption was caused by old equipment overloading and not a cyber-attack or a Microsoft outage.",
-      "title": "What we know about the longest ground stop since 9/11",
-      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T07:00:10+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "c680cb902e27912f",
-      "official": false,
-      "source": "BBC World",
-      "summary": "Trump will discuss the \"reduction of nuclear weapons\" during the unprecedented talks, a spokeswoman says.",
-      "title": "Trump, Putin and Xi plan historic joint meeting in China next week, White House says",
-      "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T07:00:10+00:00",
-      "category": "Business",
-      "domain": "theguardian.com",
-      "id": "27fee21f2e308527",
-      "official": false,
-      "source": "The Guardian Business",
-      "summary": "Sean Duffy, the transportation secretary, said the airspace was now open and the problem had been identified Chaos at US airports as stoppage grinds travel plans to a halt What to know about the rare nationwide ground stop issued by the FAA The Federal Aviation Administration (FAA) has lifted a nationwide ground stop that was declared Friday afternoon, delaying or canceling more than 11,000 US flights, according to aviation tracker FlightAware , and throwing airports into sudden chaos. The FAA confirmed the airspace was open in an advisory on its website . “So at 8.15 tonight, Eastern Time, we’ve opened up the airspace,” Sean Duffy, the US tr",
-      "title": "US aviation agency lifts nationwide ground stop affecting all air travel",
-      "url": "https://www.theguardian.com/world/2026/nov/13/faa-nationwide-ground-stop-flights"
-    },
-    {
       "added_at": "2026-11-14T14:06:29+00:00",
       "category": "Crypto",
       "domain": "coindesk.com",
@@ -605,6 +539,127 @@
       "summary": "SpaceX has performed the historic catch using mechanical arms nicknamed \"chopsticks\".",
       "title": "SpaceX catches part of its Starship rocket on return to Earth",
       "url": "https://www.bbc.co.uk/news/videos/cw23j8pkk421o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "256f4495ca0379ae",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "The South Korean crypto exchange said potentially exposed information includes passwords, bank account numbers, national identification numbers and crypto wallet addresses.",
+      "title": "Coinone warns of phishing, identity theft after customer data breach",
+      "url": "https://cointelegraph.com/news/coinone-data-breach-phishing-identity-theft-customer-information?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "40324e9d8fa589e3",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "The stUSDT team did not disclose a reason for winding down the RWA protocol but assured holders that all underlying assets remain fully backed.",
+      "title": "RWA protocol stUSDT winds down three years after $2.3B TVL peak",
+      "url": "https://cointelegraph.com/news/rwa-protocol-stusdt-winds-down-three-years-after-23b-tvl-peak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "725edb5f53ee4146",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Pte William Douglas Dal Bianco died from his injuries on Friday, a month after a fire that tore through CFB Wainwright.",
+      "title": "Fifth Canadian soldier dies from injuries caused by large fire at military base",
+      "url": "https://www.bbc.co.uk/news/articles/cmrlgn4x2xw8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "6b2e3c144cb16d98",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Both Hamas and IDF officials confirm the death of Samir Abu Younis, commander of the Rafah Brigade.",
+      "title": "Israel kills Hamas commander in strike on Gaza camp, officials say",
+      "url": "https://www.bbc.co.uk/news/articles/cqrkg4r6mg7xo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "1e257e6b2a0db908",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Exclusive: British sportswear firm is seeking to obtain rights to The Conditioning Club, which is also the name of a Gloucestershire gym Gymshark, the £1bn British sportswear firm started in a family garage , is locked in a trademark battle that threatens the future of a small fitness business. Ben Francis, the university dropout who started sewing his own gym clothes in his parents’ garage and is now estimated to be worth £800m, is trying to add The Conditioning Club to his Gymshark stable of trademarks. Continue reading...",
+      "title": "Gymshark in trademark battle that threatens future of small fitness business",
+      "url": "https://www.theguardian.com/law/2026/nov/15/gymshark-trademark-battle-the-conditioning-club-gloucestershire"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "5b91f4b491f4498f",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Delayed deliveries and inspection hold-ups among issues facing hauliers navigating post-Brexit border processes Three small boxes of spinach and ricotta cannelloni destined for a supermarket in Gibraltar languish on an EU inspector’s bench at the Eurotunnel terminal in Calais. They have been removed from a truck laden with perishables for British food lovers on the Rock – Morrisons steak and ale pie, family-size blocks of Morrisons cheddar cheese, ‘M’ Best coleslaw from Avondale foods in Craigavon in Northern Ireland and long-life milk. Continue reading...",
+      "title": "Pasta, pies and paperwork errors: the reality of Brexit food checks",
+      "url": "https://www.theguardian.com/politics/2026/nov/15/drivers-delays-brexit-food-checks"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "afa1c1b9c6c2b5f9",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Survey respondents describe current or former partners controlling bank accounts and taking out credit online without full consent Almost one in five young women and girls in the UK have experienced digital financial products being used as a tool of abuse by a current or former partner , a report has found. Abusers are exploiting banking apps, online payments and digital credit to control young women, causing financial harm and preventing them from leaving relationships, according to research from the charity Surviving Economic Abuse. In the UK, call the national domestic abuse helpline on 0808 2000 247, or visit Women’s Aid . In the US, the ",
+      "title": "Digital finance products used to abuse almost 20% of young women and girls, UK report finds",
+      "url": "https://www.theguardian.com/society/2026/nov/15/digital-finance-products-abuse-against-young-women-and-girls-report"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "a02591e0164dd5b6",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "In the second in our series, four young Britons reveal how the search has taken a toll on their mental and physical health ‘The social contract is broken’: young people on feeling shut out of careers Guardian to follow lives of eight young people in their search for jobs “I had to quit and move back in with my parents because I had developed ME/chronic fatigue syndrome. I am now housebound and cannot look after myself. Although I cannot prove it, I strongly believe that prolonged period of high stress played a big part in the decline of my health.” Continue reading...",
+      "title": "‘I’m scared about my future’: young people on the stress and desperation of jobseeking",
+      "url": "https://www.theguardian.com/business/2026/nov/15/young-people-stress-seeking-a-job-mental-physical-health"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "eb93c7394ac0d7c2",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Jensen Huang’s affair with a suspected spy is Silicon Valley’s worst nightmare come true The resignation this week of Nvidia’s founder and CEO Jensen Huang is one of the most astonishing corporate scandals in memory, featuring allegations of international espionage and extramarital affairs involving one of the world’s most powerful men. As investigations mount into what went wrong at the $4tn chip company, the saga may also become a milestone in the decades-long history of spies infiltrating the US tech industry. Huang admitted to being unfaithful to his wife of 41 years in a letter to employees this past weekend, following a report from the ",
+      "title": "‘Jensen Huang lost his mind’: how AI’s smartest man fell for the world’s oldest trick",
+      "url": "https://www.theguardian.com/technology/2026/nov/14/jensen-huang-affair-nvidia-nightmare"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "27b9e2e4ae9a6095",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Unlike familiar Captcha tests, this con asks you to press a series of keys. And that’s a way in for fraudsters to install malicious software You are looking for some gifts for Christmas and want to support small businesses when you shop. When you visit the site of one you’ve heard good things about you are asked to verify that you are human. Instead of clicking on a series of images, or typing letters that appear, just as you have seen before, you are asked to press a series of keys and then press enter. Continue reading...",
+      "title": "‘Prove you are not a robot’: how the Captcha scam captures your computer",
+      "url": "https://www.theguardian.com/money/2026/nov/15/captcha-scam-computer-malicious-software"
+    },
+    {
+      "added_at": "2026-11-15T09:54:58+00:00",
+      "category": "Business",
+      "domain": "theguardian.com",
+      "id": "c8e615153da86824",
+      "official": false,
+      "source": "The Guardian Business",
+      "summary": "Clubs with wealthy proprietors can maintain a loss-making operation but things can be more complex when the supporters carry the can When you walk up from Haydons Road train station to Plough Lane there is a blue AFC Wimbledon billboard that reads “Fan owned football”, directly opposite the site of the old Plough Lane stadium where there are now blocks of flats. There is a memorial to the old Wimbledon FC – a reminder that supporters can often have little say in the running of their club – on the same corner, just up the road from the new Cherry Red Records Stadium. AFC Wimbledon are one of only two majority fan-owned clubs in the EFL – along",
+      "title": "AFC Wimbledon, a failed £87m investment bid and the challenge for fan ownership",
+      "url": "https://www.theguardian.com/football/2026/nov/15/afc-wimbledon-a-failed-87m-investment-bid-and-the-challenge-for-fan-ownership"
     }
   ],
   "btc": {
@@ -726,6 +781,7 @@
     "1d0f1d30796f43a6": "2026-11-07T13:57:04+00:00",
     "1d7a234ee549f655": "2026-11-08T09:27:31+00:00",
     "1da5f7bff9f90e52": "2026-11-06T21:03:44+00:00",
+    "1e257e6b2a0db908": "2026-11-15T09:54:58+00:00",
     "1e4c1fc5abc49ad2": "2026-11-14T19:07:49+00:00",
     "1e876f4573f1c5bc": "2026-11-06T14:49:25+00:00",
     "1eb91f2360fc2de2": "2026-11-10T09:43:25+00:00",
@@ -754,6 +810,7 @@
     "24d30a68df26da8b": "2026-11-10T23:15:06+00:00",
     "25010c6d34099bf8": "2026-11-06T21:03:44+00:00",
     "25569875ec85d73b": "2026-11-11T10:48:55+00:00",
+    "256f4495ca0379ae": "2026-11-15T09:54:58+00:00",
     "25a808556232eda5": "2026-11-12T22:42:41+00:00",
     "25cd541ca2207ece": "2026-11-06T14:49:25+00:00",
     "25de9b307d30f910": "2026-11-10T17:45:49+00:00",
@@ -765,6 +822,7 @@
     "2764fbaace02d581": "2026-11-05T10:46:44+00:00",
     "27831ce6633310b0": "2026-11-10T09:43:25+00:00",
     "27b87d65d3f99406": "2026-11-05T18:41:59+00:00",
+    "27b9e2e4ae9a6095": "2026-11-15T09:54:58+00:00",
     "27c7e57f89df3f6d": "2026-11-10T23:15:06+00:00",
     "27e55c022079d6ac": "2026-11-09T18:43:11+00:00",
     "27f896233dc6248d": "2026-11-11T02:59:51+00:00",
@@ -856,6 +914,7 @@
     "3f9447ecac90d327": "2026-11-11T10:48:55+00:00",
     "3fa7323e5dbf5761": "2026-11-11T18:39:12+00:00",
     "400f973a2207ac85": "2026-11-06T14:49:25+00:00",
+    "40324e9d8fa589e3": "2026-11-15T09:54:58+00:00",
     "404ba329b755c4be": "2026-11-08T09:27:31+00:00",
     "40fc94677bef6f99": "2026-11-07T22:42:51+00:00",
     "410087a3330cd0c6": "2026-11-09T07:54:38+00:00",
@@ -981,6 +1040,7 @@
     "5ac8836f0ba144b3": "2026-11-10T17:45:49+00:00",
     "5ad2c7415bc60bf1": "2026-11-10T23:15:06+00:00",
     "5b6dc3a4f78b1834": "2026-11-12T17:04:15+00:00",
+    "5b91f4b491f4498f": "2026-11-15T09:54:58+00:00",
     "5d2bf713adf91d00": "2026-11-12T17:04:15+00:00",
     "5d3f1a46c035f064": "2026-11-10T17:45:49+00:00",
     "5d7427350e81f875": "2026-11-06T00:11:38+00:00",
@@ -1057,6 +1117,7 @@
     "6abca871feff9104": "2026-11-14T00:19:20+00:00",
     "6ace89370b208df4": "2026-11-14T19:07:49+00:00",
     "6b0875495d9978f4": "2026-11-12T01:00:00+00:00",
+    "6b2e3c144cb16d98": "2026-11-15T09:54:58+00:00",
     "6b4cc58ac4791035": "2026-11-06T14:49:25+00:00",
     "6b4ce26bfa3f0683": "2026-11-05T18:41:59+00:00",
     "6bedb0dfc514e5b2": "2026-11-05T18:41:59+00:00",
@@ -1086,6 +1147,7 @@
     "717aea7cb5bba68c": "2026-11-09T18:43:11+00:00",
     "71935939aaf2bd4f": "2026-11-05T10:46:44+00:00",
     "71c7047bcb9dd972": "2026-11-06T00:11:38+00:00",
+    "725edb5f53ee4146": "2026-11-15T09:54:58+00:00",
     "727f6102a5055f32": "2026-11-05T18:41:59+00:00",
     "730323ba6c06bee9": "2026-11-09T18:43:11+00:00",
     "735993b21a18dc66": "2026-11-14T14:06:29+00:00",
@@ -1294,6 +1356,7 @@
     "9f7428ee17be8abb": "2026-11-10T17:45:49+00:00",
     "9f9ef1f7c9cc007b": "2026-11-12T22:42:41+00:00",
     "a0251da5736254cc": "2026-11-12T08:16:56+00:00",
+    "a02591e0164dd5b6": "2026-11-15T09:54:58+00:00",
     "a039aef7efa5993b": "2026-11-14T00:19:20+00:00",
     "a048f57672acc8d3": "2026-11-10T17:45:49+00:00",
     "a0496c5bf3e13bec": "2026-11-13T18:45:06+00:00",
@@ -1363,6 +1426,7 @@
     "aed4d2e979794548": "2026-11-12T08:16:56+00:00",
     "af1eb0f1fbea412d": "2026-11-10T17:45:49+00:00",
     "af6ae0bd457f4f5d": "2026-11-10T02:02:12+00:00",
+    "afa1c1b9c6c2b5f9": "2026-11-15T09:54:58+00:00",
     "afdc6ec15c3be9fd": "2026-11-09T18:43:11+00:00",
     "b035143e2aa925bb": "2026-11-06T21:03:44+00:00",
     "b06162c128174aec": "2026-11-10T23:15:06+00:00",
@@ -1486,6 +1550,7 @@
     "c84a4cb62f0462d2": "2026-11-05T18:41:59+00:00",
     "c853cc05493bba68": "2026-11-12T17:04:15+00:00",
     "c87a05052d823871": "2026-11-14T14:06:29+00:00",
+    "c8e615153da86824": "2026-11-15T09:54:58+00:00",
     "c8f7b66ce849889b": "2026-11-12T17:04:15+00:00",
     "c98fb37f4201def3": "2026-11-11T02:59:51+00:00",
     "c9e8be921c9e89a5": "2026-11-09T07:54:38+00:00",
@@ -1645,6 +1710,7 @@
     "ead074acb0df48ef": "2026-11-12T17:04:15+00:00",
     "eb48e613eb7ed997": "2026-11-13T18:45:06+00:00",
     "eb8a1f45cc8d6eeb": "2026-11-13T11:32:08+00:00",
+    "eb93c7394ac0d7c2": "2026-11-15T09:54:58+00:00",
     "ebb02e415932d86a": "2026-11-07T13:57:04+00:00",
     "ebf046e6d27ed9bd": "2026-11-05T18:41:59+00:00",
     "ec42fb75baea024f": "2026-11-12T22:42:41+00:00",
@@ -1736,10 +1802,10 @@
   "last_check_day": "2026-11-15",
   "market_alerts": {
     "BTC:1h": {
-      "active": true,
+      "active": false,
       "direction": "up",
       "last_at": "2026-11-15T02:37:03+00:00",
-      "peak": 3.961933805032203
+      "peak": 0
     },
     "BTC:24h": {
       "active": true,
@@ -1748,10 +1814,10 @@
       "peak": 7.275103685962958
     },
     "ETH:1h": {
-      "active": true,
+      "active": false,
       "direction": "up",
       "last_at": "2026-11-15T02:37:03+00:00",
-      "peak": 5.204357136207061
+      "peak": 0
     },
     "ETH:24h": {
       "active": true,
@@ -1760,10 +1826,10 @@
       "peak": 5.808270097651647
     },
     "SOL:1h": {
-      "active": true,
+      "active": false,
       "direction": "up",
       "last_at": "2026-11-15T02:37:03+00:00",
-      "peak": 4.005869405722651
+      "peak": 0
     },
     "SOL:24h": {
       "active": true,
@@ -1957,6 +2023,16 @@
       "key": "faa_ground_stop_maintenance",
       "score": 85,
       "title": "Масштабный сбой в авиасообщении США вызван заменой оборудования"
+    },
+    {
+      "at": "2026-11-15T09:54:58+00:00",
+      "evidence_ids": [
+        "84fe3a0cfd549c08",
+        "c319b12e1cc2fac3"
+      ],
+      "key": "spacex_starship_catch",
+      "score": 85,
+      "title": "SpaceX впервые успешно поймала ракету Starship механическими манипуляторами"
     }
   ],
   "settings": {
