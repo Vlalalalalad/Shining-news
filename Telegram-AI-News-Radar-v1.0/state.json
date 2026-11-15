@@ -1,402 +1,6 @@
 {
-  "ai_pending": true,
+  "ai_pending": false,
   "article_cache": [
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "coindesk.com",
-      "id": "0d5d0393347927de",
-      "official": false,
-      "source": "CoinDesk",
-      "summary": "Contracts that sell power to a 4% slice of the world’s bitcoin mining at $44 a megawatt-hour expire on Dec. 31, 2027. Paraguay’s state utility calls the date final, and it has just signed a 15-year deal to power a Founders Fund-backed AI campus.",
-      "title": "Bitcoin miners pay Paraguay $350 million a year, but AI is pushing them out",
-      "url": "https://www.coindesk.com/tech/2026/11/13/bitcoin-miners-pay-paraguay-usd350-million-a-year-but-ai-is-pushing-them-out"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "a039aef7efa5993b",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "OpenAI’s new payment wallet lets AI agents complete purchases using existing card networks, with plans to eventually allow preauthorized transactions.",
-      "title": "OpenAI launches AI payments in ChatGPT with Visa, Mastercard and Amex",
-      "url": "https://cointelegraph.com/news/openai-ai-payments-chatgpt-wallet-visa-mastercard-amex?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "6700b4aaa1bdd70f",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "Blockstream’s new custody system, developed with Thales, uses dedicated hardware for transaction signing as Adam Back advocates for offline security to reduce cyber risks.",
-      "title": "Adam Back makes case for simpler security as Blockstream launches Bitcoin custody system",
-      "url": "https://cointelegraph.com/news/adam-back-simpler-security-blockstream-bitcoin-custody-system?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "45c71f44d1dab489",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "Payward’s adjusted EBITDA fell 66% year over year to $60 million, even as its share of global spot trading nearly doubled and fee-based services expanded.",
-      "title": "Kraken parent Payward gains market share as slower trading weighs on earnings",
-      "url": "https://cointelegraph.com/news/kraken-parent-payward-gains-market-share-slower-trading-earnings?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "cointelegraph.com",
-      "id": "696b7f1c34801fec",
-      "official": false,
-      "source": "Cointelegraph",
-      "summary": "Coinbase’s trust company received final clearance as lawmakers seek records on crypto firms’ compliance and potential conflicts of interest.",
-      "title": "US regulators move ahead on crypto trust charters as Senate scrutiny grows",
-      "url": "https://cointelegraph.com/news/us-regulators-crypto-trust-charters-senate-scrutiny-grows?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "decrypt.co",
-      "id": "84cf061394aa9830",
-      "official": false,
-      "source": "Decrypt",
-      "summary": "Nvidia's board has reportedly approached Arm's chief executive as it searches for a replacement for Jensen Huang, while some employees are pushing to bring the chipmaker's founder back as CEO.",
-      "title": "Could a Former Nvidia Executive Replace Jensen Huang? Arm’s Rene Haas Emerges as Candidate",
-      "url": "https://decrypt.co/383276/nvidia-arm-ceo-rene-haas-replace-jensen-huang"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "decrypt.co",
-      "id": "849c6e5bb40eddbe",
-      "official": false,
-      "source": "Decrypt",
-      "summary": "A House Oversight staff memorandum, citing suspicious trades by officials, military personnel and clearance holders, recommends Congress weigh new limits on federal personnel betting on platforms like Kalshi and Polymarket.",
-      "title": "Should Government Officials Be Banned From Prediction Markets? House Oversight Says Maybe",
-      "url": "https://decrypt.co/383271/government-officials-banned-prediction-markets-house-oversight"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "decrypt.co",
-      "id": "8c1c4b268412f617",
-      "official": false,
-      "source": "Decrypt",
-      "summary": "Chinese data center projects are still being designed around restricted Nvidia processors, even as Beijing pushes domestic alternatives.",
-      "title": "China’s $3.2 Billion AI Pipeline Still Calls for Nvidia Chips Washington Restricts",
-      "url": "https://decrypt.co/383266/china-ai-pipeline-nvidia-chips-washington-restricts"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "decrypt.co",
-      "id": "87ee340a6f29761f",
-      "official": false,
-      "source": "Decrypt",
-      "summary": "The bank’s Q3 13F shows roughly $981 million across Bitcoin ETFs, Strategy and Coinbase—likely over $1 billion counting Robinhood and miners.",
-      "title": "JPMorgan’s Bitcoin and Crypto-Linked Holdings Approach $1 Billion",
-      "url": "https://decrypt.co/383267/jpmorgan-bitcoin-crypto-linked-holdings-approach-1-billion"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Crypto",
-      "domain": "decrypt.co",
-      "id": "f8bdbaa09cb5c6f9",
-      "official": false,
-      "source": "Decrypt",
-      "summary": "Two Bitcoin mining rewards from September 2010 moved minutes apart. The coins are worth nearly 1.15 million times their original market value.",
-      "title": "Dormant Bitcoin Wallets Wake Up After 16 Years, Moving $6.9 Million",
-      "url": "https://decrypt.co/383264/dormant-bitcoin-wallets-wake-up-after-16-years"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Business",
-      "domain": "bbc.co.uk",
-      "id": "334ebcca23065263",
-      "official": false,
-      "source": "BBC Business",
-      "summary": "Experts say the event is a \"stark reminder\" of how heavily the world relies on a small group of big tech providers.",
-      "title": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
-      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "2eafa4b1bb39d8eb",
-      "official": false,
-      "source": "BBC World",
-      "summary": "The collision leaves 32 people in hospital with non-critical injuries, but no-one unaccounted for.",
-      "title": "'Miracle on Mississippi' - All rescued after cruise ship hit by tanker in New Orleans",
-      "url": "https://www.bbc.co.uk/news/articles/cw20xmy0m5yyo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "8573d9e8e576a4ad",
-      "official": false,
-      "source": "BBC World",
-      "summary": "Elon Musk’s company aborted an attempted catch of the rocket’s booster - instead it came down in the ocean.",
-      "title": "Setback for SpaceX Starship rocket's double-catch test",
-      "url": "https://www.bbc.co.uk/news/articles/ckregdgnl0xpo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "101d44ffbb4da315",
-      "official": false,
-      "source": "BBC World",
-      "summary": "All passengers have been accounted for after a cargo ship collided with a docked cruise ship.",
-      "title": "Watch: Cruise ship seen sinking after collision with cargo ship in New Orleans",
-      "url": "https://www.bbc.co.uk/news/videos/ck4gn4y77m40o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "6caf8a684ef5c09a",
-      "official": false,
-      "source": "BBC World",
-      "summary": "Jojo was poached as an infant and grew up in captivity. His keepers want to find him a friend - but it's not straightforward.",
-      "title": "Jojo the gorilla has spent his life alone. Can he finally find a companion?",
-      "url": "https://www.bbc.co.uk/news/articles/cwm2mn272nqlo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "d3ad8c146b04ab1d",
-      "official": false,
-      "source": "BBC World",
-      "summary": "The 52-year-old general’s provocative posts and military threats have fuelled rumours of a dynastic succession.",
-      "title": "Arrested generals and a threatened VP: President's son fuels Ugandan succession fever",
-      "url": "https://www.bbc.co.uk/news/articles/cmlydy0xw45wo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "59d35bd98e0729bd",
-      "official": false,
-      "source": "BBC World",
-      "summary": "The scandal has cast a spotlight on Singapore's success as a chip hub - and a location for alleged illicit trade.",
-      "title": "How the Jensen Huang scandal created a headache for business-friendly Singapore",
-      "url": "https://www.bbc.co.uk/news/articles/ck1exevgql4qo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Business",
-      "domain": "theguardian.com",
-      "id": "e479559e2c0a731c",
-      "official": false,
-      "source": "The Guardian Business",
-      "summary": "Jensen Huang’s resignation from the AI chipmaker Nvidia has sent shockwaves through the global economy. Huang resigned after reported affairs with an Nvidia executive and a woman alleged to be a Chinese spy. The fallout is not over yet, with criticism mounting over the apparent lack of action from the US commerce secretary, Howard Lutnick. Lucy Hough speaks to the Guardian’s global technology reporter, Aisha Down Continue reading...",
-      "title": "Why the Nvidia scandal is far from over - The Latest",
-      "url": "https://www.theguardian.com/news/video/2026/nov/13/why-the-nvidia-scandal-is-far-from-over-the-latest"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "41bbca50b49f8038",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "The latest model is lighter and thinner than its predecessor and features an edge-to-edge display. But if you already own the first-generation Colorsoft, there’s little reason to upgrade.",
-      "title": "Amazon’s new Kindle Colorsoft is a premium e-reader with a premium price",
-      "url": "https://techcrunch.com/2026/11/13/amazons-new-kindle-colorsoft-is-a-premium-e-reader-with-a-premium-price/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "a53b6d6797d1d8ce",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations.",
-      "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
-      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "e97658f089444067",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "A spokesperson for the FAA told TechCrunch that it issued the ground stop \"following communication issues impacting multiple Air Route Traffic Control Centers,\" which manage the airspace across the United States.",
-      "title": "US government grounds all flights across the United States ‘due to extraordinary circumstances’",
-      "url": "https://techcrunch.com/2026/11/13/u-s-government-grounds-all-flights-across-the-united-states-due-to-extraordinary-cirumstances/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "6352232812b3ea4a",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "Drogue is harvesting heat from the ocean to power data centers on floating vessels. The first prototype should be bobbing around the ocean, crunching bits, in less than two years.",
-      "title": "This young startup wants to power floating data centers with the ocean’s heat, and investors are already on board",
-      "url": "https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "b96c8f1ce3eaba55",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
-      "title": "AI agent startup LangChain hits $3B valuation",
-      "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "96048276e5de0ccf",
-      "official": false,
-      "source": "The Verge",
-      "summary": "Amazon has plans to build a vault of data on every product sold anywhere on the internet, even products Amazon doesn't sell, and make the information available through its own site, according to Reuters. The project, called the \"World Product Graph,\" is meant to make it less likely that shoppers leave Amazon to do their […]",
-      "title": "Amazon has a plan to index the world’s online shopping data",
-      "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "15ee692dbf097aa2",
-      "official": false,
-      "source": "The Verge",
-      "summary": "Takeoffs from airports throughout the US largely stopped on Friday after the FAA issued a national ground stop \"due to extraordinary circumstances and for reasons of safety,\" while planes in the air will be allowed to land. The FAA tweeted just after 5PM ET that, \"There has been a temporary telecommunications outage - out of […]",
-      "title": "FAA ground stop shuts down flights nationwide",
-      "url": "https://www.theverge.com/news/1033489/faa-ground-stop"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "754f24889ed9e00a",
-      "official": false,
-      "source": "The Verge",
-      "summary": "After launching its Dots AI agents platform earlier this year, OpenAI is launching a wallet for the agents. ChatGPT Wallet is rolling out starting today for ChatGPT Pro subscribers in the US aged 18 and older using a US billing address and \"eligible US-issued American Express, Chase, Mastercard and Visa cards.\" After adding a card […]",
-      "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "ee22b1ac26912462",
-      "official": false,
-      "source": "The Verge",
-      "summary": "Bluetooth speakers are often boring boxes in plain colors, but not this one! As part of Nothing’s ongoing early Black Friday promo, you can grab its unique, milk carton-shaped CMF Speaker S from Amazon and Nothing for just $39. That’s a solid $20 discount and the lowest price we’ve seen on Nothing’s newfangled wireless speaker, […]",
-      "title": "CMF’s milk carton-shaped Bluetooth speaker is down to a new low price",
-      "url": "https://www.theverge.com/gadgets/1033185/nothing-cmf-speaker-s-m-black-friday-deal-sale"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "07fb101d77d4b8cb",
-      "official": false,
-      "source": "The Verge",
-      "summary": "The long-awaited launch of GTA VI is around the corner, happening next Friday, November 19th. While discounts on the game itself will be rare for some time, there’s a clever workaround to save you a few bucks on your digital copy. We found discounts on gift cards for both Sony PlayStation and Microsoft Xbox Series […]",
-      "title": "Here’s how you can save on your GTA VI preorder ahead of launch",
-      "url": "https://www.theverge.com/gadgets/1033046/playstation-xbox-gift-card-gta-vi-6-preorder-deal-sale"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "arstechnica.com",
-      "id": "ffcde67cd55e39dd",
-      "official": false,
-      "source": "Ars Technica",
-      "summary": "Rare nationwide ground stop could go on for awhile as FAA troubleshoots.",
-      "title": "FAA orders third nationwide ground stop in its history",
-      "url": "https://arstechnica.com/tech-policy/2026/11/faa-orders-third-nationwide-ground-stop-in-its-history/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "arstechnica.com",
-      "id": "c628f8ad3420da2b",
-      "official": false,
-      "source": "Ars Technica",
-      "summary": "Cost and access barriers are pushing people to modified use and unapproved versions.",
-      "title": "Millions of Americans are not taking their GLP-1 drugs as prescribed",
-      "url": "https://arstechnica.com/health/2026/11/millions-in-us-use-unapproved-glp-1s-and-use-them-in-unapproved-ways/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "arstechnica.com",
-      "id": "d594c39e97738b7d",
-      "official": false,
-      "source": "Ars Technica",
-      "summary": "Airlines praised the AI tool, but the air traffic controllers’ union wasn’t involved.",
-      "title": "FAA expands AI advice to manage air traffic congestion across entire US airspace",
-      "url": "https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "arstechnica.com",
-      "id": "6abca871feff9104",
-      "official": false,
-      "source": "Ars Technica",
-      "summary": "In Sri Lanka, ecological change is shrinking a park's elephant population.",
-      "title": "In elephants, the resilience of communities has its limits",
-      "url": "https://arstechnica.com/science/2026/11/in-elephants-the-resilience-of-communities-has-its-limits/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "arstechnica.com",
-      "id": "8766e57338b8c46a",
-      "official": false,
-      "source": "Ars Technica",
-      "summary": "Trump son advised Kalshi and got equity while Trump admin helped Kalshi in lawsuits.",
-      "title": "Kalshi ditches Trump Jr. as advisor; CEO admitted \"optics\" weren't good",
-      "url": "https://arstechnica.com/tech-policy/2026/11/trump-jr-out-as-kalshi-advisor-after-his-firms-big-investment-in-polymarket/"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Economy",
-      "domain": "federalreserve.gov",
-      "id": "537d1229e28dcb29",
-      "official": true,
-      "source": "Federal Reserve",
-      "summary": "Agencies extend comment period for proposed third-party risk management guidance",
-      "title": "Agencies extend comment period for proposed third-party risk management guidance",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261113a.htm"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "Science",
-      "domain": "bbc.co.uk",
-      "id": "7c2571bab7ee80b2",
-      "official": false,
-      "source": "BBC Science",
-      "summary": "Officials from the Department of Agriculture, Environment and Rural Affairs said the virus had been detected in three sheep.",
-      "title": "Bluetongue virus confirmed on County Down farm",
-      "url": "https://www.bbc.co.uk/news/articles/cmr4gxvrxd9yo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T00:19:20+00:00",
-      "category": "AI/Tech",
-      "domain": "blog.google",
-      "id": "176a9ceb17b44efc",
-      "official": true,
-      "source": "Google Blog",
-      "summary": "Google Cloud Credits in AI Studio",
-      "title": "Claim your Google Cloud Credits in Google AI Studio",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/"
-    },
     {
       "added_at": "2026-11-14T07:00:10+00:00",
       "category": "Crypto",
@@ -935,6 +539,72 @@
       "summary": "\"It's really happening. I promise. For real.\" Those are the first words from Roy Graham, Head of Story at Magic: The Gathering, in a video posted yesterday announcing Planeswalker, the animated series heading to Netflix in 2027. An animated Magic: The Gathering series was first teased back in 2019 with Joe and Anthony Russo at […]",
       "title": "Magic: The Gathering is getting a Netflix animated series. For real this time.",
       "url": "https://www.theverge.com/entertainment/1033909/magic-the-gathering-netflix-series"
+    },
+    {
+      "added_at": "2026-11-15T02:37:03+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "481b8a42b10333c4",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Beauty calendars have become a Christmas staple and have become particularly popular with female shoppers.",
+      "title": "Beauty advent calendars can cost hundreds - but are they value for money?",
+      "url": "https://www.bbc.co.uk/news/articles/cqn83l442724o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-15T02:37:03+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "9c404fd939f59376",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Teddy Riner is one of the most popular figures in modern-day France, and one in five voters say they could support him.",
+      "title": "Judo champion shakes up French presidential race with surprise candidacy",
+      "url": "https://www.bbc.co.uk/news/articles/c6dj1e8wyykmo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-15T02:37:03+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "a62b82539253fb0e",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Fear and misinformation surrounds the Ebola outbreak in DR Congo - Dr Kamwanga's mother was not immune.",
+      "title": "My mother told me I would die if I sought treatment for Ebola - I am proof you can survive",
+      "url": "https://www.bbc.co.uk/news/articles/cmvg2e2q28w1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-15T02:37:03+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "a8381ccf0f4a6c26",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "Nvidia’s security chief quietly left in August, and now that CEO Jensen Huang has stepped down over his relationships, including one with an executive at a company suspected of funneling chips to China, a former intelligence officer says it’s the kind of leak that runs everyday conversations, which most corporate security teams are poorly equipped to catch.",
+      "title": "Where was Nvidia’s security team?",
+      "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"
+    },
+    {
+      "added_at": "2026-11-15T02:37:03+00:00",
+      "category": "AI/Tech",
+      "domain": "arstechnica.com",
+      "id": "f6b407f900ecc675",
+      "official": false,
+      "source": "Ars Technica",
+      "summary": "It felt like stepping into the future.",
+      "title": "SpaceX returned its Starship rocket on Saturday—but there's a catch",
+      "url": "https://arstechnica.com/space/2026/11/with-starship-catch-spacex-still-shows-it-can-dazzle-the-world/"
+    },
+    {
+      "added_at": "2026-11-15T02:37:03+00:00",
+      "category": "Science",
+      "domain": "bbc.co.uk",
+      "id": "84fe3a0cfd549c08",
+      "official": false,
+      "source": "BBC Science",
+      "summary": "SpaceX has performed the historic catch using mechanical arms nicknamed \"chopsticks\".",
+      "title": "SpaceX catches part of its Starship rocket on return to Earth",
+      "url": "https://www.bbc.co.uk/news/videos/cw23j8pkk421o?at_medium=RSS&at_campaign=rss"
     }
   ],
   "btc": {
@@ -1223,6 +893,7 @@
     "4797f2b4d7a4ccf5": "2026-11-05T00:20:21+00:00",
     "48091c99b3fd2626": "2026-11-13T03:24:21+00:00",
     "4815b0b06c433103": "2026-11-13T18:45:06+00:00",
+    "481b8a42b10333c4": "2026-11-15T02:37:03+00:00",
     "48a26be0d0669fa5": "2026-11-06T14:49:25+00:00",
     "4953f221911cb8a1": "2026-11-10T02:02:12+00:00",
     "49754c4b38a2c70d": "2026-11-10T17:45:49+00:00",
@@ -1511,6 +1182,7 @@
     "84cf061394aa9830": "2026-11-14T00:19:20+00:00",
     "84e924c4ab2b73c1": "2026-11-06T21:03:44+00:00",
     "84f3b5d3194b1b5f": "2026-11-09T18:43:11+00:00",
+    "84fe3a0cfd549c08": "2026-11-15T02:37:03+00:00",
     "851e7f0a2d3e0add": "2026-11-10T09:43:25+00:00",
     "851f191aa530a03c": "2026-11-12T17:04:15+00:00",
     "8573d9e8e576a4ad": "2026-11-14T00:19:20+00:00",
@@ -1603,6 +1275,7 @@
     "9bf74dfc2091c0de": "2026-11-06T21:03:44+00:00",
     "9c116ce0c1fff820": "2026-11-11T18:39:12+00:00",
     "9c40265a02882984": "2026-11-14T19:07:49+00:00",
+    "9c404fd939f59376": "2026-11-15T02:37:03+00:00",
     "9ce166ad3394aa9e": "2026-11-12T22:42:41+00:00",
     "9d04f7674e530216": "2026-11-10T02:02:12+00:00",
     "9d0e6a680d949373": "2026-11-11T10:48:55+00:00",
@@ -1650,6 +1323,7 @@
     "a57b26bf741ffcc6": "2026-11-10T17:45:49+00:00",
     "a603fb20f5ffaf85": "2026-11-12T17:04:15+00:00",
     "a6227852c400a58b": "2026-11-14T19:07:49+00:00",
+    "a62b82539253fb0e": "2026-11-15T02:37:03+00:00",
     "a653dab5f63627d9": "2026-11-08T16:19:20+00:00",
     "a6547f8cea67f8f6": "2026-11-12T01:00:00+00:00",
     "a74ea9bf7a9e749b": "2026-11-10T23:15:06+00:00",
@@ -1658,6 +1332,7 @@
     "a7e073009e31fde6": "2026-11-07T22:42:51+00:00",
     "a7e1415152c9585b": "2026-11-07T00:52:56+00:00",
     "a7fbc1af55fcfab1": "2026-11-09T18:43:11+00:00",
+    "a8381ccf0f4a6c26": "2026-11-15T02:37:03+00:00",
     "a859df6cc9f93d0c": "2026-11-10T09:43:25+00:00",
     "a8d095edc90e7e1a": "2026-11-06T00:11:38+00:00",
     "a8da02734f0a78dd": "2026-11-04T22:36:42+00:00",
@@ -2020,6 +1695,7 @@
     "f633d703e51c3f56": "2026-11-10T02:02:12+00:00",
     "f65c85716dda4aae": "2026-11-11T10:48:55+00:00",
     "f6a555d4b54618fb": "2026-11-09T00:49:38+00:00",
+    "f6b407f900ecc675": "2026-11-15T02:37:03+00:00",
     "f6ef0a569aa9b8a1": "2026-11-06T21:03:44+00:00",
     "f6f2c356227b45bc": "2026-11-11T18:39:12+00:00",
     "f701b8b81b94f95b": "2026-11-10T02:02:12+00:00",
@@ -2060,8 +1736,10 @@
   "last_check_day": "2026-11-15",
   "market_alerts": {
     "BTC:1h": {
-      "active": false,
-      "peak": 0
+      "active": true,
+      "direction": "up",
+      "last_at": "2026-11-15T02:37:03+00:00",
+      "peak": 3.961933805032203
     },
     "BTC:24h": {
       "active": true,
@@ -2070,8 +1748,10 @@
       "peak": 7.275103685962958
     },
     "ETH:1h": {
-      "active": false,
-      "peak": 0
+      "active": true,
+      "direction": "up",
+      "last_at": "2026-11-15T02:37:03+00:00",
+      "peak": 5.204357136207061
     },
     "ETH:24h": {
       "active": true,
@@ -2080,8 +1760,10 @@
       "peak": 5.808270097651647
     },
     "SOL:1h": {
-      "active": false,
-      "peak": 0
+      "active": true,
+      "direction": "up",
+      "last_at": "2026-11-15T02:37:03+00:00",
+      "peak": 4.005869405722651
     },
     "SOL:24h": {
       "active": true,
@@ -2264,6 +1946,17 @@
       "key": "microsoft_global_outage",
       "score": 85,
       "title": "Microsoft устранила последствия глобального технического сбоя"
+    },
+    {
+      "at": "2026-11-15T02:37:03+00:00",
+      "evidence_ids": [
+        "27fee21f2e308527",
+        "6ace89370b208df4",
+        "1e4c1fc5abc49ad2"
+      ],
+      "key": "faa_ground_stop_maintenance",
+      "score": 85,
+      "title": "Масштабный сбой в авиасообщении США вызван заменой оборудования"
     }
   ],
   "settings": {
