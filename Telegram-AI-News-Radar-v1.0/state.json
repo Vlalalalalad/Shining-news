@@ -2,61 +2,6 @@
   "ai_pending": false,
   "article_cache": [
     {
-      "added_at": "2026-11-14T22:58:06+00:00",
-      "category": "World",
-      "domain": "bbc.co.uk",
-      "id": "22f849a8a9998288",
-      "official": false,
-      "source": "BBC World",
-      "summary": "SpaceX has performed the historic catch using mechanical arms nicknamed \"chopsticks\".",
-      "title": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth",
-      "url": "https://www.bbc.co.uk/news/videos/cwlym2gy3y3eo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "added_at": "2026-11-14T22:58:06+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "e86112d5f8734949",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "The petition had attracted more than 115,000 signatures as of Saturday afternoon.",
-      "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
-      "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
-    },
-    {
-      "added_at": "2026-11-14T22:58:06+00:00",
-      "category": "Startups",
-      "domain": "techcrunch.com",
-      "id": "9e314a8f744ef711",
-      "official": false,
-      "source": "TechCrunch",
-      "summary": "Even Elon Musk said the monthly fee is \"too high.\"",
-      "title": "Tesla opens Cybercab pre-orders ‘for personal use,’ with geo restrictions and a $299 monthly fee",
-      "url": "https://techcrunch.com/2026/11/14/tesla-opens-cybercab-pre-orders-for-personal-use-with-geo-restrictions-and-a-299-monthly-fee/"
-    },
-    {
-      "added_at": "2026-11-14T22:58:06+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "c319b12e1cc2fac3",
-      "official": false,
-      "source": "The Verge",
-      "summary": "After aborting a planned catch of Starship Flight 15's booster, SpaceX successfully captured Starship with its \"Mechazilla\" launch and catch tower for the first time. The company has performed 'chopstick' catches of its boosters before, but this is the first time the maneuver has successfully been executed on the Starship vehicle itself. SpaceX CEO Elon […]",
-      "title": "Watch SpaceX successfully execute the first ‘chopstick’ catch of Starship",
-      "url": "https://www.theverge.com/science/1033930/spacex-chopstick-starship-catch"
-    },
-    {
-      "added_at": "2026-11-14T22:58:06+00:00",
-      "category": "AI/Tech",
-      "domain": "theverge.com",
-      "id": "5ff08b1ef3e37111",
-      "official": false,
-      "source": "The Verge",
-      "summary": "\"It's really happening. I promise. For real.\" Those are the first words from Roy Graham, Head of Story at Magic: The Gathering, in a video posted yesterday announcing Planeswalker, the animated series heading to Netflix in 2027. An animated Magic: The Gathering series was first teased back in 2019 with Joe and Anthony Russo at […]",
-      "title": "Magic: The Gathering is getting a Netflix animated series. For real this time.",
-      "url": "https://www.theverge.com/entertainment/1033909/magic-the-gathering-netflix-series"
-    },
-    {
       "added_at": "2026-11-15T02:37:03+00:00",
       "category": "Business",
       "domain": "bbc.co.uk",
@@ -693,6 +638,182 @@
       "summary": "Unsurprisingly, following the scandal involving now-former Nvidia CEO Jensen Huang and a suspected Chinese spy, Congress is looking to further restrict exports of AI chips. Both Democrats and Republicans have voiced support for various measures and bills that would tighten rules and have demanded that Huang and other Nvidia leaders testify before Congress. Senate Minority […]",
       "title": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
       "url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "24e0900f596f53ab",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "Silicon Valley executives are reportedly organizing a campaign to bring Huang back and are looking to gain White House support.",
+      "title": "Jensen Huang weighs Nvidia comeback days after shock exit: FT",
+      "url": "https://cointelegraph.com/news/jensen-huang-weighs-nvidia-comeback-days-after-shock-exit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Crypto",
+      "domain": "cointelegraph.com",
+      "id": "ce90c066798387fd",
+      "official": false,
+      "source": "Cointelegraph",
+      "summary": "Anchorage Digital data suggests the Bitcoin selloff is being driven by US investors. A “war room” has been set up by supporters to reinstate Nvidia boss Jensen Huang.",
+      "title": "US sellers drive Bitcoin crash, Jensen plots Nvidia comeback: Hodler’s Digest",
+      "url": "https://cointelegraph.com/magazine/us-sellers-drive-bitcoin-crash-jensen-plots-comeback-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "50c262f8ea20a387",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "EU minister Hamish Falconer insists Britain would have some influence on policy as part of a new deal.",
+      "title": "UK will have 'voice' but no vote on EU food rules in Brexit reset",
+      "url": "https://www.bbc.co.uk/news/articles/c6wy4l8nl42wo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "5a8aa761e2fb8eb0",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "The report being launched this week will suggest gradually reducing employment costs over five years.",
+      "title": "Cut national insurance for under-25s to create jobs, Milburn report to say",
+      "url": "https://www.bbc.co.uk/news/articles/c6p9dzmj514ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Business",
+      "domain": "bbc.co.uk",
+      "id": "716f56280632efcd",
+      "official": false,
+      "source": "BBC Business",
+      "summary": "Tens of thousands of scams are reported to HMRC - so it has advice on how to spot a fake request and refund.",
+      "title": "Black Friday and tax return scams - don't fall for these",
+      "url": "https://www.bbc.co.uk/news/articles/cm4gnlz2p61ko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "cdf05ed225a51cbf",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Known as the 'Boss of Bosses', he was the head of all-powerful Guadalajara Cartel in the 1980s before his arrest broke up his drug organisation.",
+      "title": "Mexican drug lord Miguel Angel Felix Gallardo dies age 80",
+      "url": "https://www.bbc.co.uk/news/articles/c51k9nkwrndxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "da8865ca9d259060",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Preliminary findings by National Transportation Safety Board investigators suggest the tanker suffered a \"steering casualty\" before colliding with the cruise ship on Friday.",
+      "title": "Steering failure preceded New Orleans cruise ship collision, says NTSB",
+      "url": "https://www.bbc.co.uk/news/articles/c65y131w1534o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "b94017ac948dc118",
+      "official": false,
+      "source": "BBC World",
+      "summary": "The order will be in place from 16 to 20 November, Paris police chief Patrice Faure says.",
+      "title": "Police ban protests near 10 schools and five universities in Paris",
+      "url": "https://www.bbc.co.uk/news/articles/cqm2j0jvep4eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "bf3feafec58d8989",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Workers are striking over demands for a minimum wage of 30,000 taka (£182) a month.",
+      "title": "Clothing factories shut in Bangladesh as workers strike over pay",
+      "url": "https://www.bbc.co.uk/news/articles/cx5y1pzr9604o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "World",
+      "domain": "bbc.co.uk",
+      "id": "7aa175f88067404d",
+      "official": false,
+      "source": "BBC World",
+      "summary": "Some Russian tycoons are pining after a return to a 1990s system of oligarchy, when businessmen enjoyed power",
+      "title": "Russia's mega-rich are already imagining a future after Putin",
+      "url": "https://www.bbc.co.uk/news/articles/c60733mxm0x0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "a22318abd9f9f947",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "Apple's new app for a study will answer everyday medical questions",
+      "title": "Apple launches new app to study how people use AI for health",
+      "url": "https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health/"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "04196bef9b67627d",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "Bharat Semi says it has secured design wins for its AI-enabled sensor technology with companies including General Atomics.",
+      "title": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market",
+      "url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "Startups",
+      "domain": "techcrunch.com",
+      "id": "9bfb2ab667837ec0",
+      "official": false,
+      "source": "TechCrunch",
+      "summary": "\"Jensen is Nvidia, right? And so much of this economy is riding on Nvidia.\"",
+      "title": "Is bad news for Jensen Huang also bad news for the AI industry?",
+      "url": "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "c57d5fdb338c13eb",
+      "official": false,
+      "source": "The Verge",
+      "summary": "Apple announced a new study today with the goal of better understanding how people interact with conversational AI health tools and how useful their responses actually are. The company is conducting the Apple Health AI Usage Study in collaboration with OpenEvidence, a clinical AI platform used by healthcare professionals that generates answers based on medical […]",
+      "title": "Apple’s new study looks to improve the effectiveness of AI health tools",
+      "url": "https://www.theverge.com/tech/1033355/apples-new-study-looks-to-improve-the-effectiveness-of-ai-health-tools"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "AI/Tech",
+      "domain": "theverge.com",
+      "id": "dc785de9ef44a414",
+      "official": false,
+      "source": "The Verge",
+      "summary": "I open with this caveat: I haven't had a ton of time to digest the surprise Armand Hammer record that dropped this week. Billy Woods and Elucid rarely miss, though, and my initial reaction is that Snakes & Ladders ranks among their best. It doesn't have the seamless throughline production-wise that their collabs with Alchemist […]",
+      "title": "Listen to this: Armand Hammer’s Snakes & Ladders",
+      "url": "https://www.theverge.com/entertainment/1034013/armand-hammers-snakes-ladders-review"
+    },
+    {
+      "added_at": "2026-11-16T01:59:18+00:00",
+      "category": "AI/Tech",
+      "domain": "arstechnica.com",
+      "id": "2bc3d8d01ae59714",
+      "official": false,
+      "source": "Ars Technica",
+      "summary": "This was the first total mission failure in United Launch Alliance's 20-year history.",
+      "title": "Vulcan rocket fails during launch, dealing major blow to SpaceX competitors",
+      "url": "https://arstechnica.com/space/2026/11/vulcan-rocket-fails-during-launch-dealing-major-blow-to-spacex-competitors/"
     }
   ],
   "btc": {
@@ -709,6 +830,7 @@
     "01b8ca36d06d6cda": "2026-11-05T10:46:44+00:00",
     "021262207106fd85": "2026-11-09T07:54:38+00:00",
     "0243cce492e4a8e0": "2026-11-10T09:43:25+00:00",
+    "04196bef9b67627d": "2026-11-16T01:59:18+00:00",
     "0437df85bdd2106e": "2026-11-08T16:19:20+00:00",
     "0447b1bfb53187ad": "2026-11-12T17:04:15+00:00",
     "04c35e90322109c1": "2026-11-09T18:43:11+00:00",
@@ -844,6 +966,7 @@
     "24a11025669cb77d": "2026-11-11T10:48:55+00:00",
     "24a34f57078f6d81": "2026-11-10T23:15:06+00:00",
     "24d30a68df26da8b": "2026-11-10T23:15:06+00:00",
+    "24e0900f596f53ab": "2026-11-16T01:59:18+00:00",
     "25010c6d34099bf8": "2026-11-06T21:03:44+00:00",
     "25569875ec85d73b": "2026-11-11T10:48:55+00:00",
     "256f4495ca0379ae": "2026-11-15T09:54:58+00:00",
@@ -872,6 +995,7 @@
     "2b28704cac5d0a2a": "2026-11-11T10:48:55+00:00",
     "2b34f75e836873d6": "2026-11-13T18:45:06+00:00",
     "2b73307335ce5d8b": "2026-11-11T18:39:12+00:00",
+    "2bc3d8d01ae59714": "2026-11-16T01:59:18+00:00",
     "2c1c14009b34ac8b": "2026-11-12T01:00:00+00:00",
     "2ca143aa9cf643dd": "2026-11-12T17:04:15+00:00",
     "2cab0dde83e80826": "2026-11-13T18:45:06+00:00",
@@ -1029,6 +1153,7 @@
     "508a4bcd23265b65": "2026-11-13T11:32:08+00:00",
     "50b61ef26666b0b1": "2026-11-05T18:41:59+00:00",
     "50bed58d8878e7d1": "2026-11-08T16:19:20+00:00",
+    "50c262f8ea20a387": "2026-11-16T01:59:18+00:00",
     "50ed42af2146ca4c": "2026-11-13T11:32:08+00:00",
     "514112b3503896d0": "2026-11-10T23:15:06+00:00",
     "516d3f7ea51a1de0": "2026-11-08T16:19:20+00:00",
@@ -1081,6 +1206,7 @@
     "59d35bd98e0729bd": "2026-11-14T00:19:20+00:00",
     "5a0ae7cdca85399a": "2026-11-09T18:43:11+00:00",
     "5a18063b4da608cc": "2026-11-12T01:00:00+00:00",
+    "5a8aa761e2fb8eb0": "2026-11-16T01:59:18+00:00",
     "5ab32b935289d189": "2026-11-13T03:24:21+00:00",
     "5ac8836f0ba144b3": "2026-11-10T17:45:49+00:00",
     "5ad2c7415bc60bf1": "2026-11-10T23:15:06+00:00",
@@ -1194,6 +1320,7 @@
     "711882d14236f782": "2026-11-06T14:49:25+00:00",
     "7133c96a2678442b": "2026-11-09T07:54:38+00:00",
     "713fecced3aa9fff": "2026-11-06T21:03:44+00:00",
+    "716f56280632efcd": "2026-11-16T01:59:18+00:00",
     "717aea7cb5bba68c": "2026-11-09T18:43:11+00:00",
     "71935939aaf2bd4f": "2026-11-05T10:46:44+00:00",
     "71c7047bcb9dd972": "2026-11-06T00:11:38+00:00",
@@ -1240,6 +1367,7 @@
     "79d2d8b7c1cd87dd": "2026-11-10T17:45:49+00:00",
     "79f970bb8924e7f6": "2026-11-06T14:49:25+00:00",
     "7a8d7bb1a0d48d48": "2026-11-11T10:48:55+00:00",
+    "7aa175f88067404d": "2026-11-16T01:59:18+00:00",
     "7ad2d3f24420f235": "2026-11-06T00:11:38+00:00",
     "7b10e9232fe65cdc": "2026-11-10T23:15:06+00:00",
     "7b66a331e423f047": "2026-11-12T17:04:15+00:00",
@@ -1390,6 +1518,7 @@
     "9b4f13563dde5e27": "2026-11-12T08:16:56+00:00",
     "9bc395d13c9a8260": "2026-11-05T10:46:44+00:00",
     "9bf74dfc2091c0de": "2026-11-06T21:03:44+00:00",
+    "9bfb2ab667837ec0": "2026-11-16T01:59:18+00:00",
     "9c116ce0c1fff820": "2026-11-11T18:39:12+00:00",
     "9c40265a02882984": "2026-11-14T19:07:49+00:00",
     "9c404fd939f59376": "2026-11-15T02:37:03+00:00",
@@ -1423,6 +1552,7 @@
     "a18a64a17e35b9b3": "2026-11-06T21:03:44+00:00",
     "a1d6a1e656f4ce84": "2026-11-09T18:43:11+00:00",
     "a20d1e6a0e529bc1": "2026-11-12T22:42:41+00:00",
+    "a22318abd9f9f947": "2026-11-16T01:59:18+00:00",
     "a251867faf0e96de": "2026-11-11T18:39:12+00:00",
     "a254a2067feb6687": "2026-11-12T17:04:15+00:00",
     "a2840211d2512175": "2026-11-10T17:45:49+00:00",
@@ -1527,6 +1657,7 @@
     "b8bb9b15845ecf13": "2026-11-06T15:23:02+00:00",
     "b908c072a557d814": "2026-11-12T01:00:00+00:00",
     "b909892be08d22ac": "2026-11-06T21:03:44+00:00",
+    "b94017ac948dc118": "2026-11-16T01:59:18+00:00",
     "b960a21f90555f50": "2026-11-11T18:39:12+00:00",
     "b96c8f1ce3eaba55": "2026-11-14T00:19:20+00:00",
     "b9c0dd474c98ba84": "2026-11-08T20:45:39+00:00",
@@ -1558,6 +1689,7 @@
     "bf0354919e892807": "2026-11-11T02:59:51+00:00",
     "bf125daf38055af7": "2026-11-09T18:43:11+00:00",
     "bf1e47684d2f391c": "2026-11-06T14:49:25+00:00",
+    "bf3feafec58d8989": "2026-11-16T01:59:18+00:00",
     "bf4147c118d804b1": "2026-11-11T18:39:12+00:00",
     "bf467d9aa9cc13b1": "2026-11-11T18:39:12+00:00",
     "bfc735d5ef2c5021": "2026-11-11T18:39:12+00:00",
@@ -1596,6 +1728,7 @@
     "c4fd060896ac1c21": "2026-11-12T22:42:41+00:00",
     "c4fe188e8afc7714": "2026-11-07T00:52:56+00:00",
     "c5395290644325a7": "2026-11-06T00:11:38+00:00",
+    "c57d5fdb338c13eb": "2026-11-16T01:59:18+00:00",
     "c5c1462992d1ad95": "2026-11-10T17:45:49+00:00",
     "c5cfc173e64341d8": "2026-11-05T00:20:21+00:00",
     "c619bb88505937dc": "2026-11-10T17:45:49+00:00",
@@ -1638,9 +1771,11 @@
     "cd85949675c4e379": "2026-11-11T18:39:12+00:00",
     "cda11a2f408cc070": "2026-11-15T21:44:42+00:00",
     "cdc4277c5b5a01c4": "2026-11-11T10:48:55+00:00",
+    "cdf05ed225a51cbf": "2026-11-16T01:59:18+00:00",
     "ce12d04a76d2165c": "2026-11-14T19:07:49+00:00",
     "ce1eab2bbb5c79a9": "2026-11-12T22:42:41+00:00",
     "ce4302c3b53a881e": "2026-11-10T02:02:12+00:00",
+    "ce90c066798387fd": "2026-11-16T01:59:18+00:00",
     "cea25fc8180f8064": "2026-11-05T00:20:21+00:00",
     "cea5c7c7e7fc292c": "2026-11-15T17:03:49+00:00",
     "ceca23beb1416d55": "2026-11-07T18:44:15+00:00",
@@ -1714,8 +1849,10 @@
     "d9c848a678890c73": "2026-11-04T22:36:42+00:00",
     "da1062e1d2731614": "2026-11-10T17:45:49+00:00",
     "da4db1176f76c574": "2026-11-06T21:03:44+00:00",
+    "da8865ca9d259060": "2026-11-16T01:59:18+00:00",
     "daf7e9e96e7de529": "2026-11-10T23:15:06+00:00",
     "dbedcaa7a86dba96": "2026-11-09T18:43:11+00:00",
+    "dc785de9ef44a414": "2026-11-16T01:59:18+00:00",
     "dc9088dd5da06760": "2026-11-12T17:04:15+00:00",
     "dcbaca5bc8ee3a6b": "2026-11-12T17:04:15+00:00",
     "dd3d90efe88c49dc": "2026-11-11T18:39:12+00:00",
@@ -1873,7 +2010,7 @@
     "ffcde67cd55e39dd": "2026-11-14T00:19:20+00:00",
     "fffe7bfbe682267d": "2026-11-12T22:42:41+00:00"
   },
-  "last_check_day": "2026-11-15",
+  "last_check_day": "2026-11-16",
   "market_alerts": {
     "BTC:1h": {
       "active": false,
@@ -1906,10 +2043,10 @@
       "peak": 0
     },
     "SOL:24h": {
-      "active": false,
-      "direction": "down",
-      "last_at": "2026-11-14T19:07:49+00:00",
-      "peak": 0
+      "active": true,
+      "direction": "up",
+      "last_at": "2026-11-16T01:59:18+00:00",
+      "peak": 5.033853400058885
     }
   },
   "published": [
@@ -2107,6 +2244,16 @@
       "key": "spacex_starship_catch",
       "score": 85,
       "title": "SpaceX впервые успешно поймала ракету Starship механическими манипуляторами"
+    },
+    {
+      "at": "2026-11-16T01:59:18+00:00",
+      "evidence_ids": [
+        "2bc3d8d01ae59714",
+        "9e09af32ba885800"
+      ],
+      "key": "vulcan_rocket_failure",
+      "score": 85,
+      "title": "Ракета Vulcan потерпела крушение при запуске"
     }
   ],
   "settings": {
