@@ -13,4 +13,6 @@ by Telegram webhook, independently of GitHub schedules.
 - `enable` verifies credential decryption and storage before changing Telegram delivery. Pending messages are preserved.
 - Local webhook tests: install root requirements and run `python ops/test_webhook.py`.
 
-Advertising: ordinary news retains the configured percentage. Market alerts include the signature unless branding is disabled. AI copy must include a call to action; bland news recaps fall back to reviewed templates. Sensitive and 90+ news remain without advertising.
+Advertising defaults to 100% for eligible news and market alerts, rendered as a Telegram blockquote. Sensitive events and news scored 98+ are excluded by default. The advertising-policy migration applies the owner's 100% request once; subsequent admin edits are preserved. Percentage, exclusions, quote format, brand label and URL are now configurable.
+
+Detailed controls are defined in `settings_schema.py` and rendered by `advanced_ui.py`. The command handler and radar both validate through this schema. The API deployment must include both modules. Fact verification and deduplication remain enforced independently of the importance threshold.

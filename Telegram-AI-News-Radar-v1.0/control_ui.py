@@ -3,15 +3,14 @@ from datetime import timedelta
 from html import escape, unescape
 import re
 import radar
+import advanced_ui
+from settings_schema import OPTIONS, ALIASES
 
-FIELDS = {
-    'limit': ('max_regular_per_day', 'Новин на день', '/limit', 'limit', [0, 1, 3, 5, 7, 10], 'ціле число від 0 до 10'),
-    'gap': ('min_post_gap_minutes', 'Пауза між новинами', '/gap', 'gap', [0, 30, 60, 120, 240], 'кількість хвилин від 0 до 240'),
-    'threshold': ('importance_threshold', 'Важливість новин', '/threshold', 'threshold', [75, 80, 85, 90, 95], 'ціле число від 75 до 100'),
-    'perrun': ('max_posts_per_run', 'Постів за одну перевірку', '/perrun', 'perrun', [1, 2, 3, 5], 'ціле число від 1 до 5'),
-    'ads': ('branding_percent', 'Частка новин із рекламою', '/ads', 'ads', [0, 30, 50, 70, 100], 'відсоток від 0 до 100'),
-    'aiads': ('branding_ai_percent', 'Частка фраз від AI', '/aiads', 'aiads', [0, 50, 80, 100], 'відсоток від 0 до 100'),
-}
+FIELDS = {}
+for _alias, _name in ALIASES.items():
+    _spec = OPTIONS[_name]
+    FIELDS[_alias] = (_name, _spec[0], '/set ' + _name, _alias, _spec[6],
+                      ('ціле число' if _spec[1] == 'int' else 'число') + f' від {_spec[3]} до {_spec[4]}')
 MODES = {'auto': 'Автоматичний підпис', 'custom': 'Мій текст', 'off': 'Вимкнена'}
 NAV = {'home', 'news', 'brand', 'market', 'help', *FIELDS}
 NOTE = '\n\nЗміни зберігаються одразу. Нові параметри публікацій діють із наступної перевірки радара.'
@@ -33,6 +32,8 @@ def field_value(current, field):
 
 
 def value_label(field, value):
+    if field == 'limit' and value == -1:
+        return 'Без ліміту'
     if field == 'gap':
         return 'Без паузи' if value == 0 else f'{value:g} хв'
     if field in ('ads', 'aiads') or field.startswith('m_'):
@@ -47,6 +48,9 @@ def valid_market_field(field):
 
 
 def view(state, config, page='home'):
+    detailed = advanced_ui.render(state, config, page)
+    if detailed:
+        return detailed
     current = radar.effective_config(config, state)
     enabled = current.get('news_enabled', True)
     mode = current.get('branding_mode', 'auto')
@@ -54,25 +58,26 @@ def view(state, config, page='home'):
         text = (
             '<b>⚙️ Керування FINDOLLAR</b>\n\n'
             f"📰 Новини: <b>{'🟢 увімкнені' if enabled else '⏸ призупинені'}</b>\n"
-            f"До <b>{current.get('max_regular_per_day', 5)}</b> звичайних новин на день; "
+            f"Ліміт на день: <b>{value_label('limit', current.get('max_regular_per_day', 5))}</b>; "
             f"пауза — <b>{value_label('gap', current.get('min_post_gap_minutes', 0))}</b>.\n"
             f"💚 Реклама: <b>{MODES.get(mode, 'Автоматичний підпис')}</b>\n"
             f"У {current.get('branding_percent', 100)}% звичайних новин; "
-            f"у цінових алертах — {'немає' if mode == 'off' else 'є'}.\n"
-            '💰 Цінові алерти BTC, ETH, SOL: <b>увімкнені</b>\n\n'
+            f"у цінових алертах — {0 if mode == 'off' else current.get('market_branding_percent', 100)}%.\n"
+            f"💰 Цінові алерти: <b>{'увімкнені' if current.get('market_enabled', True) else 'вимкнені'}</b>\n\n"
             'Оберіть розділ нижче. У ньому видно поточне значення й доступні варіанти.' + NOTE)
         rows = [[button('📰 Новини', 'page:news'), button('💚 Рекламний підпис', 'page:brand')],
                 [button('💰 Цінові алерти', 'page:market')],
+                [button('⚙️ Розширені налаштування', 'page:advanced')],
                 [button('ℹ️ Як це працює', 'page:help'), button('🔄 Оновити стан', 'page:home')]]
     elif page == 'news':
         text = (
             '<b>📰 Новини</b>\n\n'
             f"Стан: <b>{'🟢 увімкнені' if enabled else '⏸ призупинені'}</b>\n"
-            f"Ліміт: <b>{current.get('max_regular_per_day', 5)} на київську добу</b>\n"
+            f"Ліміт: <b>{value_label('limit', current.get('max_regular_per_day', 5))} на київську добу</b>\n"
             f"Пауза між звичайними постами: <b>{value_label('gap', current.get('min_post_gap_minutes', 0))}</b>\n"
             f"Мінімальна важливість: <b>{current['importance_threshold']}/100</b>\n"
             f"За одну перевірку: до <b>{current['max_posts_per_run']}</b> постів\n\n"
-            'Новини 90+ можуть виходити понад денний ліміт і без звичайної паузи. '
+            f"Поза денним лімітом і паузою: новини від {current.get('priority_score', 90)} балів (101 — немає). "
             'Призупинення новин не вимикає цінові алерти.' + NOTE)
         rows = [[button('⏸ Призупинити новини' if enabled else '▶️ Увімкнути новини',
                         'news:off' if enabled else 'news:on')],
@@ -89,23 +94,26 @@ def view(state, config, page='home'):
             f"Мій текст: <i>{escape(custom)}</i>\n\n"
             'Автоматично: фраза під тему новини або перевірений шаблон. '
             'Мій текст: одна ваша фраза.\n'
-            'Під екстреними новинами 98+ та подіями, визначеними як трагедії чи надзвичайні, реклами немає. '
-            'У цінових алертах підпис є, поки рекламу не вимкнено.' + NOTE)
+            f"Без реклами через оцінку: від {current.get('branding_skip_score', 98)} (101 — не пропускати). "
+            f"Фільтр трагедій: {'увімкнений' if current.get('branding_skip_sensitive', True) else 'вимкнений'}. "
+            f"Оформлення: {'цитата' if current.get('branding_quote', True) else 'звичайний текст'}." + NOTE)
         rows = [[button(('✅ ' if mode == 'auto' else '') + 'Автоматично', 'mode:auto'),
                  button(('✅ ' if mode == 'off' else '') + 'Вимкнути', 'mode:off')],
                 [button(('✅ ' if mode == 'custom' else '') + 'Мій текст', 'mode:custom'),
                  button('✏️ Змінити мій текст', 'ask:brandtext')],
                 [button('Частка постів із рекламою', 'page:ads')],
                 [button('Частка фраз від AI', 'page:aiads'), button('👁 Приклад підпису', 'preview')],
+                [button('⚙️ Усі деталі реклами', 'page:group_brand')],
                 back()]
     elif page == 'market':
-        text = '<b>💰 Цінові алерти</b>\n\n'
+        text = '<b>💰 Цінові алерти</b>\n\n' + ('🟢 Увімкнені\n' if current.get('market_enabled', True) else '⏸ Усі цінові алерти вимкнені\n')
         for symbol in ('BTC', 'ETH', 'SOL'):
             windows = current['market_alerts'][symbol]
             text += f"<b>{symbol}</b>: ±{windows['1h']['threshold_percent']:g}% за 1 год · ±{windows['24h']['threshold_percent']:g}% за 24 години\n"
         text += ('\nЦе два окремі пороги. Алерт може прийти як про зростання, так і про падіння. '
                  'Повтори одного руху обмежуються cooldown. Оберіть монету.' + NOTE)
-        rows = [[button(symbol, 'page:coin_' + symbol) for symbol in ('BTC', 'ETH', 'SOL')], back()]
+        rows = [[button(symbol, 'page:coin_' + symbol) for symbol in ('BTC', 'ETH', 'SOL')],
+                [button('Головний перемикач алертів', 'page:x_market_enabled')], back()]
     elif page.startswith('coin_') and page[5:] in ('BTC', 'ETH', 'SOL'):
         symbol = page[5:]
         windows = current['market_alerts'][symbol]
@@ -114,16 +122,18 @@ def view(state, config, page='home'):
                 f"За 24 години: <b>±{windows['24h']['threshold_percent']:g}%</b>\n\n"
                 'Нижчий поріг — більше сповіщень. Вищий — тільки сильніші рухи.')
         rows = [[button('Поріг за 1 годину', f'page:m_{symbol}_1h')],
-                [button('Поріг за 24 години', f'page:m_{symbol}_24h')], back('market')]
+                [button('Поріг за 24 години', f'page:m_{symbol}_24h')],
+                [button('Усі правила · 1 год', f'page:rules_{symbol}_1h'),
+                 button('Усі правила · 24 год', f'page:rules_{symbol}_24h')], back('market')]
     elif page in FIELDS or valid_market_field(page):
         market = valid_market_field(page)
         value = field_value(current, page)
         title = (f"{page.split('_')[1]}: зміна за {'1 годину' if page.endswith('1h') else '24 години'}"
                  if market else FIELDS[page][1])
         hints = {
-            'limit': 'Звичайні новини за київську добу. 0 — не публікувати звичайні; новини 90+ дозволені.',
+            'limit': OPTIONS['max_regular_per_day'][7],
             'gap': 'Мінімальна пауза між звичайними новинами. Це не точний розклад: перевірка радара може затриматися.',
-            'threshold': '75 — більше новин. 90 — лише особливо важливі. Нижче 75 встановити не можна.',
+            'threshold': OPTIONS['importance_threshold'][7],
             'perrun': 'Скільки постів максимум може вийти після однієї перевірки.',
             'ads': '70% — приблизно 7 із 10 звичайних новин. 0% прибирає рекламу з новин; для всіх постів вимкніть її в розділі реклами.',
             'aiads': '80% — AI пропонує більшість фраз; решта — готові шаблони. Невдалі фрази теж замінюються шаблоном.',
@@ -146,7 +156,8 @@ def view(state, config, page='home'):
             'Його можна скасувати кнопкою.\n\n'
             'Команди в Telegram обробляються одразу. Параметри публікацій радар зчитує перед наступною перевіркою. '
             'Автоматична перевірка новин може затримуватися.\n'
-            'Нічний режим: 23:00–08:00 Київ, без звуку, крім екстрених подій.\n\n'
+            f"Нічний режим: {'увімкнено' if current.get('quiet_enabled', True) else 'вимкнено'}, "
+            f"{current.get('quiet_start_hour', 23):02d}:00–{current.get('quiet_end_hour', 8):02d}:00 Київ.\n\n"
             'Повернутися сюди можна командою /settings або /menu.')
         rows = [back()]
     else:
@@ -179,6 +190,8 @@ def present(user_id, state, config, page, callback=None, notice=''):
 
 
 def field_command(field, value):
+    if advanced_ui.describe(field):
+        return advanced_ui.command(field, value)
     if field == 'brandtext':
         return '/brandtext ' + value
     if valid_market_field(field):
@@ -191,16 +204,21 @@ def field_command(field, value):
 
 def prompt(user_id, session, field):
     import control
+    if advanced_ui.describe(field):
+        session['pending'] = {'field': field, 'at': radar.iso(radar.utcnow())}
+        control.send_private(user_id, advanced_ui.prompt_text(field),
+                             [[button('Скасувати', 'cancel')]], inline=True)
+        return
     if field not in FIELDS and not valid_market_field(field) and field != 'brandtext':
         raise ValueError('Невідомий параметр.')
     session['pending'] = {'field': field, 'at': radar.iso(radar.utcnow())}
     if field == 'brandtext':
         text = ('<b>✏️ Ваш рекламний підпис</b>\n\nНадішліть наступним повідомленням текст російською '
-                '(5–200 символів). Слово FINDOLLAR стане посиланням. Якщо його немає, бот додасть його в кінці.\n\n'
+                '(до 800 символів). Слово FINDOLLAR стане посиланням. Якщо його немає, бот додасть його в кінці.\n\n'
                 'Наприклад: Рынок меняется. Следи за своими финансами вместе с FINDOLLAR.\n\n'
                 'Після збереження ввімкнеться режим «Мій текст».')
     else:
-        allowed = 'число від 0.5 до 50 (відсотки)' if valid_market_field(field) else FIELDS[field][5]
+        allowed = 'число від 0 до 10000 (відсотки)' if valid_market_field(field) else FIELDS[field][5]
         text = f'<b>✏️ Своє значення</b>\n\nНадішліть наступним повідомленням {allowed}.'
     control.send_private(user_id, text, [[button('Скасувати', 'cancel')]], inline=True)
 
@@ -240,6 +258,10 @@ def handle_admin(update, state, config):
                     control.apply_command(field_command(action[1], action[2]), settings)
                     session.pop('pending', None)
                     present(user_id, state, config, action[1], callback, '✅ Нове значення збережено')
+                elif action[0] == 'source' and len(action) == 3:
+                    session.pop('pending', None)
+                    control.apply_command('/source ' + action[1] + ' ' + action[2], settings, config)
+                    present(user_id, state, config, 'sources', callback, '✅ Стан джерела збережено')
                 elif action[0] == 'ask' and len(action) == 2:
                     prompt(user_id, session, action[1])
                 elif action[0] == 'cancel':
@@ -252,6 +274,10 @@ def handle_admin(update, state, config):
                     else:
                         sample = radar.brand_line({'event_key': 'preview', 'title_ru': 'Рынок',
                             'body_ru': '', 'brand_line_ru': ''}, [], {**current, 'branding_percent': 100}, 85)
+                        if not sample:
+                            present(user_id, state, config, 'brand', callback,
+                                    'За поточними фільтрами цей приклад не отримує рекламу.')
+                            return
                         control.send_private(user_id, '<b>Приклад підпису</b>\n\n' + sample +
                             '\n\nВ автоматичному режимі фраза може змінюватися під новину.',
                             [[button('‹ До реклами', 'page:brand')]], inline=True)

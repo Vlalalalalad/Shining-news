@@ -56,55 +56,63 @@ def migrate_control_state(state):
     return state
 
 
-def set_number(settings, name, raw, low, high):
-    if not raw.isdecimal():
-        raise ValueError(f'Вкажіть ціле число від {low} до {high}.')
-    value = int(raw)
-    if not low <= value <= high:
-        raise ValueError(f'Вкажіть число від {low} до {high}.')
+def update_setting(settings, name, value):
+    from settings_schema import validate
+    value = validate(name, value)
+    if name == 'branding_text' and value:
+        if not radar.russian_copy(value.replace('FINDOLLAR', '')):
+            raise ValueError('Рекламний текст має бути російською.')
+        if re.search(r'https?://|<|>', value, re.I):
+            raise ValueError('Надішліть текст без URL або HTML; посилання бренду налаштовується окремо.')
     settings[name] = value
+    if name == 'branding_text':
+        settings['branding_mode'] = 'custom' if value else 'auto'
 
 
-def apply_command(text, settings):
+def apply_command(text, settings, config=None):
+    from settings_schema import ALIASES, validate
     parts = text.strip().split(maxsplit=1)
+    if not parts:
+        raise ValueError('Оберіть параметр у меню.')
     command = parts[0].split('@')[0].lower()
     value = parts[1].strip() if len(parts) > 1 else ''
     if command == '/news' and value in ('on', 'off'):
-        settings['news_enabled'] = value == 'on'
+        update_setting(settings, 'news_enabled', value)
     elif command == '/brand' and value in ('auto', 'custom', 'off'):
         if value == 'custom' and not settings.get('branding_text'):
-            raise ValueError('Спочатку задайте текст командою /brandtext.')
+            raise ValueError('Спочатку задайте власний текст у розділі реклами.')
         settings['branding_mode'] = value
     elif command == '/brandtext':
-        if not 5 <= len(value) <= 200 or not radar.russian_copy(value.replace('FINDOLLAR', '')):
-            raise ValueError('Текст має бути російською, довжиною 5–200 символів.')
-        if re.search(r'https?://|<|>', value, re.I):
-            raise ValueError('Надішліть лише текст без URL або HTML.')
-        settings['branding_text'] = value
-        settings['branding_mode'] = 'custom'
-    elif command in ('/limit', '/gap', '/threshold', '/perrun', '/ads', '/aiads'):
-        name, low, high = {
-            '/limit': ('max_regular_per_day', 0, 10),
-            '/gap': ('min_post_gap_minutes', 0, 240),
-            '/threshold': ('importance_threshold', 75, 100),
-            '/perrun': ('max_posts_per_run', 1, 5),
-            '/ads': ('branding_percent', 0, 100),
-            '/aiads': ('branding_ai_percent', 0, 100),
-        }[command]
-        set_number(settings, name, value, low, high)
+        update_setting(settings, 'branding_text', value)
+    elif command.lstrip('/') in ALIASES:
+        update_setting(settings, ALIASES[command[1:]], value)
+    elif command == '/set':
+        args = value.split(maxsplit=1)
+        if not args:
+            raise ValueError('Оберіть параметр у розширених налаштуваннях.')
+        update_setting(settings, args[0], args[1] if len(args) > 1 else '')
     elif command == '/market':
         args = value.split()
-        if len(args) != 3 or args[0].upper() not in ('BTC', 'ETH', 'SOL') or args[1] not in ('1h', '24h'):
-            raise ValueError('Формат: /market BTC 1h 5 (BTC/ETH/SOL, 1h/24h).')
-        try:
-            threshold = float(args[2])
-        except ValueError:
-            raise ValueError('Поріг має бути числом від 0.5 до 50%.') from None
-        if not 0.5 <= threshold <= 50:
-            raise ValueError('Поріг має бути числом від 0.5 до 50%.')
-        settings.setdefault('market_thresholds', {}).setdefault(args[0].upper(), {})[args[1]] = threshold
+        if len(args) not in (3, 4) or args[0].upper() not in ('BTC', 'ETH', 'SOL') or args[1] not in ('1h', '24h'):
+            raise ValueError('Оберіть монету, період та параметр у меню цінових алертів.')
+        symbol, period = args[0].upper(), args[1]
+        name = 'threshold_percent' if len(args) == 3 else args[2]
+        parsed = validate(name, args[-1], market=True)
+        settings.setdefault('market_rules', {}).setdefault(symbol, {}).setdefault(period, {})[name] = parsed
+        if name == 'threshold_percent':
+            settings.setdefault('market_thresholds', {}).setdefault(symbol, {})[period] = parsed
+    elif command == '/source':
+        args = value.split()
+        config = config or json.loads(radar.CONFIG_PATH.read_text(encoding='utf-8'))
+        feeds = config.get('all_feeds', config['feeds'])
+        if len(args) != 2 or not args[0].isdigit() or not 0 <= int(args[0]) < len(feeds) or args[1] not in ('on', 'off'):
+            raise ValueError('Оберіть джерело в меню.')
+        name = feeds[int(args[0])]['name']
+        disabled = set(settings.get('disabled_sources', []))
+        disabled.discard(name) if args[1] == 'on' else disabled.add(name)
+        settings['disabled_sources'] = sorted(disabled)
     else:
-        raise ValueError('Невідома команда або значення. Надішліть /settings.')
+        raise ValueError('Відкрийте /settings і оберіть параметр.')
 
 
 def handle_update(update, state, config):

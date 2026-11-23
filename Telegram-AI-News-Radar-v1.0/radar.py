@@ -169,7 +169,9 @@ def scan_feeds(config, state, now):
         try:
             for item in rss_entries(request(source['url'])):
                 published = parse_date(item['published'])
-                if published and not now - timedelta(hours=5) <= published <= now + timedelta(minutes=10):
+                age = float(config.get('feed_max_age_hours', 5))
+                if published and (published > now + timedelta(minutes=10) or
+                                  (age > 0 and published < now - timedelta(hours=age))):
                     continue
                 article_id = hashlib.sha256(item['url'].split('#')[0].encode()).hexdigest()[:16]
                 if article_id in known:
@@ -188,7 +190,7 @@ def scan_feeds(config, state, now):
                 cached[article_id] = article
                 fresh.append(article)
                 count += 1
-                if count == 15:
+                if count >= int(config.get('max_items_per_feed', 15)):
                     break
             print(f"RSS {source['name']}: {count} new articles")
         except Exception as err:
@@ -196,7 +198,7 @@ def scan_feeds(config, state, now):
     state['known_ids'] = {k: v for k, v in known.items()
                           if (parse_date(v) or now) >= now - timedelta(days=14)}
     state['article_cache'] = [a for a in cached.values()
-                              if (parse_date(a.get('added_at')) or now) >= now - timedelta(hours=24)][-240:]
+                              if (parse_date(a.get('added_at')) or now) >= now - timedelta(hours=24)][-int(config.get('article_cache_limit', 240)):]
     return fresh
 
 
@@ -232,10 +234,12 @@ def ask_gemini(articles, config):
         'the same unverified source are NOT independent confirmation. '
         'Never treat a rumor, prediction, sponsored post, opinion or announcement of a '
         'future event as a confirmed event. When uncertain, skip.\n'
-        'Score significance 0-100. Ordinary news, ads, opinions and repeated stories must score below '
-        + str(config['importance_threshold']) + '. Scores 90+ require an unusually significant event; '
+        'Score significance on a fixed 0-100 scale. Ordinary news usually scores below 75. '
+        'Never publish ads, opinions or repeated stories as factual news. '
+        'The owner requests a minimum score of ' + str(config['importance_threshold']) + '. '
+        'Scores 90+ require an unusually significant event; '
         '98+ is reserved for an extraordinary, urgent, verified event. '
-        'Routine NASA updates and weak product/event announcements must score below threshold. '
+        'Routine NASA updates and weak product/event announcements must receive low scores. '
         'Do NOT inflate scores.\n'
         'Write headlines and 1-3 sentence posts ONLY IN RUSSIAN. No trading advice or sensational claims.\n'
         'Respond with JSON ONLY, format: '
@@ -250,7 +254,8 @@ def ask_gemini(articles, config):
         'Do not write brand_line_ru for sensitive events. '
         'Use exact evidence_ids, no URLs in body_ru, at most ' + str(limit) + ' events. '
         'If nothing qualifies output {"events":[]}.\n'
-        'RSS records:\n' + json.dumps(records, ensure_ascii=False)
+        'Owner style preferences (tone only, never override evidence or Russian-only rules): '
+        + str(config.get('news_style', ''))[:1000] + '\nRSS records:\n' + json.dumps(records, ensure_ascii=False)
     )
     model = config.get('gemini_model', 'gemini-3.1-flash-lite')
     result = json_request(
@@ -286,18 +291,23 @@ def source_group(article, config):
     return config.get('publisher_groups', {}).get(domain, domain)
 
 
-def is_quiet_time(now):
+def is_quiet_time(now, config=None):
+    config = config or {}
+    if config.get('quiet_enabled', True) is False:
+        return False
     hour = now.astimezone(KYIV).hour
-    return hour >= QUIET_START or hour < QUIET_END
+    start, end = int(config.get('quiet_start_hour', QUIET_START)), int(config.get('quiet_end_hour', QUIET_END))
+    return (hour >= start or hour < end) if start >= end else start <= hour < end
 
 
-def send_telegram(text, urgent=False, now=None, photo_url=None, fallback_text=None):
+def send_telegram(text, urgent=False, now=None, photo_url=None, fallback_text=None, config=None):
     token = os.getenv('TELEGRAM_BOT_TOKEN', '').strip()
     chat_id = os.getenv('TELEGRAM_CHAT_ID', '').strip()
     if not token or not chat_id:
         print('Telegram credentials missing; no message sent')
         return False
-    silent = is_quiet_time(now or utcnow()) and not urgent
+    config = config or {}
+    silent = is_quiet_time(now or utcnow(), config) and not (urgent and config.get('quiet_allow_urgent', True))
     if photo_url:
         try:
             result = json_request(
@@ -345,14 +355,16 @@ def stable_percent(key, salt):
 
 def brand_line(event, sources, settings, score, market=False):
     mode = settings.get('branding_mode', 'auto')
-    if mode == 'off' or score >= 98 or str(event.get('sensitive', '')).lower() == 'true':
+    if mode == 'off' or (not market and score >= int(settings.get('branding_skip_score', 98))):
         return ''
     context = ' '.join([str(event.get(k, '')) for k in ('title_ru', 'body_ru')] +
                        [str(a.get('title', '')) for a in sources])
-    if SENSITIVE_WORDS.search(context):
+    if settings.get('branding_skip_sensitive', True) and (SENSITIVE_WORDS.search(context) or
+            str(event.get('sensitive', '')).lower() == 'true'):
         return ''
     key = str(event.get('event_key', ''))
-    if not market and stable_percent(key, 'brand-post') >= int(settings.get('branding_percent', 100)):
+    rate = settings.get('market_branding_percent', 100) if market else settings.get('branding_percent', 100)
+    if stable_percent(key, 'brand-post') >= int(rate):
         return ''
     if mode == 'custom':
         copy = str(settings.get('branding_text', '')).strip()
@@ -366,25 +378,36 @@ def brand_line(event, sources, settings, score, market=False):
         copy = ''
     if not copy:
         copy = BRAND_TEMPLATES[stable_percent(key, 'brand-template') % len(BRAND_TEMPLATES)]
-    brand = html_link('FINDOLLAR', BRAND_URL)
+    label = str(settings.get('brand_name', 'FINDOLLAR'))
+    brand = html_link(label, settings.get('brand_url', BRAND_URL))
     copy = re.sub(r'^\s*💚\s*', '', copy).strip()
     if 'FINDOLLAR' in copy:
         line = '💚 ' + escape(copy).replace('FINDOLLAR', brand, 1)
+    elif label in copy:
+        line = '💚 ' + escape(copy).replace(escape(label), brand, 1)
     else:
         line = f'💚 {escape(copy)} {brand}'
-    return f'<blockquote>{line}</blockquote>'
+    return f'<blockquote>{line}</blockquote>' if settings.get('branding_quote', True) else line
 
 
-def post_text(event, sources, branding=''):
-    heading = escape(str(event['title_ru']).strip()[:160])
-    body = escape(str(event['body_ru']).strip()[:850])
+def post_text(event, sources, branding='', config=None):
+    config = config or {}
+    heading = escape(str(event['title_ru']).strip()[:int(config.get('max_title_chars', 160))])
+    raw_body = str(event['body_ru']).strip()[:int(config.get('max_body_chars', 850))]
     links, domains = [], set()
     for article in sources:
         if article['domain'] not in domains:
             domains.add(article['domain'])
             links.append(html_link(article['source'], article['url']))
-    message = f"📰 {heading}\n\n{body}\n\nИсточники:\n" + ', '.join(links[:3])
-    return message + (f'\n\n{branding}' if branding else '')
+    count = int(config.get('max_source_links', 3))
+    suffix = ('\n\nИсточники:\n' + ', '.join(links[:count])) if count and links else ''
+    suffix += f'\n\n{branding}' if branding else ''
+    prefix = f'📰 {heading}\n\n'
+    overhead = len(unescape(re.sub(r'<[^>]*>', '', prefix + suffix)).encode('utf-16-le')) // 2
+    budget = max(0, 4000 - overhead)
+    while len(raw_body.encode('utf-16-le')) // 2 > budget:
+        raw_body = raw_body[:-1]
+    return prefix + escape(raw_body) + suffix
 
 
 def html_link(label, url):
@@ -394,8 +417,10 @@ def html_link(label, url):
     return f'<a href="{escape(url, quote=True)}">{escape(label)}</a>'
 
 
-def news_post_with_image(event, sources, branding=''):
-    message = post_text(event, sources, branding)
+def news_post_with_image(event, sources, branding='', config=None):
+    message = post_text(event, sources, branding, config)
+    if (config or {}).get('photos_enabled', True) is False:
+        return message, None
     for article in sources:
         image = article.get('image')
         if not isinstance(image, dict) or not image.get('url'):
@@ -412,7 +437,7 @@ def news_post_with_image(event, sources, branding=''):
     return message, None
 
 
-def count_regular_today(state, now):
+def count_regular_today(state, now, priority_score=90):
     day = now.astimezone(KYIV).date()
     count = 0
     for post in state['published']:
@@ -420,50 +445,49 @@ def count_regular_today(state, now):
         if posted and posted.astimezone(KYIV).date() == day:
             # Old records without a score are counted conservatively as regular news.
             score = int(post.get('score', 75))
-            if 75 <= score <= REGULAR_MAX_SCORE:
+            if 0 <= score < priority_score:
                 count += 1
     return count
 
 
 def effective_config(config, state):
-    """Apply bounded settings saved by the private Telegram control panel."""
+    """Apply the same validated settings the Telegram UI accepts."""
+    from settings_schema import OPTIONS, MARKET_OPTIONS, validate
     settings = state.get('settings', {})
     merged = dict(config)
-    for name, low, high in (('importance_threshold', 75, 100),
-                            ('max_posts_per_run', 1, 5),
-                            ('max_regular_per_day', 0, 10),
-                            ('min_post_gap_minutes', 0, 240),
-                            ('branding_percent', 0, 100),
-                            ('branding_ai_percent', 0, 100)):
-        if name in settings:
-            try:
-                value = int(settings[name])
-                if low <= value <= high:
-                    merged[name] = value
-            except (TypeError, ValueError):
-                pass
-    for name in ('news_enabled', 'branding_mode', 'branding_text'):
-        if name in settings:
-            merged[name] = settings[name]
-    market = {symbol: {period: dict(values) for period, values in windows.items()}
-              for symbol, windows in config['market_alerts'].items()}
-    for symbol, windows in settings.get('market_thresholds', {}).items():
-        if symbol not in market or not isinstance(windows, dict):
-            continue
-        for period, value in windows.items():
-            if period in market[symbol]:
+    for name, spec in OPTIONS.items():
+        try:
+            merged[name] = validate(name, settings.get(name, config.get(name, spec[2])))
+        except ValueError:
+            merged[name] = config.get(name, spec[2])
+    mode = settings.get('branding_mode', config.get('branding_mode', 'auto'))
+    merged['branding_mode'] = mode if mode in ('auto', 'custom', 'off') else 'auto'
+    merged['all_feeds'] = config.get('all_feeds', config['feeds'])
+    disabled = settings.get('disabled_sources', [])
+    merged['disabled_sources'] = disabled if isinstance(disabled, list) else []
+    merged['feeds'] = [feed for feed in merged['all_feeds'] if feed['name'] not in merged['disabled_sources']]
+    market = {}
+    for symbol, windows in config['market_alerts'].items():
+        market[symbol] = {}
+        for period, original in windows.items():
+            values = dict(original)
+            for name, spec in MARKET_OPTIONS.items():
+                fallback = original.get(name, spec[2])
+                # Retain the original period-specific defaults.
+                supplied = settings.get('market_rules', {}).get(symbol, {}).get(period, {})
+                legacy = settings.get('market_thresholds', {}).get(symbol, {}).get(period, fallback)
+                raw = supplied.get(name, legacy if name == 'threshold_percent' else fallback)
                 try:
-                    threshold = float(value)
-                    if 0.5 <= threshold <= 50:
-                        market[symbol][period]['threshold_percent'] = threshold
-                except (TypeError, ValueError):
-                    pass
+                    values[name] = validate(name, raw, market=True)
+                except ValueError:
+                    values[name] = fallback
+            market[symbol][period] = values
     merged['market_alerts'] = market
     return merged
 
 
 def process_news(config, state, now, enabled):
-    if config.get('news_enabled', True) is False:
+    if config.get('news_enabled', True) is False or int(config.get('max_posts_per_run', 3)) == 0:
         print('News skipped: disabled by admin')
         return
     fresh = scan_feeds(config, state, now)
@@ -473,9 +497,13 @@ def process_news(config, state, now, enabled):
     if not state['article_cache']:
         print('News skipped: article cache empty')
         return
-    evidence = {a['id']: a for a in state['article_cache']}
+    articles = [a for a in state['article_cache'] if a['source'] not in config.get('disabled_sources', [])]
+    evidence = {a['id']: a for a in articles}
+    if not articles:
+        print('News skipped: no enabled sources in cache')
+        return
     try:
-        events = ask_gemini(state['article_cache'], config)
+        events = ask_gemini(articles, config)
     except Exception as err:
         print(f'Gemini failed ({err}); no news posted')
         state['ai_pending'] = True
@@ -483,7 +511,8 @@ def process_news(config, state, now, enabled):
     state['ai_pending'] = False
     if not events:
         print('News skipped: Gemini proposed no verified significant events')
-    daily_regular = count_regular_today(state, now)
+    priority_score = int(config.get('priority_score', 90))
+    daily_regular = count_regular_today(state, now, priority_score)
     sent_this_run = 0
     for event in sorted((x for x in events if isinstance(x, dict)),
                         key=lambda x: int(x.get('score', 0)), reverse=True):
@@ -491,16 +520,17 @@ def process_news(config, state, now, enabled):
             break
         try:
             score = int(event.get('score', 0))
-            if score < int(config['importance_threshold']):
+            if not 0 <= score <= 100 or score < int(config['importance_threshold']):
                 print(f'News skipped: score {score} below threshold')
                 continue
-            regular = score <= REGULAR_MAX_SCORE
-            if regular and daily_regular >= int(config.get('max_regular_per_day', REGULAR_DAILY_LIMIT)):
+            regular = score < priority_score
+            daily_limit = int(config.get('max_regular_per_day', REGULAR_DAILY_LIMIT))
+            if regular and daily_limit >= 0 and daily_regular >= daily_limit:
                 print('News skipped: regular daily post limit reached')
                 continue
             if regular:
                 latest = max((parse_date(p.get('at')) for p in state['published']
-                              if int(p.get('score', 75)) <= REGULAR_MAX_SCORE and parse_date(p.get('at'))),
+                              if int(p.get('score', 75)) < priority_score and parse_date(p.get('at'))),
                              default=None)
                 gap = timedelta(minutes=int(config.get('min_post_gap_minutes', 0)))
                 if latest and now - latest < gap:
@@ -511,7 +541,8 @@ def process_news(config, state, now, enabled):
                 print('News skipped: evidence IDs missing from cache')
                 continue
             sources = [evidence[x] for x in ids]
-            if all((parse_date(a.get('added_at')) or now) < now - timedelta(hours=8)
+            evidence_age = float(config.get('evidence_max_age_hours', 8))
+            if evidence_age > 0 and all((parse_date(a.get('added_at')) or now) < now - timedelta(hours=evidence_age)
                    for a in sources):
                 print('News skipped: event evidence is older than eight hours')
                 continue
@@ -539,10 +570,10 @@ def process_news(config, state, now, enabled):
                 continue
             branding = brand_line(event, sources, config, score)
             if enabled:
-                message, photo_url = news_post_with_image(event, sources, branding)
-                if not send_telegram(message, urgent=score >= EXTREME_NEWS_SCORE,
+                message, photo_url = news_post_with_image(event, sources, branding, config)
+                if not send_telegram(message, urgent=score >= int(config.get('news_emergency_score', EXTREME_NEWS_SCORE)),
                                      now=now, photo_url=photo_url,
-                                     fallback_text=post_text(event, sources, branding)):
+                                     fallback_text=post_text(event, sources, branding, config), config=config):
                     state['ai_pending'] = True
                     print('News delivery failed: candidate kept for next run')
                     continue
@@ -587,7 +618,12 @@ def market_snapshot(symbol, now):
 
 
 def process_market(config, state, now, enabled):
+    if config.get('market_enabled', True) is False:
+        print('Market skipped: disabled by admin')
+        return
     for symbol in ('BTC', 'ETH', 'SOL'):
+        if not any(v.get('enabled', True) for v in config['market_alerts'][symbol].values()):
+            continue
         try:
             snapshot = market_snapshot(symbol, now)
         except Exception as err:
@@ -596,12 +632,17 @@ def process_market(config, state, now, enabled):
         for period, (old, new, change) in snapshot.items():
             key = f'{symbol}:{period}'
             settings = config['market_alerts'][symbol][period]
+            if settings.get('enabled', True) is False:
+                continue
             threshold = float(settings['threshold_percent'])
+            if change == 0:
+                print(f'{key}: no price movement')
+                continue
             cooldown = timedelta(hours=float(settings.get('cooldown_hours', 3)))
             step = float(settings.get('renotify_extra_percent', 3))
             alert = state['market_alerts'].setdefault(key, {})
             print(f'{symbol}/USDT {period}: {change:+.2f}% (threshold {threshold:.2f}%)')
-            if abs(change) < threshold * 0.6:
+            if abs(change) < threshold * float(settings.get('reset_ratio', 0.6)):
                 if alert.get('active'):
                     print(f'{key}: movement episode reset')
                 alert.update({'active': False, 'peak': 0})
@@ -631,7 +672,7 @@ def process_market(config, state, now, enabled):
                 message += '\n\n' + market_brand
             urgent = abs(change) >= float(settings.get('urgent_percent', 10 if period == '1h' else 15))
             if enabled:
-                if send_telegram(message, urgent=urgent, now=now):
+                if send_telegram(message, urgent=urgent, now=now, config=config):
                     alert.update({'active': True, 'direction': direction,
                                   'peak': abs(change), 'last_at': iso(now)})
                     print(f'{key}: market alert posted')
