@@ -48,6 +48,14 @@ def settings_view(state, config):
     return view(state, config)
 
 
+def migrate_control_state(state):
+    # Apply the owner's requested 100% advertising once; later edits stay editable.
+    if state.get('advertising_policy_version', 0) < 2:
+        state.setdefault('settings', {})['branding_percent'] = 100
+        state['advertising_policy_version'] = 2
+    return state
+
+
 def set_number(settings, name, raw, low, high):
     if not raw.isdecimal():
         raise ValueError(f'Вкажіть ціле число від {low} до {high}.')

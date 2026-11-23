@@ -6,7 +6,7 @@
   "min_post_gap_minutes": 0,
   "max_posts_per_run": 3,
   "branding_mode": "auto",
-  "branding_percent": 70,
+  "branding_percent": 100,
   "branding_ai_percent": 80,
   "admin_user_hashes": [
     "5463df167cb5bc003862d50e879982db424cd993684c32c7108fbf7bb785131a",

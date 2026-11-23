@@ -29,7 +29,7 @@ def field_value(current, field):
     if field.startswith('m_'):
         _, symbol, period = field.split('_')
         return current['market_alerts'][symbol][period]['threshold_percent']
-    return current.get(FIELDS[field][0], {'limit': 5, 'gap': 0, 'ads': 70, 'aiads': 80}.get(field, 3))
+    return current.get(FIELDS[field][0], {'limit': 5, 'gap': 0, 'ads': 100, 'aiads': 80}.get(field, 3))
 
 
 def value_label(field, value):
@@ -57,7 +57,7 @@ def view(state, config, page='home'):
             f"До <b>{current.get('max_regular_per_day', 5)}</b> звичайних новин на день; "
             f"пауза — <b>{value_label('gap', current.get('min_post_gap_minutes', 0))}</b>.\n"
             f"💚 Реклама: <b>{MODES.get(mode, 'Автоматичний підпис')}</b>\n"
-            f"У {current.get('branding_percent', 70)}% звичайних новин; "
+            f"У {current.get('branding_percent', 100)}% звичайних новин; "
             f"у цінових алертах — {'немає' if mode == 'off' else 'є'}.\n"
             '💰 Цінові алерти BTC, ETH, SOL: <b>увімкнені</b>\n\n'
             'Оберіть розділ нижче. У ньому видно поточне значення й доступні варіанти.' + NOTE)
@@ -84,12 +84,12 @@ def view(state, config, page='home'):
         text = (
             '<b>💚 Рекламний підпис</b>\n\n'
             f"Режим: <b>{MODES.get(mode, 'Автоматичний підпис')}</b>\n"
-            f"Частка звичайних новин: <b>{current.get('branding_percent', 70)}%</b>\n"
+            f"Частка звичайних новин: <b>{current.get('branding_percent', 100)}%</b>\n"
             f"Фрази від AI в автоматичному режимі: <b>{current.get('branding_ai_percent', 80)}%</b>\n"
             f"Мій текст: <i>{escape(custom)}</i>\n\n"
             'Автоматично: фраза під тему новини або перевірений шаблон. '
             'Мій текст: одна ваша фраза.\n'
-            'Під новинами 90+ та подіями, визначеними як трагедії чи надзвичайні, реклами немає. '
+            'Під екстреними новинами 98+ та подіями, визначеними як трагедії чи надзвичайні, реклами немає. '
             'У цінових алертах підпис є, поки рекламу не вимкнено.' + NOTE)
         rows = [[button(('✅ ' if mode == 'auto' else '') + 'Автоматично', 'mode:auto'),
                  button(('✅ ' if mode == 'off' else '') + 'Вимкнути', 'mode:off')],

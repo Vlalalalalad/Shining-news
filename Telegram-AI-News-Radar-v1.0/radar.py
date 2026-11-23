@@ -345,14 +345,14 @@ def stable_percent(key, salt):
 
 def brand_line(event, sources, settings, score, market=False):
     mode = settings.get('branding_mode', 'auto')
-    if mode == 'off' or score >= 90 or str(event.get('sensitive', '')).lower() == 'true':
+    if mode == 'off' or score >= 98 or str(event.get('sensitive', '')).lower() == 'true':
         return ''
     context = ' '.join([str(event.get(k, '')) for k in ('title_ru', 'body_ru')] +
                        [str(a.get('title', '')) for a in sources])
     if SENSITIVE_WORDS.search(context):
         return ''
     key = str(event.get('event_key', ''))
-    if not market and stable_percent(key, 'brand-post') >= int(settings.get('branding_percent', 70)):
+    if not market and stable_percent(key, 'brand-post') >= int(settings.get('branding_percent', 100)):
         return ''
     if mode == 'custom':
         copy = str(settings.get('branding_text', '')).strip()
@@ -369,8 +369,10 @@ def brand_line(event, sources, settings, score, market=False):
     brand = html_link('FINDOLLAR', BRAND_URL)
     copy = re.sub(r'^\s*💚\s*', '', copy).strip()
     if 'FINDOLLAR' in copy:
-        return '💚 ' + escape(copy).replace('FINDOLLAR', brand, 1)
-    return f'💚 {escape(copy)} {brand}'
+        line = '💚 ' + escape(copy).replace('FINDOLLAR', brand, 1)
+    else:
+        line = f'💚 {escape(copy)} {brand}'
+    return f'<blockquote>{line}</blockquote>'
 
 
 def post_text(event, sources, branding=''):

@@ -49,9 +49,11 @@ def load_snapshot():
     # Immutable paths prevent serving stale overwritten settings from a CDN cache.
     snapshots = list(query_blobs(prefix='controls/', page_size=1000))
     if not snapshots:
-        return json.loads((RADAR / 'initial-control-state.json').read_text(encoding='utf-8'))
-    latest = max(snapshots, key=lambda entry: entry.pathname)
-    return json.loads(get_blob(latest.url, access='private').body)
+        snapshot = json.loads((RADAR / 'initial-control-state.json').read_text(encoding='utf-8'))
+    else:
+        latest = max(snapshots, key=lambda entry: entry.pathname)
+        snapshot = json.loads(get_blob(latest.url, access='private').body)
+    return control.migrate_control_state(snapshot)
 
 
 @app.get('/api/health')

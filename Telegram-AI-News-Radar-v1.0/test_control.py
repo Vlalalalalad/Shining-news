@@ -86,8 +86,10 @@ class ControlTests(unittest.TestCase):
         event['brand_line_ru'] = 'Британская экономика демонстрирует признаки восстановления.'
         fallback = radar.brand_line(event, sources, settings, 85)
         self.assertNotIn('демонстрирует', fallback)
-        self.assertTrue(fallback.startswith('💚 '))
-        self.assertEqual(radar.brand_line(event, sources, settings, 90), '')
+        self.assertTrue(fallback.startswith('<blockquote>💚 '))
+        self.assertTrue(fallback.endswith('</blockquote>'))
+        self.assertTrue(radar.brand_line(event, sources, settings, 90))
+        self.assertEqual(radar.brand_line(event, sources, settings, 98), '')
         event['title_ru'] = 'При землетрясении погибли люди'
         self.assertEqual(radar.brand_line(event, sources, settings, 85), '')
         event['title_ru'] = 'Рынок изменился'
@@ -176,6 +178,14 @@ class ControlTests(unittest.TestCase):
         api.assert_called_once_with('getWebhookInfo', {})
         self.assertEqual(self.state['settings']['max_regular_per_day'], 6)
         save.assert_called_once()
+
+    def test_advertising_migration_applies_once(self):
+        state = {'settings': {'branding_percent': 70}}
+        control.migrate_control_state(state)
+        self.assertEqual(state['settings']['branding_percent'], 100)
+        state['settings']['branding_percent'] = 30
+        control.migrate_control_state(state)
+        self.assertEqual(state['settings']['branding_percent'], 30)
 
 
 if __name__ == '__main__':
